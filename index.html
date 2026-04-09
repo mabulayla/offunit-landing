@@ -3,19 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RadMatch — The Break Room Is Empty.</title>
+  <title>OFFUNIT — Because your work bestie can't be your only personality trait.</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- FontAwesome (checkmark icon) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <!-- Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <!-- Meta Pixel -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -25,34 +21,33 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '951675047549742');
+  
+  // REPLACE THIS WITH YOUR NEW OFFUNIT PIXEL ID
+  fbq('init', 'YOUR_OFFUNIT_PIXEL_ID');
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=951675047549742&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=YOUR_OFFUNIT_PIXEL_ID&ev=PageView&noscript=1"
   /></noscript>
-  <!-- End Meta Pixel -->
-
   <style>
     /* ── TOKENS ── */
     :root {
-      --emerald:        #059669;
-      --emerald-light:  #10b981;
-      --emerald-dim:    rgba(5, 150, 105, 0.15);
-      --coral:          #FF7F50;
-      --coral-light:    #ff9a76;
-      --glass-bg:       rgba(16, 14, 42, 0.65);
-      --glass-border:   rgba(140, 100, 255, 0.18);
-      --text-primary:   #eeeaf8;
-      --text-muted:     #8a80ab;
-      --text-dim:       #4e4670;
+      --teal:         #00CED1;
+      --teal-light:   #33d9db;
+      --teal-dim:     rgba(0, 206, 209, 0.15);
+      --periwinkle:   #CCCCFF;
+      --glass-bg:     rgba(16, 14, 42, 0.65);
+      --glass-border: rgba(204, 204, 255, 0.18);
+      --text-primary: #eeeaf8;
+      --text-muted:   #8a80ab;
+      --text-dim:     #4e4670;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      background: linear-gradient(135deg, #0b0e1a 0%, #0f0d2e 40%, #1a0f3a 70%, #0d1228 100%);
+      background: linear-gradient(135deg, #0b0e1a 0%, #151833 40%, #22254a 70%, #0d1228 100%);
       color: var(--text-primary);
       font-family: 'Instrument Sans', sans-serif;
       min-height: 100vh;
@@ -69,7 +64,7 @@
       top: 50%; left: 50%; transform: translate(-50%, -50%);
       width: 1000px; height: 1000px;
       background: radial-gradient(ellipse at center,
-        rgba(108, 60, 255, 0.18) 0%, rgba(80, 40, 200, 0.07) 40%, transparent 70%);
+        rgba(204, 204, 255, 0.12) 0%, rgba(204, 204, 255, 0.05) 40%, transparent 70%);
       animation: pulseGlow 5s ease-in-out infinite;
     }
     .bg-glow::after {
@@ -77,12 +72,12 @@
       top: 50%; left: 50%; transform: translate(-50%, -55%);
       width: 450px; height: 450px;
       background: radial-gradient(ellipse at center,
-        rgba(5, 150, 105, 0.1) 0%, transparent 70%);
+        rgba(0, 206, 209, 0.15) 0%, transparent 70%);
       animation: pulseGlow 5s ease-in-out infinite reverse;
     }
     @keyframes pulseGlow {
       0%, 100% { opacity: 1;   transform: translate(-50%, -50%) scale(1); }
-      50%       { opacity: 0.6; transform: translate(-50%, -50%) scale(1.08); }
+      50%        { opacity: 0.6; transform: translate(-50%, -50%) scale(1.08); }
     }
 
     /* Scanlines */
@@ -112,15 +107,15 @@
     }
     .nav-wordmark {
       font-family: 'DM Mono', monospace;
-      font-size: 0.8rem; font-weight: 500;
-      letter-spacing: 0.2em; color: #c4b5fd; text-transform: uppercase;
+      font-size: 0.9rem; font-weight: 600;
+      letter-spacing: 0.2em; color: var(--periwinkle); text-transform: uppercase;
     }
     .nav-badge {
       font-family: 'DM Mono', monospace;
-      font-size: 0.7rem; letter-spacing: 0.12em; color: var(--text-muted);
-      border: 1px solid rgba(140, 100, 255, 0.22);
+      font-size: 0.7rem; letter-spacing: 0.12em; color: var(--text-primary);
+      border: 1px solid rgba(0, 206, 209, 0.4);
       padding: 5px 12px; border-radius: 2px;
-      background: rgba(140, 100, 255, 0.06);
+      background: rgba(0, 206, 209, 0.1);
     }
 
     /* ── GLASS CARD ── */
@@ -132,22 +127,21 @@
       backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
       position: relative;
       box-shadow:
-        0 0 0 1px rgba(140, 100, 255, 0.08),
+        0 0 0 1px rgba(204, 204, 255, 0.08),
         0 40px 120px rgba(5, 3, 20, 0.7),
-        0 0 80px rgba(108, 60, 255, 0.08),
-        inset 0 1px 0 rgba(160, 130, 255, 0.2),
-        inset 0 -1px 0 rgba(5, 150, 105, 0.06);
+        0 0 80px rgba(0, 206, 209, 0.08),
+        inset 0 1px 0 rgba(204, 204, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 206, 209, 0.06);
       animation: fadeUp 0.9s 0.2s ease both;
     }
-    /* Top glint */
     .glass-card::before {
       content: ''; position: absolute;
       top: 0; left: 8%; right: 8%; height: 1px;
       background: linear-gradient(90deg,
         transparent,
-        rgba(140, 100, 255, 0.4) 20%,
-        rgba(16, 185, 129, 0.7) 50%,
-        rgba(140, 100, 255, 0.4) 80%,
+        rgba(204, 204, 255, 0.4) 20%,
+        rgba(0, 206, 209, 0.7) 50%,
+        rgba(204, 204, 255, 0.4) 80%,
         transparent);
     }
 
@@ -157,158 +151,101 @@
       width: 110px; height: 110px;
       border-radius: 24px; overflow: hidden;
       box-shadow:
-        0 0 0 1px rgba(140, 100, 255, 0.2),
+        0 0 0 1px rgba(204, 204, 255, 0.2),
         0 12px 40px rgba(5, 3, 20, 0.55),
-        0 0 28px rgba(108, 60, 255, 0.15);
+        0 0 28px rgba(0, 206, 209, 0.25);
     }
     .app-logo {
-      /* FIX: oversized + negative margin crops the black border in the source PNG */
       width: 149px; height: 149px;
       margin: -19px 0 0 -19px;
       object-fit: cover; object-position: center;
       display: block;
-    }
-    .app-logo-placeholder {
-      width: 110px; height: 110px; border-radius: 24px;
-      background: linear-gradient(135deg, #7c6bdb 0%, #a78cfa 100%);
-      display: none; /* shown via onerror JS */
-      align-items: center; justify-content: center;
-      font-family: 'DM Mono', monospace; font-size: 0.6rem;
-      letter-spacing: 0.12em; color: rgba(255, 255, 255, 0.5);
-      text-transform: uppercase; text-align: center; line-height: 1.4;
     }
 
     /* ── HERO ── */
     .hero-eyebrow {
       font-family: 'DM Mono', monospace;
       font-size: 0.68rem; font-weight: 400;
-      letter-spacing: 0.25em; color: var(--emerald);
+      letter-spacing: 0.25em; color: var(--teal);
       text-transform: uppercase; margin-bottom: 20px;
       display: flex; align-items: center; gap: 10px;
     }
     .hero-eyebrow::before {
       content: ''; display: inline-block;
-      width: 20px; height: 1px; background: var(--emerald);
+      width: 20px; height: 1px; background: var(--teal);
     }
     h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.6rem, 6vw, 4rem);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
       line-height: 1.05; letter-spacing: -0.01em;
       color: var(--text-primary); margin-bottom: 20px;
     }
-    h1 em { font-style: italic; color: var(--emerald-light); }
+    h1 em { font-style: italic; color: var(--teal); }
     .subhero {
       font-size: 1.05rem; line-height: 1.7;
       color: rgba(232, 237, 233, 0.75);
       max-width: 580px; margin-bottom: 44px;
     }
-    .subhero strong { color: var(--text-primary); font-weight: 600; }
-
-    /* ── FREE TAG ── */
-    .free-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--emerald-light);
-      margin-top: -10px; margin-bottom: 24px;
-    }
 
     /* ── JUMP BUTTON ── */
     .btn-jump {
       display: inline-block;
-      margin-top: 20px; margin-bottom: 4px;
+      margin-top: 10px; margin-bottom: 4px;
       padding: 15px 32px;
-      background: var(--coral);
+      background: var(--periwinkle);
       border: none;
       border-radius: 4px;
       font-family: 'DM Mono', monospace; font-size: 0.82rem;
-      font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-      color: #fff;
+      font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #1a1c3a;
       text-decoration: none;
       cursor: pointer;
-      box-shadow: 0 4px 20px rgba(255, 127, 80, 0.35);
-      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      box-shadow: 0 4px 20px rgba(204, 204, 255, 0.35);
+      transition: all 0.2s;
     }
     .btn-jump:hover {
-      background: var(--coral-light);
-      box-shadow: 0 6px 28px rgba(255, 127, 80, 0.5);
+      background: #ffffff;
+      box-shadow: 0 6px 28px rgba(204, 204, 255, 0.6);
       transform: translateY(-2px);
     }
-    .btn-jump:active { transform: translateY(0); }
 
     /* ── DIVIDER ── */
     .divider {
       width: 100%; height: 1px; margin: 40px 0;
       background: linear-gradient(90deg,
         transparent,
-        rgba(140, 100, 255, 0.2) 30%,
-        rgba(5, 150, 105, 0.2) 70%,
+        rgba(204, 204, 255, 0.2) 30%,
+        rgba(0, 206, 209, 0.4) 70%,
         transparent);
     }
 
-    /* ── HUB PILLS (display only) ── */
+    /* ── MODES ── */
     .section-label {
       font-family: 'DM Mono', monospace; font-size: 0.65rem;
       letter-spacing: 0.2em; color: var(--text-dim);
       text-transform: uppercase; margin-bottom: 14px;
     }
-    .hubs { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
-    .hub-pill {
-      display: flex; align-items: center; gap: 8px;
-      border: 1px solid rgba(140, 100, 255, 0.2);
-      border-radius: 2px; padding: 8px 16px;
-      font-family: 'DM Mono', monospace; font-size: 0.78rem;
-      letter-spacing: 0.08em; color: var(--text-primary);
-      position: relative; overflow: hidden;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .hub-pill::before {
-      content: ''; position: absolute; inset: 0;
-      background: var(--emerald-dim); opacity: 0; transition: opacity 0.2s;
-    }
-    .hub-pill:hover { border-color: var(--emerald); color: var(--emerald-light); }
-    .hub-pill:hover::before { opacity: 1; }
-    .hub-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--emerald); box-shadow: 0 0 6px var(--emerald);
-      animation: blink 2s ease-in-out infinite;
-    }
-    .hub-pill:nth-child(2) .hub-dot { animation-delay: 0.5s; }
-    .hub-pill:nth-child(3) .hub-dot { animation-delay: 1.0s; }
-    .hub-pill:nth-child(4) .hub-dot { animation-delay: 1.5s; }
-    .hub-pill:nth-child(5) .hub-dot { animation-delay: 2.0s; }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-    .hub-badge {
-      font-family: 'DM Mono', monospace; font-size: 0.58rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--coral); border: 1px solid rgba(255, 127, 80, 0.4);
-      padding: 2px 6px; border-radius: 2px;
-      background: rgba(255, 127, 80, 0.08);
-      margin-left: 4px;
-    }
-
-    /* ── MODES ── */
     .modes {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 14px; margin-bottom: 40px;
     }
     .mode-card {
-      border: 1px solid rgba(140, 100, 255, 0.13);
+      border: 1px solid rgba(204, 204, 255, 0.13);
       border-radius: 4px; padding: 20px 18px;
-      background: rgba(80, 50, 160, 0.08);
+      background: rgba(204, 204, 255, 0.03);
       transition: border-color 0.2s, background 0.2s;
     }
     .mode-card:hover {
-      border-color: rgba(5, 150, 105, 0.3);
-      background: rgba(5, 150, 105, 0.07);
+      border-color: rgba(0, 206, 209, 0.4);
+      background: rgba(0, 206, 209, 0.05);
     }
     .mode-icon { font-size: 1.2rem; margin-bottom: 10px; display: block; }
     .mode-title {
       font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.12em; color: var(--emerald-light);
-      text-transform: uppercase; margin-bottom: 6px;
+      letter-spacing: 0.12em; color: var(--teal);
+      text-transform: uppercase; margin-bottom: 6px; font-weight: 600;
     }
-    .mode-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.55; }
+    .mode-desc { font-size: 0.8rem; color: var(--text-primary); line-height: 1.55; }
 
     /* ── FORM LABELS ── */
     .form-label {
@@ -317,152 +254,81 @@
       text-transform: uppercase; margin-bottom: 10px; display: block;
     }
 
-    /* ── HUB SELECTOR TOGGLES ── */
-    .hub-selector { display: flex; gap: 10px; margin-bottom: 6px; }
-
-    .hub-toggle {
-      flex: 1; padding: 14px 16px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(140, 100, 255, 0.25);
-      border-radius: 4px;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.82rem; letter-spacing: 0.08em;
-      color: var(--text-muted);
-      cursor: pointer; text-align: center;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      transition: all 0.2s ease;
-      /* FIX: explicit user-select none stops accidental text selection on double-click */
-      user-select: none;
-    }
-    .hub-toggle:hover {
-      border-color: rgba(5, 150, 105, 0.5);
-      color: var(--text-primary);
-      background: rgba(5, 150, 105, 0.07);
-    }
-
-    /* BRIGHT selected state — the main fix */
-    .hub-toggle.selected {
-      border-color: var(--emerald);
-      color: #ffffff;                          /* FIX: pure white text for max contrast */
-      background: rgba(5, 150, 105, 0.22);     /* FIX: noticeably brighter fill */
-      box-shadow:
-        0 0 0 1px var(--emerald),              /* tight emerald outline */
-        0 0 18px rgba(5, 150, 105, 0.45),      /* FIX: strong outer glow */
-        inset 0 0 16px rgba(5, 150, 105, 0.15); /* FIX: inner glow so it "lights up" */
-      font-weight: 600;
-    }
-
-    /* Checkmark — hidden until selected */
-    .hub-toggle .check-icon {
-      display: none;
-      color: var(--emerald-light);
-      font-size: 0.85rem;
-      animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-    }
-    .hub-toggle.selected .check-icon { display: inline-block; }
-
-    @keyframes popIn {
-      from { transform: scale(0) rotate(-15deg); opacity: 0; }
-      to   { transform: scale(1) rotate(0deg);   opacity: 1; }
-    }
-
-    /* ── FORM ERROR ── */
-    .field-error {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
-      letter-spacing: 0.06em; color: #f87171;
-      margin-top: 6px; margin-bottom: 10px;
-      display: none; /* FIX: controlled by .show class, not visibility */
-    }
-    .field-error.show { display: block; }
-
     /* ── EMAIL ROW ── */
     .form-row { display: flex; gap: 10px; margin-top: 14px; }
     .form-input {
       flex: 1;
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(5, 150, 105, 0.2);
+      border: 1px solid rgba(0, 206, 209, 0.3);
       border-radius: 3px; padding: 14px 18px;
       font-family: 'Instrument Sans', sans-serif;
       font-size: 0.9rem; color: var(--text-primary);
       outline: none;
-      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      transition: all 0.2s;
     }
-    .form-input::placeholder { color: var(--text-dim); }
+    .form-input::placeholder { color: var(--text-muted); }
     .form-input:focus {
-      border-color: var(--emerald);
-      background: rgba(5, 150, 105, 0.05);
-      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+      border-color: var(--teal);
+      background: rgba(0, 206, 209, 0.08);
+      box-shadow: 0 0 0 3px rgba(0, 206, 209, 0.15);
     }
-    .form-input.error { border-color: #f87171; }
 
     /* ── SUBMIT BUTTON ── */
     .btn-waitlist {
-      background: var(--coral); color: #fff;
+      background: var(--teal); color: #0a0a0a;
       border: none; border-radius: 4px;
       padding: 16px 28px;
       font-family: 'DM Mono', monospace; font-size: 0.82rem;
-      font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
       cursor: pointer; white-space: nowrap;
-      position: relative; overflow: hidden;
-      box-shadow: 0 4px 20px rgba(255, 127, 80, 0.35);
-      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      box-shadow: 0 4px 20px rgba(0, 206, 209, 0.35);
+      transition: all 0.2s;
       min-height: 52px;
     }
-    .btn-waitlist::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
-      pointer-events: none;
-    }
     .btn-waitlist:hover {
-      background: var(--coral-light);
-      box-shadow: 0 6px 28px rgba(255, 127, 80, 0.5);
+      background: var(--teal-light);
+      box-shadow: 0 6px 28px rgba(0, 206, 209, 0.6);
       transform: translateY(-1px);
     }
-    .btn-waitlist:active  { transform: translateY(0); }
-    .btn-waitlist:disabled {
-      opacity: 0.65; pointer-events: none; /* FIX: prevent double-submit */
-    }
+    .btn-waitlist:disabled { opacity: 0.65; pointer-events: none; }
 
     .form-note {
-      font-size: 0.72rem; color: var(--text-dim);
+      font-size: 0.72rem; color: var(--text-muted);
       margin-top: 12px;
       font-family: 'DM Mono', monospace; letter-spacing: 0.05em;
-      transition: color 0.3s; /* FIX: smooth color change on error/success inline messages */
     }
 
-    /* ── SUCCESS SCREEN ── */
+    /* ── SUCCESS SCREEN (Referral Setup) ── */
     .success-block {
-      display: none;                    /* FIX: hidden by default via display:none */
-      flex-direction: column; align-items: center;
+      display: none; flex-direction: column; align-items: center;
       text-align: center; padding: 36px 20px; gap: 16px;
-      opacity: 0;
-      transition: opacity 0.5s ease;   /* FIX: fade driven by opacity, not animation */
+      opacity: 0; transition: opacity 0.5s ease;
     }
     .success-block.show    { display: flex; }
-    .success-block.visible { opacity: 1; }  /* FIX: triggered one rAF after .show */
+    .success-block.visible { opacity: 1; }
 
     .success-icon {
       width: 60px; height: 60px; border-radius: 50%;
-      background: rgba(5, 150, 105, 0.15);
-      border: 1px solid rgba(5, 150, 105, 0.4);
+      background: rgba(0, 206, 209, 0.15);
+      border: 1px solid rgba(0, 206, 209, 0.4);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 0 28px rgba(5, 150, 105, 0.3);
+      font-size: 1.5rem; color: var(--teal);
+      box-shadow: 0 0 28px rgba(0, 206, 209, 0.3);
     }
     .success-title {
       font-family: 'DM Serif Display', serif;
       font-size: 2rem; color: var(--text-primary);
     }
     .success-sub {
-      font-size: 0.9rem; color: var(--text-muted);
-      line-height: 1.65; max-width: 380px;
+      font-size: 0.95rem; color: var(--text-muted);
+      line-height: 1.65; max-width: 420px; margin-bottom: 10px;
     }
-    .success-hub-tag {
-      font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.1em; color: var(--emerald-light);
-      border: 1px solid rgba(5, 150, 105, 0.3);
-      padding: 6px 16px; border-radius: 2px;
-      background: rgba(5, 150, 105, 0.08);
+    .btn-share {
+      background: #25D366; color: white; /* WhatsApp Green */
+      border: none; border-radius: 4px; padding: 12px 24px;
+      font-family: 'DM Mono', monospace; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+      cursor: pointer; display: flex; align-items: center; gap: 8px;
+      text-decoration: none;
     }
 
     /* ── FOOTER ── */
@@ -472,29 +338,14 @@
       letter-spacing: 0.12em; color: var(--text-dim); text-align: center;
       animation: fadeUp 1s 0.5s ease both;
     }
-    footer a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
-    footer a:hover { color: var(--emerald); }
 
-    /* ── KEYFRAMES ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 680px) {
       .glass-card  { padding: 40px 28px; }
       .modes       { grid-template-columns: 1fr; gap: 10px; }
-      .hub-selector { flex-direction: column; }
       .form-row    { flex-direction: column; }
       .btn-waitlist { width: 100%; text-align: center; }
-      h1           { font-size: 2.2rem; }
+      h1           { font-size: 1.8rem; }
     }
-    @media (max-width: 400px) { .hubs { flex-direction: column; } }
   </style>
 </head>
 <body>
@@ -505,224 +356,137 @@
 <div class="page">
 
   <nav>
-    <span class="nav-wordmark">RadMatch</span>
-    <span class="nav-badge">PRE-LAUNCH ACCESS</span>
+    <span class="nav-wordmark">OFFUNIT</span>
+    <span class="nav-badge">EARLY ACCESS</span>
   </nav>
 
   <div class="glass-card">
 
-    <!-- LOGO — onerror swaps in the CSS placeholder if file is missing -->
     <div class="logo-outer">
       <div class="logo-clip">
         <img
-          src="./RadMatchLogo.png"
-          alt="RadMatch App Icon"
+          src="./offunit-logo.jpg"
+          alt="OFFUNIT App Icon"
           class="app-logo"
-          onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div class=\'app-logo-placeholder\' style=\'display:flex\'>Logo<br>Here</div>');"
         />
       </div>
     </div>
 
-    <!-- HERO -->
-    <p class="hero-eyebrow">Expanding Soon</p>
-    <h1>THE BREAK ROOM<br>IS <em>EMPTY.</em></h1>
-    <p class="free-tag">100% Free for Techs &amp; Students.</p>
+    <p class="hero-eyebrow">Smoke Test Launch</p>
+    <h1>BECAUSE YOUR WORK BESTIE <br>CAN'T BE YOUR ONLY <em>PERSONALITY TRAIT.</em></h1>
     <p class="subhero">
-      Stop scrolling alone. Connect with the only people who actually understand the 12-hour grind.
-      Join the exclusive network for <strong>Imaging Pros.</strong>
+      The exclusive social, networking, and dating app for the exhausted 12-hour-shift crew. No HR, no "patient satisfaction" scores—just your people.
     </p>
-    <a href="#form-block" class="btn-jump">Get Early Access</a>
+    <a href="#form-block" class="btn-jump">Lock In Your Spot</a>
 
     <div class="divider"></div>
 
-    <!-- HUB DISPLAY PILLS (decorative) -->
-    <p class="section-label">Priority Expansion Hubs</p>
-    <div class="hubs">
-      <div class="hub-pill"><span class="hub-dot"></span>Columbus, OH</div>
-      <div class="hub-pill"><span class="hub-dot"></span>Detroit, MI</div>
-      <div class="hub-pill"><span class="hub-dot"></span>San Francisco, CA<span class="hub-badge">Launching Soon</span></div>
-      <div class="hub-pill"><span class="hub-dot"></span>Phoenix, AZ<span class="hub-badge">Launching Soon</span></div>
-      <div class="hub-pill"><span class="hub-dot"></span>Bay Area, CA<span class="hub-badge">Launching Soon</span></div>
-    </div>
-
-    <!-- THREE MODES -->
-    <p class="section-label">Three Ways to Connect</p>
+    <p class="section-label">The Breakroom Upgrade</p>
     <div class="modes">
+      <div class="mode-card">
+        <span class="mode-icon">&#x1F489;</span>
+        <p class="mode-title">Networking</p>
+        <p class="mode-desc">Find local travel contracts that actually pay. No mandatory wellness seminars included.</p>
+      </div>
       <div class="mode-card">
         <span class="mode-icon">&#x1F49B;</span>
         <p class="mode-title">Dating</p>
-        <p class="mode-desc">Date someone who gets the 12-hour shift.</p>
+        <p class="mode-desc">Connect with people who won't ghost you for 13 hours during a C. diff breakout.</p>
       </div>
       <div class="mode-card">
-        <span class="mode-icon">&#x1F91D;</span>
-        <p class="mode-title">Friends</p>
-        <p class="mode-desc">Find your people across cities and departments.</p>
-      </div>
-      <div class="mode-card">
-        <span class="mode-icon">&#x1F4E1;</span>
-        <p class="mode-title">Networking</p>
-        <p class="mode-desc">Referrals, mentorship, and career moves — all in one place.</p>
+        <span class="mode-icon">&#x1F6B6;</span>
+        <p class="mode-title">Breakroom</p>
+        <p class="mode-desc">A safe space to vent about the Pyxis machine failing while your 06:45 AM admission rolls in.</p>
       </div>
     </div>
 
-    <!-- WAITLIST FORM -->
     <div id="form-block">
-
-      <label class="form-label">Choose your hub</label>
-      <div class="hub-selector">
-        <!-- FIX: type="button" prevents accidental form submission in some browsers -->
-        <button type="button" class="hub-toggle" id="hub-columbus" onclick="selectHub('Columbus, OH')">
-          <i class="fa-solid fa-check check-icon"></i>
-          Columbus, OH
-        </button>
-        <button type="button" class="hub-toggle" id="hub-detroit" onclick="selectHub('Detroit, MI')">
-          <i class="fa-solid fa-check check-icon"></i>
-          Detroit, MI
-        </button>
-        <button type="button" class="hub-toggle" id="hub-san-francisco" onclick="selectHub('San Francisco, CA')">
-          <i class="fa-solid fa-check check-icon"></i>
-          San Francisco, CA
-        </button>
-        <button type="button" class="hub-toggle" id="hub-phoenix" onclick="selectHub('Phoenix, AZ')">
-          <i class="fa-solid fa-check check-icon"></i>
-          Phoenix, AZ
-        </button>
-        <button type="button" class="hub-toggle" id="hub-bay-area" onclick="selectHub('Bay Area, CA')">
-          <i class="fa-solid fa-check check-icon"></i>
-          Bay Area, CA
-        </button>
-      </div>
-      <!-- FIX: field-error paragraph is always in DOM; .show class toggles visibility -->
-      <p class="field-error" id="hub-error">// Please select a hub to continue.</p>
-
       <label class="form-label" for="email-input">Your email</label>
       <div class="form-row">
         <input
           type="email"
           id="email-input"
           class="form-input"
-          placeholder="your.personal.email@gmail.com"
+          placeholder="your.email@gmail.com"
           autocomplete="email"
         />
-        <!-- FIX: onclick calls handleSubmit — no form wrap needed, no default submit conflict -->
         <button type="button" class="btn-waitlist" id="submit-btn" onclick="handleSubmit()">
-          Join the Founding 500
+          Join the Waitlist
         </button>
       </div>
-      <p class="form-note" id="form-note">// No spam. Early access guaranteed. Unsubscribe anytime.</p>
-
+      <p class="form-note" id="form-note">No homework. Just your email.</p>
     </div>
 
-    <!-- SUCCESS SCREEN (hidden until form submits) -->
     <div class="success-block" id="success-block">
-      <div class="success-icon">&#x2713;</div>
-      <p class="success-title">You're on the list!</p>
-      <p class="success-sub">We'll reach out the moment RadMatch goes live in your city. Welcome to the network.</p>
-      <span class="success-hub-tag" id="success-hub-tag"></span>
+      <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+      <p class="success-title">You're on the list.</p>
+      <p class="success-sub">Check your inbox. Now go move up the list—share this with your favorite work bestie. If they sign up, you get early access.</p>
+      <a href="https://api.whatsapp.com/send?text=Finally%2C%20a%20dating%20and%20networking%20app%20for%20people%20who%20actually%20understand%20a%2012-hour%20shift.%20Join%20the%20OFFUNIT%20waitlist%20with%20me%3A%20https%3A%2F%2Foffunit.app" target="_blank" class="btn-share">
+        <i class="fa-brands fa-whatsapp"></i> Share with Work Bestie
+      </a>
     </div>
 
   </div>
 
   <footer>
     <p>
-      &#169; 2026 RadMatch &middot; Built for Radiology Professionals &middot;
-      <a href="mailto:contact@radmatch.app">contact@radmatch.app</a>
+      &#169; 2026 OFFUNIT &middot; Built for the Night Shift &middot;
+      <a href="mailto:postshift@offunit.app">postshift@offunit.app</a>
     </p>
   </footer>
 
 </div>
 
 <script>
-  // Initialize Supabase
-  const _supabase = supabase.createClient('https://ssaatoucljdpybavbqiw.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNzYWF0b3VjbGpkcHliYXZicWl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MDg0NjQsImV4cCI6MjA4NzQ4NDQ2NH0.4va_jztqxGljHBQfq0PuVA0nyyBAD-BX2f1E8FBGcQg');
-
-  let selectedHub = ''; // This will store the city they click
-
-  // This handles the user clicking the Columbus or Detroit buttons
-  function selectHub(hubName) {
-    selectedHub = hubName;
-    
-    // Reset buttons
-    document.getElementById('hub-columbus').classList.remove('selected');
-    document.getElementById('hub-detroit').classList.remove('selected');
-    document.getElementById('hub-san-francisco').classList.remove('selected');
-    document.getElementById('hub-phoenix').classList.remove('selected');
-    document.getElementById('hub-bay-area').classList.remove('selected');
-    document.getElementById('hub-error').classList.remove('show');
-
-    // Highlight the clicked button
-    if (hubName === 'Columbus, OH') {
-      document.getElementById('hub-columbus').classList.add('selected');
-    } else if (hubName === 'Detroit, MI') {
-      document.getElementById('hub-detroit').classList.add('selected');
-    } else if (hubName === 'San Francisco, CA') {
-      document.getElementById('hub-san-francisco').classList.add('selected');
-    } else if (hubName === 'Phoenix, AZ') {
-      document.getElementById('hub-phoenix').classList.add('selected');
-    } else if (hubName === 'Bay Area, CA') {
-      document.getElementById('hub-bay-area').classList.add('selected');
-    }
-  }
+  // REPLACE THESE WITH YOUR NEW OFFUNIT PROJECT URL AND ANON KEY
+  const _supabase = supabase.createClient('YOUR_OFFUNIT_SUPABASE_URL', 'YOUR_OFFUNIT_ANON_KEY');
 
   async function handleSubmit() {
     const emailInput = document.getElementById('email-input');
     const emailValue = emailInput.value.trim();
     const submitBtn = document.getElementById('submit-btn');
 
-    // 1. Validate they picked a city
-    if (!selectedHub) {
-      document.getElementById('hub-error').classList.add('show');
-      return;
-    }
-    
-    // 2. Validate they entered an email
     if (!emailValue) {
       alert('Please enter a valid email.');
       return;
     }
 
-    // Disable button so they don't double-click
     submitBtn.disabled = true;
     submitBtn.innerText = 'Joining...';
 
     try {
-      // 3. Save to Supabase (now includes the city!)
+      // NOTE: Removed 'hub_preference' since we removed the city selector for the smoke test
       const { error: dbError } = await _supabase
-        .from('leads')
-        .insert([{ email: emailValue, hub_preference: selectedHub }]);
+        .from('waitlist') // MAKE SURE YOUR TABLE IS NAMED 'waitlist' IN SUPABASE
+        .insert([{ email: emailValue }]);
 
       if (dbError) throw dbError;
 
       // Track successful waitlist sign-up
       fbq('track', 'Lead');
 
-      // 4. Trigger the Welcome Email
+      // Trigger the Welcome Email (Make sure your Edge Function is deployed in the new project!)
       const { error: funcError } = await _supabase.functions.invoke('send-welcome-email', {
-        body: JSON.stringify({ email: emailValue, hub: selectedHub }),
+        body: JSON.stringify({ email: emailValue }),
         headers: { 'Content-Type': 'application/json' }
       });
 
       if (funcError) console.error('Email trigger error:', funcError);
 
-      // 5. Hide the form and show the Success screen
       document.getElementById('form-block').style.display = 'none';
       
       const successBlock = document.getElementById('success-block');
       successBlock.classList.add('show');
-      document.getElementById('success-hub-tag').innerText = selectedHub; // Shows the city they picked
-      
-      // Slight delay for the CSS fade-in effect to trigger properly
       setTimeout(() => successBlock.classList.add('visible'), 50);
 
     } catch (err) {
       console.error('Error:', err.message);
       alert('Something went wrong. Please try again.');
       submitBtn.disabled = false;
-      submitBtn.innerText = 'Join the Founding 500';
+      submitBtn.innerText = 'Join the Waitlist';
     }
   }
 
-  // Handle 'Enter' key submission
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       const activeElement = document.activeElement;
