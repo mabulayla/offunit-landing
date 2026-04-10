@@ -7,11 +7,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+  <!-- Meta Pixel -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,101 +20,131 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  
-  // REPLACE THIS WITH YOUR NEW OFFUNIT PIXEL ID
   fbq('init', 'YOUR_OFFUNIT_PIXEL_ID');
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=YOUR_OFFUNIT_PIXEL_ID&ev=PageView&noscript=1"
   /></noscript>
+
   <style>
-    /* ── TOKENS ── */
     :root {
-      --teal:         #00CED1;
-      --teal-light:   #33d9db;
-      --teal-dim:     rgba(0, 206, 209, 0.15);
-      --periwinkle:   #CCCCFF;
-      --glass-bg:     rgba(16, 14, 42, 0.65);
-      --glass-border: rgba(204, 204, 255, 0.18);
-      --text-primary: #eeeaf8;
-      --text-muted:   #8a80ab;
-      --text-dim:     #4e4670;
+      /* Core palette — pulled from OFFUNIT logo's periwinkle/lavender background */
+      --periwinkle:     #CCCCFF;
+      --periwinkle-dim: rgba(204, 204, 255, 0.14);
+      --teal:           #00CED1;
+      --teal-light:     #33d9db;
+      --teal-dim:       rgba(0, 206, 209, 0.15);
+      /* Warm accent — psychologically calming/hopeful for nurses */
+      --blush:          #FFB4C2;
+      --blush-dim:      rgba(255, 180, 194, 0.15);
+      /* Glass */
+      --glass-bg:       rgba(20, 16, 48, 0.60);
+      --glass-border:   rgba(204, 204, 255, 0.16);
+      --text-primary:   #f0ecff;
+      --text-muted:     #9b92c8;
+      --text-dim:       #5a5280;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      background: linear-gradient(135deg, #0b0e1a 0%, #151833 40%, #22254a 70%, #0d1228 100%);
+      /* Logo background color: soft periwinkle-lavender gradient */
+      background: linear-gradient(145deg, #1a1730 0%, #221f4a 35%, #2a2060 60%, #1c1838 100%);
       color: var(--text-primary);
       font-family: 'Instrument Sans', sans-serif;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* ── BACKGROUND GLOW ── */
+    /* ── BACKGROUND ATMOSPHERE ── */
     .bg-glow {
       position: fixed; inset: 0;
       pointer-events: none; z-index: 0; overflow: hidden;
     }
+    /* Warm periwinkle bloom — centre */
     .bg-glow::before {
       content: ''; position: absolute;
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 1000px; height: 1000px;
-      background: radial-gradient(ellipse at center,
-        rgba(204, 204, 255, 0.12) 0%, rgba(204, 204, 255, 0.05) 40%, transparent 70%);
-      animation: pulseGlow 5s ease-in-out infinite;
+      top: 45%; left: 50%; transform: translate(-50%, -50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(ellipse,
+        rgba(204, 204, 255, 0.13) 0%,
+        rgba(180, 160, 255, 0.06) 45%,
+        transparent 72%);
+      animation: breathe 6s ease-in-out infinite;
     }
+    /* Teal heart glow — upper right, mirrors logo */
     .bg-glow::after {
       content: ''; position: absolute;
-      top: 50%; left: 50%; transform: translate(-50%, -55%);
-      width: 450px; height: 450px;
-      background: radial-gradient(ellipse at center,
-        rgba(0, 206, 209, 0.15) 0%, transparent 70%);
-      animation: pulseGlow 5s ease-in-out infinite reverse;
+      top: 20%; right: 10%;
+      width: 380px; height: 380px;
+      background: radial-gradient(ellipse,
+        rgba(0, 206, 209, 0.12) 0%, transparent 70%);
+      animation: breathe 6s ease-in-out infinite reverse;
     }
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 1;   transform: translate(-50%, -50%) scale(1); }
-      50%        { opacity: 0.6; transform: translate(-50%, -50%) scale(1.08); }
+    @keyframes breathe {
+      0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      50%       { opacity: 0.65; transform: translate(-50%, -50%) scale(1.07); }
     }
-
-    /* Scanlines */
+    /* Gentle scanlines — less harsh than RadMatch */
     .scanlines {
-      position: fixed; inset: 0;
-      pointer-events: none; z-index: 1;
+      position: fixed; inset: 0; pointer-events: none; z-index: 1;
       background: repeating-linear-gradient(
-        0deg, transparent, transparent 2px,
-        rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px
+        0deg, transparent, transparent 3px,
+        rgba(0,0,0,0.018) 3px, rgba(0,0,0,0.018) 6px
       );
     }
+    /* Floating soft orbs for warmth */
+    .orb {
+      position: fixed; border-radius: 50%;
+      pointer-events: none; z-index: 0;
+      animation: float 10s ease-in-out infinite;
+    }
+    .orb-1 {
+      width: 160px; height: 160px;
+      bottom: 15%; left: 5%;
+      background: radial-gradient(circle, rgba(255,180,194,0.09) 0%, transparent 70%);
+      animation-delay: 0s;
+    }
+    .orb-2 {
+      width: 100px; height: 100px;
+      top: 30%; right: 4%;
+      background: radial-gradient(circle, rgba(204,204,255,0.10) 0%, transparent 70%);
+      animation-delay: 3s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-18px); }
+    }
 
-    /* ── PAGE LAYOUT ── */
+    /* ── LAYOUT ── */
     .page {
       position: relative; z-index: 2;
       min-height: 100vh;
       display: flex; flex-direction: column; align-items: center;
-      padding: 48px 20px 80px;
+      padding: 44px 20px 80px;
     }
 
     /* ── NAV ── */
     nav {
       width: 100%; max-width: 900px;
       display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 48px;
+      margin-bottom: 44px;
       animation: fadeDown 0.8s ease both;
     }
     .nav-wordmark {
       font-family: 'DM Mono', monospace;
-      font-size: 0.9rem; font-weight: 600;
-      letter-spacing: 0.2em; color: var(--periwinkle); text-transform: uppercase;
+      font-size: 0.88rem; font-weight: 600;
+      letter-spacing: 0.22em; color: var(--periwinkle); text-transform: uppercase;
     }
     .nav-badge {
       font-family: 'DM Mono', monospace;
-      font-size: 0.7rem; letter-spacing: 0.12em; color: var(--text-primary);
-      border: 1px solid rgba(0, 206, 209, 0.4);
-      padding: 5px 12px; border-radius: 2px;
-      background: rgba(0, 206, 209, 0.1);
+      font-size: 0.68rem; letter-spacing: 0.1em;
+      color: var(--text-primary);
+      border: 1px solid rgba(0, 206, 209, 0.35);
+      padding: 5px 13px; border-radius: 20px;
+      background: rgba(0, 206, 209, 0.08);
     }
 
     /* ── GLASS CARD ── */
@@ -123,41 +152,43 @@
       width: 100%; max-width: 780px;
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
-      border-radius: 6px; padding: 56px 72px;
-      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border-radius: 16px; padding: 52px 68px;
+      backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px);
       position: relative;
       box-shadow:
-        0 0 0 1px rgba(204, 204, 255, 0.08),
-        0 40px 120px rgba(5, 3, 20, 0.7),
-        0 0 80px rgba(0, 206, 209, 0.08),
-        inset 0 1px 0 rgba(204, 204, 255, 0.2),
-        inset 0 -1px 0 rgba(0, 206, 209, 0.06);
+        0 0 0 1px rgba(204, 204, 255, 0.07),
+        0 40px 120px rgba(5, 3, 20, 0.65),
+        0 0 60px rgba(204, 204, 255, 0.06),
+        inset 0 1px 0 rgba(204, 204, 255, 0.18),
+        inset 0 -1px 0 rgba(0, 206, 209, 0.05);
       animation: fadeUp 0.9s 0.2s ease both;
     }
+    /* Top glint — softer, warmer */
     .glass-card::before {
       content: ''; position: absolute;
-      top: 0; left: 8%; right: 8%; height: 1px;
+      top: 0; left: 10%; right: 10%; height: 1px;
+      border-radius: 1px;
       background: linear-gradient(90deg,
         transparent,
-        rgba(204, 204, 255, 0.4) 20%,
-        rgba(0, 206, 209, 0.7) 50%,
-        rgba(204, 204, 255, 0.4) 80%,
+        rgba(255, 180, 194, 0.35) 15%,
+        rgba(204, 204, 255, 0.6) 50%,
+        rgba(0, 206, 209, 0.5) 80%,
         transparent);
     }
 
     /* ── LOGO ── */
-    .logo-outer { margin-bottom: 32px; }
+    .logo-outer { margin-bottom: 28px; }
     .logo-clip {
-      width: 110px; height: 110px;
-      border-radius: 24px; overflow: hidden;
+      width: 100px; height: 100px;
+      border-radius: 22px; overflow: hidden;
       box-shadow:
-        0 0 0 1px rgba(204, 204, 255, 0.2),
-        0 12px 40px rgba(5, 3, 20, 0.55),
-        0 0 28px rgba(0, 206, 209, 0.25);
+        0 0 0 1px rgba(204, 204, 255, 0.22),
+        0 10px 36px rgba(5, 3, 20, 0.5),
+        0 0 24px rgba(0, 206, 209, 0.2);
     }
     .app-logo {
-      width: 149px; height: 149px;
-      margin: -19px 0 0 -19px;
+      width: 136px; height: 136px;
+      margin: -18px 0 0 -18px;
       object-fit: cover; object-position: center;
       display: block;
     }
@@ -165,186 +196,307 @@
     /* ── HERO ── */
     .hero-eyebrow {
       font-family: 'DM Mono', monospace;
-      font-size: 0.68rem; font-weight: 400;
-      letter-spacing: 0.25em; color: var(--teal);
-      text-transform: uppercase; margin-bottom: 20px;
+      font-size: 0.67rem; font-weight: 400;
+      letter-spacing: 0.26em; color: var(--teal);
+      text-transform: uppercase; margin-bottom: 18px;
       display: flex; align-items: center; gap: 10px;
     }
     .hero-eyebrow::before {
       content: ''; display: inline-block;
-      width: 20px; height: 1px; background: var(--teal);
+      width: 18px; height: 1px; background: var(--teal);
     }
     h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      line-height: 1.05; letter-spacing: -0.01em;
-      color: var(--text-primary); margin-bottom: 20px;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 1.07; letter-spacing: -0.01em;
+      color: var(--text-primary); margin-bottom: 18px;
     }
-    h1 em { font-style: italic; color: var(--teal); }
+    h1 em { font-style: italic; color: var(--periwinkle); }
     .subhero {
-      font-size: 1.05rem; line-height: 1.7;
-      color: rgba(232, 237, 233, 0.75);
-      max-width: 580px; margin-bottom: 44px;
+      font-size: 1.02rem; line-height: 1.75;
+      color: rgba(240, 236, 255, 0.72);
+      max-width: 560px; margin-bottom: 36px;
+    }
+    .subhero strong { color: var(--text-primary); font-weight: 600; }
+
+    /* ── FREE TAG ── */
+    .free-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--blush);
+      margin-top: -6px; margin-bottom: 26px;
+    }
+    .free-tag::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blush);
+      box-shadow: 0 0 8px rgba(255, 180, 194, 0.8);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
 
-    /* ── JUMP BUTTON ── */
+    /* ── CTA BUTTON ── */
     .btn-jump {
       display: inline-block;
-      margin-top: 10px; margin-bottom: 4px;
-      padding: 15px 32px;
+      margin-top: 8px; margin-bottom: 4px;
+      padding: 15px 34px;
       background: var(--periwinkle);
-      border: none;
-      border-radius: 4px;
-      font-family: 'DM Mono', monospace; font-size: 0.82rem;
+      border: none; border-radius: 8px;
+      font-family: 'DM Mono', monospace; font-size: 0.8rem;
       font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      color: #1a1c3a;
-      text-decoration: none;
-      cursor: pointer;
-      box-shadow: 0 4px 20px rgba(204, 204, 255, 0.35);
+      color: #1a1a3a;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 0 4px 22px rgba(204, 204, 255, 0.32);
       transition: all 0.2s;
     }
     .btn-jump:hover {
       background: #ffffff;
-      box-shadow: 0 6px 28px rgba(204, 204, 255, 0.6);
+      box-shadow: 0 6px 30px rgba(204, 204, 255, 0.55);
       transform: translateY(-2px);
     }
 
     /* ── DIVIDER ── */
     .divider {
-      width: 100%; height: 1px; margin: 40px 0;
+      width: 100%; height: 1px; margin: 38px 0;
       background: linear-gradient(90deg,
         transparent,
-        rgba(204, 204, 255, 0.2) 30%,
-        rgba(0, 206, 209, 0.4) 70%,
+        rgba(204, 204, 255, 0.18) 25%,
+        rgba(255, 180, 194, 0.28) 50%,
+        rgba(0, 206, 209, 0.22) 75%,
         transparent);
     }
 
-    /* ── MODES ── */
+    /* ── SECTION LABEL ── */
     .section-label {
-      font-family: 'DM Mono', monospace; font-size: 0.65rem;
-      letter-spacing: 0.2em; color: var(--text-dim);
+      font-family: 'DM Mono', monospace; font-size: 0.63rem;
+      letter-spacing: 0.22em; color: var(--text-dim);
       text-transform: uppercase; margin-bottom: 14px;
     }
+
+    /* ── HUB PILLS (decorative) ── */
+    .hubs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+    .hub-pill {
+      display: flex; align-items: center; gap: 7px;
+      border: 1px solid rgba(204, 204, 255, 0.16);
+      border-radius: 20px; padding: 7px 15px;
+      font-family: 'DM Mono', monospace; font-size: 0.75rem;
+      letter-spacing: 0.06em; color: var(--text-muted);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .hub-pill:hover { border-color: rgba(204,204,255,0.45); color: var(--text-primary); }
+    .hub-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--teal); box-shadow: 0 0 5px var(--teal);
+      animation: blink 2.2s ease-in-out infinite;
+    }
+    .hub-pill:nth-child(2) .hub-dot { animation-delay: 0.6s; }
+    .hub-pill:nth-child(3) .hub-dot { animation-delay: 1.1s; }
+    .hub-pill:nth-child(4) .hub-dot { animation-delay: 1.6s; }
+    .hub-pill:nth-child(5) .hub-dot { animation-delay: 2.1s; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+    .hub-badge {
+      font-family: 'DM Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--blush); border: 1px solid rgba(255, 180, 194, 0.35);
+      padding: 2px 7px; border-radius: 10px;
+      background: rgba(255, 180, 194, 0.08); margin-left: 2px;
+    }
+
+    /* ── MODES ── */
     .modes {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 14px; margin-bottom: 40px;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 12px; margin-bottom: 36px;
     }
     .mode-card {
-      border: 1px solid rgba(204, 204, 255, 0.13);
-      border-radius: 4px; padding: 20px 18px;
-      background: rgba(204, 204, 255, 0.03);
-      transition: border-color 0.2s, background 0.2s;
+      border: 1px solid rgba(204, 204, 255, 0.10);
+      border-radius: 10px; padding: 20px 16px;
+      background: rgba(204, 204, 255, 0.04);
+      transition: border-color 0.25s, background 0.25s, transform 0.2s;
     }
     .mode-card:hover {
-      border-color: rgba(0, 206, 209, 0.4);
-      background: rgba(0, 206, 209, 0.05);
+      border-color: rgba(0, 206, 209, 0.35);
+      background: rgba(0, 206, 209, 0.06);
+      transform: translateY(-2px);
     }
-    .mode-icon { font-size: 1.2rem; margin-bottom: 10px; display: block; }
+    .mode-icon { font-size: 1.25rem; margin-bottom: 10px; display: block; }
     .mode-title {
-      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
       letter-spacing: 0.12em; color: var(--teal);
-      text-transform: uppercase; margin-bottom: 6px; font-weight: 600;
+      text-transform: uppercase; margin-bottom: 6px; font-weight: 500;
     }
-    .mode-desc { font-size: 0.8rem; color: var(--text-primary); line-height: 1.55; }
+    .mode-desc { font-size: 0.79rem; color: var(--text-muted); line-height: 1.6; }
 
-    /* ── FORM LABELS ── */
+    /* ── FORM ── */
     .form-label {
-      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      font-family: 'DM Mono', monospace; font-size: 0.63rem;
       letter-spacing: 0.2em; color: var(--text-dim);
       text-transform: uppercase; margin-bottom: 10px; display: block;
     }
 
-    /* ── EMAIL ROW ── */
-    .form-row { display: flex; gap: 10px; margin-top: 14px; }
+    /* Hub selector */
+    .hub-selector {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;
+    }
+    .hub-toggle {
+      flex: 1; min-width: 120px; padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(204, 204, 255, 0.18);
+      border-radius: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.76rem; letter-spacing: 0.06em;
+      color: var(--text-muted);
+      cursor: pointer; text-align: center;
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+      transition: all 0.2s ease; user-select: none;
+    }
+    .hub-toggle:hover {
+      border-color: rgba(204, 204, 255, 0.45);
+      color: var(--text-primary);
+      background: rgba(204, 204, 255, 0.07);
+    }
+    .hub-toggle.selected {
+      border-color: var(--periwinkle);
+      color: #ffffff;
+      background: rgba(204, 204, 255, 0.18);
+      box-shadow:
+        0 0 0 1px var(--periwinkle),
+        0 0 16px rgba(204, 204, 255, 0.35),
+        inset 0 0 14px rgba(204, 204, 255, 0.10);
+      font-weight: 600;
+    }
+    .hub-toggle .check-icon {
+      display: none; color: var(--periwinkle); font-size: 0.8rem;
+      animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+    .hub-toggle.selected .check-icon { display: inline-block; }
+    @keyframes popIn {
+      from { transform: scale(0) rotate(-15deg); opacity: 0; }
+      to   { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    .field-error {
+      font-family: 'DM Mono', monospace; font-size: 0.67rem;
+      letter-spacing: 0.05em; color: #f9a8c9;
+      margin-top: 6px; margin-bottom: 10px; display: none;
+    }
+    .field-error.show { display: block; }
+
+    /* Email row */
+    .form-row { display: flex; gap: 10px; margin-top: 12px; }
     .form-input {
       flex: 1;
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(0, 206, 209, 0.3);
-      border-radius: 3px; padding: 14px 18px;
+      border: 1px solid rgba(204, 204, 255, 0.2);
+      border-radius: 8px; padding: 14px 18px;
       font-family: 'Instrument Sans', sans-serif;
       font-size: 0.9rem; color: var(--text-primary);
-      outline: none;
-      transition: all 0.2s;
+      outline: none; transition: all 0.2s;
     }
-    .form-input::placeholder { color: var(--text-muted); }
+    .form-input::placeholder { color: var(--text-dim); }
     .form-input:focus {
-      border-color: var(--teal);
-      background: rgba(0, 206, 209, 0.08);
-      box-shadow: 0 0 0 3px rgba(0, 206, 209, 0.15);
+      border-color: var(--periwinkle);
+      background: rgba(204, 204, 255, 0.07);
+      box-shadow: 0 0 0 3px rgba(204, 204, 255, 0.12);
     }
+    .form-input.error { border-color: #f9a8c9; }
 
-    /* ── SUBMIT BUTTON ── */
+    /* Submit */
     .btn-waitlist {
       background: var(--teal); color: #0a0a0a;
-      border: none; border-radius: 4px;
-      padding: 16px 28px;
-      font-family: 'DM Mono', monospace; font-size: 0.82rem;
-      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      border: none; border-radius: 8px;
+      padding: 16px 26px;
+      font-family: 'DM Mono', monospace; font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
       cursor: pointer; white-space: nowrap;
-      box-shadow: 0 4px 20px rgba(0, 206, 209, 0.35);
-      transition: all 0.2s;
-      min-height: 52px;
+      box-shadow: 0 4px 20px rgba(0, 206, 209, 0.3);
+      transition: all 0.2s; min-height: 52px;
     }
     .btn-waitlist:hover {
       background: var(--teal-light);
-      box-shadow: 0 6px 28px rgba(0, 206, 209, 0.6);
+      box-shadow: 0 6px 28px rgba(0, 206, 209, 0.55);
       transform: translateY(-1px);
     }
-    .btn-waitlist:disabled { opacity: 0.65; pointer-events: none; }
+    .btn-waitlist:disabled { opacity: 0.6; pointer-events: none; }
 
     .form-note {
-      font-size: 0.72rem; color: var(--text-muted);
-      margin-top: 12px;
+      font-size: 0.7rem; color: var(--text-dim);
+      margin-top: 11px;
       font-family: 'DM Mono', monospace; letter-spacing: 0.05em;
     }
 
-    /* ── SUCCESS SCREEN (Referral Setup) ── */
+    /* ── SUCCESS ── */
     .success-block {
       display: none; flex-direction: column; align-items: center;
-      text-align: center; padding: 36px 20px; gap: 16px;
+      text-align: center; padding: 36px 20px; gap: 14px;
       opacity: 0; transition: opacity 0.5s ease;
     }
     .success-block.show    { display: flex; }
     .success-block.visible { opacity: 1; }
-
     .success-icon {
-      width: 60px; height: 60px; border-radius: 50%;
-      background: rgba(0, 206, 209, 0.15);
-      border: 1px solid rgba(0, 206, 209, 0.4);
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(0, 206, 209, 0.12);
+      border: 1px solid rgba(0, 206, 209, 0.38);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; color: var(--teal);
-      box-shadow: 0 0 28px rgba(0, 206, 209, 0.3);
+      font-size: 1.6rem; color: var(--teal);
+      box-shadow: 0 0 28px rgba(0, 206, 209, 0.25);
     }
     .success-title {
       font-family: 'DM Serif Display', serif;
       font-size: 2rem; color: var(--text-primary);
     }
     .success-sub {
-      font-size: 0.95rem; color: var(--text-muted);
-      line-height: 1.65; max-width: 420px; margin-bottom: 10px;
+      font-size: 0.92rem; color: var(--text-muted);
+      line-height: 1.7; max-width: 400px;
+    }
+    .success-hub-tag {
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.1em; color: var(--periwinkle);
+      border: 1px solid rgba(204, 204, 255, 0.28);
+      padding: 6px 16px; border-radius: 20px;
+      background: rgba(204, 204, 255, 0.07);
     }
     .btn-share {
-      background: #25D366; color: white; /* WhatsApp Green */
-      border: none; border-radius: 4px; padding: 12px 24px;
-      font-family: 'DM Mono', monospace; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+      background: #25D366; color: white;
+      border: none; border-radius: 8px; padding: 12px 22px;
+      font-family: 'DM Mono', monospace; font-weight: 600;
+      font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.1em;
       cursor: pointer; display: flex; align-items: center; gap: 8px;
-      text-decoration: none;
+      text-decoration: none; transition: opacity 0.2s;
     }
+    .btn-share:hover { opacity: 0.88; }
 
     /* ── FOOTER ── */
     footer {
-      margin-top: 48px;
-      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      margin-top: 44px;
+      font-family: 'DM Mono', monospace; font-size: 0.63rem;
       letter-spacing: 0.12em; color: var(--text-dim); text-align: center;
       animation: fadeUp 1s 0.5s ease both;
     }
+    footer a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--teal); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
     @media (max-width: 680px) {
-      .glass-card  { padding: 40px 28px; }
-      .modes       { grid-template-columns: 1fr; gap: 10px; }
+      .glass-card  { padding: 36px 24px; border-radius: 12px; }
+      .modes       { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .hub-selector { flex-direction: column; }
       .form-row    { flex-direction: column; }
       .btn-waitlist { width: 100%; text-align: center; }
-      h1           { font-size: 1.8rem; }
+      h1           { font-size: 2rem; }
+    }
+    @media (max-width: 420px) {
+      .modes { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -352,76 +504,127 @@
 
 <div class="bg-glow"></div>
 <div class="scanlines"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
 <div class="page">
 
   <nav>
     <span class="nav-wordmark">OFFUNIT</span>
-    <span class="nav-badge">EARLY ACCESS</span>
+    <span class="nav-badge">Early Access</span>
   </nav>
 
   <div class="glass-card">
 
+    <!-- LOGO -->
     <div class="logo-outer">
       <div class="logo-clip">
         <img
-          src="./offunit-logo.jpg"
+          src="./offunit-logo.png"
           alt="OFFUNIT App Icon"
           class="app-logo"
+          onerror="this.style.display='none';"
         />
       </div>
     </div>
 
-    <p class="hero-eyebrow">Smoke Test Launch</p>
-    <h1>BECAUSE YOUR WORK BESTIE <br>CAN'T BE YOUR ONLY <em>PERSONALITY TRAIT.</em></h1>
+    <!-- HERO -->
+    <p class="hero-eyebrow">Built for Nurses, by People Who Get It</p>
+    <h1>BECAUSE YOUR WORK BESTIE<br>CAN'T BE YOUR ONLY <em>PERSONALITY TRAIT.</em></h1>
+
+    <p class="free-tag">100% Free for Nurses &amp; Nursing Students</p>
+
     <p class="subhero">
-      The exclusive social, networking, and dating app for the exhausted 12-hour-shift crew. No HR, no "patient satisfaction" scores—just your people.
+      You spend 12 hours keeping everyone else alive. You deserve a space that's just yours —
+      to <strong>connect, decompress, and actually date someone</strong> who understands a chart that didn't close before handoff.
     </p>
+
     <a href="#form-block" class="btn-jump">Lock In Your Spot</a>
 
     <div class="divider"></div>
 
-    <p class="section-label">The Breakroom Upgrade</p>
+    <!-- HUB DISPLAY PILLS -->
+    <p class="section-label">Active Hubs</p>
+    <div class="hubs">
+      <div class="hub-pill"><span class="hub-dot"></span>Columbus, OH</div>
+      <div class="hub-pill"><span class="hub-dot"></span>Detroit, MI</div>
+      <div class="hub-pill"><span class="hub-dot"></span>San Francisco, CA<span class="hub-badge">Launching Soon</span></div>
+      <div class="hub-pill"><span class="hub-dot"></span>Phoenix, AZ<span class="hub-badge">Launching Soon</span></div>
+      <div class="hub-pill"><span class="hub-dot"></span>Bay Area, CA<span class="hub-badge">Launching Soon</span></div>
+    </div>
+
+    <!-- THREE MODES -->
+    <p class="section-label">Four Ways to Connect</p>
     <div class="modes">
-      <div class="mode-card">
-        <span class="mode-icon">&#x1F489;</span>
-        <p class="mode-title">Networking</p>
-        <p class="mode-desc">Find local travel contracts that actually pay. No mandatory wellness seminars included.</p>
-      </div>
       <div class="mode-card">
         <span class="mode-icon">&#x1F49B;</span>
         <p class="mode-title">Dating</p>
-        <p class="mode-desc">Connect with people who won't ghost you for 13 hours during a C. diff breakout.</p>
+        <p class="mode-desc">Find someone who won't guilt-trip you for sleeping until 3 PM after a night shift.</p>
       </div>
       <div class="mode-card">
-        <span class="mode-icon">&#x1F6B6;</span>
-        <p class="mode-title">Breakroom</p>
-        <p class="mode-desc">A safe space to vent about the Pyxis machine failing while your 06:45 AM admission rolls in.</p>
+        <span class="mode-icon">&#x1F91D;</span>
+        <p class="mode-title">Friends</p>
+        <p class="mode-desc">Find your people — the ones who laugh at the same dark humor and actually show up.</p>
+      </div>
+      <div class="mode-card">
+        <span class="mode-icon">&#x1F4BC;</span>
+        <p class="mode-title">Networking</p>
+        <p class="mode-desc">Better contracts, real referrals, and mentorship from nurses who've been in the trenches.</p>
+      </div>
+      <div class="mode-card">
+        <span class="mode-icon">&#x2728;</span>
+        <p class="mode-title">Vibes</p>
+        <p class="mode-desc">The digital nurses' station. Scroll the specialty-specific feed, share the unit tea, and enjoy the nursing culture without the pressure to swipe or network.</p>
       </div>
     </div>
 
+    <!-- WAITLIST FORM -->
     <div id="form-block">
+
+      <label class="form-label">Choose your hub</label>
+      <div class="hub-selector">
+        <button type="button" class="hub-toggle" id="hub-columbus" onclick="selectHub('Columbus, OH')">
+          <i class="fa-solid fa-check check-icon"></i>Columbus, OH
+        </button>
+        <button type="button" class="hub-toggle" id="hub-detroit" onclick="selectHub('Detroit, MI')">
+          <i class="fa-solid fa-check check-icon"></i>Detroit, MI
+        </button>
+        <button type="button" class="hub-toggle" id="hub-san-francisco" onclick="selectHub('San Francisco, CA')">
+          <i class="fa-solid fa-check check-icon"></i>San Francisco, CA
+        </button>
+        <button type="button" class="hub-toggle" id="hub-phoenix" onclick="selectHub('Phoenix, AZ')">
+          <i class="fa-solid fa-check check-icon"></i>Phoenix, AZ
+        </button>
+        <button type="button" class="hub-toggle" id="hub-bay-area" onclick="selectHub('Bay Area, CA')">
+          <i class="fa-solid fa-check check-icon"></i>Bay Area, CA
+        </button>
+      </div>
+      <p class="field-error" id="hub-error">Please select a hub to continue.</p>
+
       <label class="form-label" for="email-input">Your email</label>
       <div class="form-row">
         <input
           type="email"
           id="email-input"
           class="form-input"
-          placeholder="your.email@gmail.com"
+          placeholder="your.personal.email@gmail.com"
           autocomplete="email"
         />
         <button type="button" class="btn-waitlist" id="submit-btn" onclick="handleSubmit()">
           Join the Waitlist
         </button>
       </div>
-      <p class="form-note" id="form-note">No homework. Just your email.</p>
+      <p class="form-note" id="form-note">No spam. No hospital politics. Unsubscribe anytime.</p>
+
     </div>
 
+    <!-- SUCCESS SCREEN -->
     <div class="success-block" id="success-block">
       <div class="success-icon"><i class="fa-solid fa-check"></i></div>
       <p class="success-title">You're on the list.</p>
-      <p class="success-sub">Check your inbox. Now go move up the list—share this with your favorite work bestie. If they sign up, you get early access.</p>
-      <a href="https://api.whatsapp.com/send?text=Finally%2C%20a%20dating%20and%20networking%20app%20for%20people%20who%20actually%20understand%20a%2012-hour%20shift.%20Join%20the%20OFFUNIT%20waitlist%20with%20me%3A%20https%3A%2F%2Foffunit.app" target="_blank" class="btn-share">
+      <p class="success-sub">Welcome to OFFUNIT. We'll reach out the moment we go live in your city. Now go tag your favorite work bestie — if they sign up, you both move up the list.</p>
+      <span class="success-hub-tag" id="success-hub-tag"></span>
+      <a href="https://api.whatsapp.com/send?text=Finally%20an%20app%20built%20for%20nurses%20who%20actually%20get%20the%2012-hour%20life.%20Join%20the%20OFFUNIT%20waitlist%20with%20me%3A%20https%3A%2F%2Foffunit.app" target="_blank" class="btn-share">
         <i class="fa-brands fa-whatsapp"></i> Share with Work Bestie
       </a>
     </div>
@@ -430,24 +633,46 @@
 
   <footer>
     <p>
-      &#169; 2026 OFFUNIT &middot; Built for the Night Shift &middot;
-      <a href="mailto:postshift@offunit.app">postshift@offunit.app</a>
+      &copy; 2026 OFFUNIT &middot; Built for the Night Shift &middot;
+      <a href="/cdn-cgi/l/email-protection#7d0d120e090e15141b093d121b1b08131409531c0d0d"><span class="__cf_email__" data-cfemail="ddadb2aea9aeb5b4bba99db2bbbba8b3b4a9f3bcadad">[email&#160;protected]</span></a>
     </p>
   </footer>
 
 </div>
 
-<script>
-  // REPLACE THESE WITH YOUR NEW OFFUNIT PROJECT URL AND ANON KEY
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // REPLACE WITH YOUR OFFUNIT SUPABASE PROJECT URL AND ANON KEY
   const _supabase = supabase.createClient('YOUR_OFFUNIT_SUPABASE_URL', 'YOUR_OFFUNIT_ANON_KEY');
+
+  let selectedHub = '';
+
+  function selectHub(hubName) {
+    selectedHub = hubName;
+    ['hub-columbus','hub-detroit','hub-san-francisco','hub-phoenix','hub-bay-area']
+      .forEach(id => document.getElementById(id).classList.remove('selected'));
+    document.getElementById('hub-error').classList.remove('show');
+
+    const map = {
+      'Columbus, OH':     'hub-columbus',
+      'Detroit, MI':      'hub-detroit',
+      'San Francisco, CA':'hub-san-francisco',
+      'Phoenix, AZ':      'hub-phoenix',
+      'Bay Area, CA':     'hub-bay-area'
+    };
+    if (map[hubName]) document.getElementById(map[hubName]).classList.add('selected');
+  }
 
   async function handleSubmit() {
     const emailInput = document.getElementById('email-input');
     const emailValue = emailInput.value.trim();
-    const submitBtn = document.getElementById('submit-btn');
+    const submitBtn  = document.getElementById('submit-btn');
 
+    if (!selectedHub) {
+      document.getElementById('hub-error').classList.add('show');
+      return;
+    }
     if (!emailValue) {
-      alert('Please enter a valid email.');
+      emailInput.classList.add('error');
       return;
     }
 
@@ -455,45 +680,27 @@
     submitBtn.innerText = 'Joining...';
 
     try {
-      // NOTE: Removed 'hub_preference' since we removed the city selector for the smoke test
       const { error: dbError } = await _supabase
-        .from('waitlist') // MAKE SURE YOUR TABLE IS NAMED 'waitlist' IN SUPABASE
-        .insert([{ email: emailValue }]);
+        .from('waitlist')
+        .insert([{ email: emailValue, hub_preference: selectedHub }]);
 
       if (dbError) throw dbError;
 
-      // Track successful waitlist sign-up
       fbq('track', 'Lead');
 
-      // Trigger the Welcome Email (Make sure your Edge Function is deployed in the new project!)
       const { error: funcError } = await _supabase.functions.invoke('send-welcome-email', {
-        body: JSON.stringify({ email: emailValue }),
+        body: JSON.stringify({ email: emailValue, hub: selectedHub }),
         headers: { 'Content-Type': 'application/json' }
       });
-
       if (funcError) console.error('Email trigger error:', funcError);
 
       document.getElementById('form-block').style.display = 'none';
-      
       const successBlock = document.getElementById('success-block');
       successBlock.classList.add('show');
+      document.getElementById('success-hub-tag').innerText = selectedHub;
       setTimeout(() => successBlock.classList.add('visible'), 50);
 
     } catch (err) {
       console.error('Error:', err.message);
       alert('Something went wrong. Please try again.');
-      submitBtn.disabled = false;
-      submitBtn.innerText = 'Join the Waitlist';
-    }
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      const activeElement = document.activeElement;
-      if (activeElement.id === 'email-input') handleSubmit();
-    }
-  });
-</script>
-
-</body>
-</html>
+      submitBtn.di
