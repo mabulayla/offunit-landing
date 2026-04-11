@@ -20,11 +20,11 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', 'YOUR_OFFUNIT_PIXEL_ID');
+  fbq('init', 'YOUR_PIXEL_ID_HERE');
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=YOUR_OFFUNIT_PIXEL_ID&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"
   /></noscript>
 
   <style>
@@ -641,8 +641,10 @@
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // REPLACE WITH YOUR OFFUNIT SUPABASE PROJECT URL AND ANON KEY
-  const _supabase = supabase.createClient('YOUR_OFFUNIT_SUPABASE_URL', 'YOUR_OFFUNIT_ANON_KEY');
+  const _supabase = supabase.createClient(
+    'https://otgpkzjesscifwywxytu.supabase.co',
+    'sb_publishable_VX_TuV3hN6I1NSSosqaV0A_UKZHZwhO'
+  );
 
   let selectedHub = '';
 
@@ -702,5 +704,15 @@
 
     } catch (err) {
       console.error('Error:', err.message);
-      alert('Something went wrong. Please try again.');
-      submitBtn.di
+      if (err.code === '23505') {
+        alert("You're already on the list! 🎉");
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+      submitBtn.disabled = false;
+      submitBtn.innerText = 'Join the Waitlist';
+    }
+  }
+</script>
+</body>
+</html>
