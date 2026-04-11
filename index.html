@@ -3,7 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OFFUNIT — Because your work bestie can't be your only personality trait.</title>
+  <title>OFFUNIT — The Social App Built for Nurses</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="./offunit-logo.png" />
+  <link rel="apple-touch-icon" href="./offunit-logo.png" />
+
+  <!-- SEO & Social Preview -->
+  <meta name="description" content="OFFUNIT is the social, dating, and networking app built exclusively for nurses. Dating, friendships, career growth, and community — all in one space built for the people who get the 12-hour life." />
+  <meta property="og:title" content="OFFUNIT — The App Built for Nurses" />
+  <meta property="og:description" content="Dating, friendships, networking, and community — built exclusively for nurses who deserve a space that actually gets their life." />
+  <meta property="og:image" content="https://offunit.app/offunit-logo.png" />
+  <meta property="og:url" content="https://offunit.app" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OFFUNIT" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OFFUNIT — The App Built for Nurses" />
+  <meta name="twitter:description" content="Dating, friendships, networking, and community — built exclusively for nurses." />
+  <meta name="twitter:image" content="https://offunit.app/offunit-logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -29,16 +46,13 @@
 
   <style>
     :root {
-      /* Core palette — pulled from OFFUNIT logo's periwinkle/lavender background */
       --periwinkle:     #CCCCFF;
       --periwinkle-dim: rgba(204, 204, 255, 0.14);
       --teal:           #00CED1;
       --teal-light:     #33d9db;
       --teal-dim:       rgba(0, 206, 209, 0.15);
-      /* Warm accent — psychologically calming/hopeful for nurses */
       --blush:          #FFB4C2;
       --blush-dim:      rgba(255, 180, 194, 0.15);
-      /* Glass */
       --glass-bg:       rgba(20, 16, 48, 0.60);
       --glass-border:   rgba(204, 204, 255, 0.16);
       --text-primary:   #f0ecff;
@@ -50,7 +64,6 @@
     html { scroll-behavior: smooth; }
 
     body {
-      /* Logo background color: soft periwinkle-lavender gradient */
       background: linear-gradient(145deg, #1a1730 0%, #221f4a 35%, #2a2060 60%, #1c1838 100%);
       color: var(--text-primary);
       font-family: 'Instrument Sans', sans-serif;
@@ -63,7 +76,6 @@
       position: fixed; inset: 0;
       pointer-events: none; z-index: 0; overflow: hidden;
     }
-    /* Warm periwinkle bloom — centre */
     .bg-glow::before {
       content: ''; position: absolute;
       top: 45%; left: 50%; transform: translate(-50%, -50%);
@@ -74,7 +86,6 @@
         transparent 72%);
       animation: breathe 6s ease-in-out infinite;
     }
-    /* Teal heart glow — upper right, mirrors logo */
     .bg-glow::after {
       content: ''; position: absolute;
       top: 20%; right: 10%;
@@ -87,7 +98,6 @@
       0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
       50%       { opacity: 0.65; transform: translate(-50%, -50%) scale(1.07); }
     }
-    /* Gentle scanlines — less harsh than RadMatch */
     .scanlines {
       position: fixed; inset: 0; pointer-events: none; z-index: 1;
       background: repeating-linear-gradient(
@@ -95,7 +105,6 @@
         rgba(0,0,0,0.018) 3px, rgba(0,0,0,0.018) 6px
       );
     }
-    /* Floating soft orbs for warmth */
     .orb {
       position: fixed; border-radius: 50%;
       pointer-events: none; z-index: 0;
@@ -163,7 +172,6 @@
         inset 0 -1px 0 rgba(0, 206, 209, 0.05);
       animation: fadeUp 0.9s 0.2s ease both;
     }
-    /* Top glint — softer, warmer */
     .glass-card::before {
       content: ''; position: absolute;
       top: 0; left: 10%; right: 10%; height: 1px;
@@ -187,10 +195,9 @@
         0 0 24px rgba(0, 206, 209, 0.2);
     }
     .app-logo {
-      width: 136px; height: 136px;
-      margin: -18px 0 0 -18px;
+      width: 100%; height: 100%;
       object-fit: cover; object-position: center;
-      display: block;
+      margin: 0; display: block;
     }
 
     /* ── HERO ── */
@@ -215,7 +222,7 @@
     .subhero {
       font-size: 1.02rem; line-height: 1.75;
       color: rgba(240, 236, 255, 0.72);
-      max-width: 560px; margin-bottom: 36px;
+      max-width: 560px; margin-bottom: 28px;
     }
     .subhero strong { color: var(--text-primary); font-weight: 600; }
 
@@ -225,7 +232,7 @@
       font-family: 'DM Mono', monospace; font-size: 0.7rem;
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--blush);
-      margin-top: -6px; margin-bottom: 26px;
+      margin-top: -6px; margin-bottom: 20px;
     }
     .free-tag::before {
       content: ''; width: 6px; height: 6px; border-radius: 50%;
@@ -238,10 +245,45 @@
       50% { opacity: 0.4; }
     }
 
+    /* ── SOCIAL PROOF COUNTER ── */
+    .social-proof {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 28px;
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      letter-spacing: 0.08em; color: var(--text-muted);
+    }
+    .social-proof .avatars {
+      display: flex;
+    }
+    .social-proof .avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid rgba(204, 204, 255, 0.25);
+      background: linear-gradient(135deg, var(--periwinkle-dim), var(--teal-dim));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; margin-left: -8px;
+      overflow: hidden;
+    }
+    .social-proof .avatar:first-child { margin-left: 0; }
+    .social-proof .avatar span { font-size: 0.75rem; line-height: 1; }
+    .social-proof strong { color: var(--periwinkle); }
+
+    /* ── FOUNDING BADGE ── */
+    .founding-note {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255, 215, 100, 0.85);
+      border: 1px solid rgba(255, 215, 100, 0.25);
+      background: rgba(255, 215, 100, 0.06);
+      padding: 6px 14px; border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .founding-note i { font-size: 0.7rem; }
+
     /* ── CTA BUTTON ── */
     .btn-jump {
       display: inline-block;
-      margin-top: 8px; margin-bottom: 4px;
+      margin-top: 4px; margin-bottom: 4px;
       padding: 15px 34px;
       background: var(--periwinkle);
       border: none; border-radius: 8px;
@@ -276,7 +318,7 @@
       text-transform: uppercase; margin-bottom: 14px;
     }
 
-    /* ── HUB PILLS (decorative) ── */
+    /* ── HUB PILLS ── */
     .hubs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
     .hub-pill {
       display: flex; align-items: center; gap: 7px;
@@ -297,15 +339,8 @@
     .hub-pill:nth-child(4) .hub-dot { animation-delay: 1.6s; }
     .hub-pill:nth-child(5) .hub-dot { animation-delay: 2.1s; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
-    .hub-badge {
-      font-family: 'DM Mono', monospace; font-size: 0.56rem;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--blush); border: 1px solid rgba(255, 180, 194, 0.35);
-      padding: 2px 7px; border-radius: 10px;
-      background: rgba(255, 180, 194, 0.08); margin-left: 2px;
-    }
 
-    /* ── MODES ── */
+    /* ── FOUR PILLARS ── */
     .modes {
       display: grid; grid-template-columns: repeat(4, 1fr);
       gap: 12px; margin-bottom: 36px;
@@ -321,12 +356,21 @@
       background: rgba(0, 206, 209, 0.06);
       transform: translateY(-2px);
     }
+    .mode-card.vibes-card {
+      border-color: rgba(204, 204, 255, 0.18);
+      background: rgba(204, 204, 255, 0.07);
+    }
+    .mode-card.vibes-card:hover {
+      border-color: rgba(204, 204, 255, 0.45);
+      background: rgba(204, 204, 255, 0.12);
+    }
     .mode-icon { font-size: 1.25rem; margin-bottom: 10px; display: block; }
     .mode-title {
       font-family: 'DM Mono', monospace; font-size: 0.7rem;
       letter-spacing: 0.12em; color: var(--teal);
       text-transform: uppercase; margin-bottom: 6px; font-weight: 500;
     }
+    .vibes-card .mode-title { color: var(--periwinkle); }
     .mode-desc { font-size: 0.79rem; color: var(--text-muted); line-height: 1.6; }
 
     /* ── FORM ── */
@@ -336,7 +380,6 @@
       text-transform: uppercase; margin-bottom: 10px; display: block;
     }
 
-    /* Hub selector */
     .hub-selector {
       display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;
     }
@@ -384,7 +427,6 @@
     }
     .field-error.show { display: block; }
 
-    /* Email row */
     .form-row { display: flex; gap: 10px; margin-top: 12px; }
     .form-input {
       flex: 1;
@@ -403,7 +445,6 @@
     }
     .form-input.error { border-color: #f9a8c9; }
 
-    /* Submit */
     .btn-waitlist {
       background: var(--teal); color: #0a0a0a;
       border: none; border-radius: 8px;
@@ -449,7 +490,7 @@
     }
     .success-sub {
       font-size: 0.92rem; color: var(--text-muted);
-      line-height: 1.7; max-width: 400px;
+      line-height: 1.7; max-width: 420px;
     }
     .success-hub-tag {
       font-family: 'DM Mono', monospace; font-size: 0.7rem;
@@ -458,15 +499,44 @@
       padding: 6px 16px; border-radius: 20px;
       background: rgba(204, 204, 255, 0.07);
     }
-    .btn-share {
-      background: #25D366; color: white;
-      border: none; border-radius: 8px; padding: 12px 22px;
-      font-family: 'DM Mono', monospace; font-weight: 600;
-      font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.1em;
-      cursor: pointer; display: flex; align-items: center; gap: 8px;
-      text-decoration: none; transition: opacity 0.2s;
+
+    /* ── SHARE GRID ── */
+    .share-label {
+      font-family: 'DM Mono', monospace; font-size: 0.63rem;
+      letter-spacing: 0.18em; color: var(--text-dim);
+      text-transform: uppercase; margin-top: 4px;
     }
-    .btn-share:hover { opacity: 0.88; }
+    .share-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px; width: 100%; max-width: 380px;
+    }
+    .btn-share {
+      border: none; border-radius: 8px; padding: 11px 10px;
+      font-family: 'DM Mono', monospace; font-weight: 600;
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
+      text-decoration: none; transition: opacity 0.2s, transform 0.15s;
+      color: white;
+    }
+    .btn-share:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-share-whatsapp { background: #25D366; }
+    .btn-share-sms      { background: #34C759; }
+    .btn-share-facebook { background: #1877F2; }
+    .btn-share-x        { background: #000000; border: 1px solid rgba(255,255,255,0.15); }
+    .btn-share-copy     {
+      background: rgba(204, 204, 255, 0.12);
+      border: 1px solid rgba(204, 204, 255, 0.28);
+      color: var(--periwinkle);
+    }
+    .share-instagram-note {
+      font-family: 'DM Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.06em; color: var(--text-dim);
+      margin-top: 2px;
+    }
+    .share-instagram-note a {
+      color: var(--periwinkle); text-decoration: none;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -488,12 +558,13 @@
     }
 
     @media (max-width: 680px) {
-      .glass-card  { padding: 36px 24px; border-radius: 12px; }
-      .modes       { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-      .hub-selector { flex-direction: column; }
-      .form-row    { flex-direction: column; }
-      .btn-waitlist { width: 100%; text-align: center; }
-      h1           { font-size: 2rem; }
+      .glass-card    { padding: 36px 24px; border-radius: 12px; }
+      .modes         { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .hub-selector  { flex-direction: column; }
+      .form-row      { flex-direction: column; }
+      .btn-waitlist  { width: 100%; text-align: center; }
+      h1             { font-size: 2rem; }
+      .share-grid    { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 420px) {
       .modes { grid-template-columns: 1fr; }
@@ -511,7 +582,7 @@
 
   <nav>
     <span class="nav-wordmark">OFFUNIT</span>
-    <span class="nav-badge">Early Access</span>
+    <span class="nav-badge">Founding Access</span>
   </nav>
 
   <div class="glass-card">
@@ -529,59 +600,75 @@
     </div>
 
     <!-- HERO -->
-    <p class="hero-eyebrow">Built for Nurses, by People Who Get It</p>
+    <p class="hero-eyebrow">Exclusively for the Nursing Community</p>
     <h1>BECAUSE YOUR WORK BESTIE<br>CAN'T BE YOUR ONLY <em>PERSONALITY TRAIT.</em></h1>
 
-    <p class="free-tag">100% Free for Nurses &amp; Nursing Students</p>
+    <p class="free-tag">Free for Nurses &amp; Nursing Students</p>
 
     <p class="subhero">
       You spend 12 hours keeping everyone else alive. You deserve a space that's just yours —
-      to <strong>connect, decompress, and actually date someone</strong> who understands a chart that didn't close before handoff.
+      to <strong>connect, decompress, and actually date someone</strong> who gets why you still have adrenaline at 8 AM and can't sleep until noon.
     </p>
 
-    <a href="#form-block" class="btn-jump">Lock In Your Spot</a>
+    <!-- SOCIAL PROOF COUNTER -->
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="avatar"><span>👩‍⚕️</span></div>
+        <div class="avatar"><span>🩺</span></div>
+        <div class="avatar"><span>💉</span></div>
+      </div>
+      <span><strong id="signup-count">—</strong> nurses have already claimed their spot</span>
+    </div>
+
+    <!-- FOUNDING MEMBER HOOK -->
+    <p class="founding-note">
+      <i class="fa-solid fa-star"></i>
+      First 500 signups become Founding Nurses — first access, forever recognized
+    </p>
+
+    <a href="#form-block" class="btn-jump">Claim Your Spot</a>
 
     <div class="divider"></div>
 
     <!-- HUB DISPLAY PILLS -->
-    <p class="section-label">Active Hubs</p>
+    <p class="section-label">Coming to Your City</p>
     <div class="hubs">
       <div class="hub-pill"><span class="hub-dot"></span>Columbus, OH</div>
       <div class="hub-pill"><span class="hub-dot"></span>Detroit, MI</div>
-      <div class="hub-pill"><span class="hub-dot"></span>San Francisco, CA<span class="hub-badge">Launching Soon</span></div>
-      <div class="hub-pill"><span class="hub-dot"></span>Phoenix, AZ<span class="hub-badge">Launching Soon</span></div>
-      <div class="hub-pill"><span class="hub-dot"></span>Bay Area, CA<span class="hub-badge">Launching Soon</span></div>
+      <div class="hub-pill"><span class="hub-dot"></span>San Francisco, CA</div>
+      <div class="hub-pill"><span class="hub-dot"></span>Phoenix, AZ</div>
+      <div class="hub-pill"><span class="hub-dot"></span>Bay Area, CA</div>
     </div>
 
-    <!-- THREE MODES -->
+    <!-- FOUR PILLARS -->
     <p class="section-label">Four Ways to Connect</p>
     <div class="modes">
+      <div class="mode-card vibes-card">
+        <span class="mode-icon">&#x2728;</span>
+        <p class="mode-title">Vibes</p>
+        <p class="mode-desc">The Digital Nurses' Station. Scroll the specialty feed, share unit tea, and connect with the whole community — no pressure to swipe or network.</p>
+      </div>
       <div class="mode-card">
         <span class="mode-icon">&#x1F49B;</span>
         <p class="mode-title">Dating</p>
-        <p class="mode-desc">Find someone who won't guilt-trip you for sleeping until 3 PM after a night shift.</p>
+        <p class="mode-desc">Find someone who won't guilt-trip you for sleeping until 3 PM after a night shift. Someone who actually gets the life.</p>
       </div>
       <div class="mode-card">
         <span class="mode-icon">&#x1F91D;</span>
         <p class="mode-title">Friends</p>
-        <p class="mode-desc">Find your people — the ones who laugh at the same dark humor and actually show up.</p>
+        <p class="mode-desc">Find your people — the ones who laugh at the same dark humor and actually show up when you need them.</p>
       </div>
       <div class="mode-card">
         <span class="mode-icon">&#x1F4BC;</span>
         <p class="mode-title">Networking</p>
-        <p class="mode-desc">Better contracts, real referrals, and mentorship from nurses who've been in the trenches.</p>
-      </div>
-      <div class="mode-card">
-        <span class="mode-icon">&#x2728;</span>
-        <p class="mode-title">Vibes</p>
-        <p class="mode-desc">The digital nurses' station. Scroll the specialty-specific feed, share the unit tea, and enjoy the nursing culture without the pressure to swipe or network.</p>
+        <p class="mode-desc">Better contracts, real referrals, and mentorship from nurses who've been in the trenches across every specialty.</p>
       </div>
     </div>
 
     <!-- WAITLIST FORM -->
     <div id="form-block">
 
-      <label class="form-label">Choose your hub</label>
+      <label class="form-label">Choose your city</label>
       <div class="hub-selector">
         <button type="button" class="hub-toggle" id="hub-columbus" onclick="selectHub('Columbus, OH')">
           <i class="fa-solid fa-check check-icon"></i>Columbus, OH
@@ -599,7 +686,7 @@
           <i class="fa-solid fa-check check-icon"></i>Bay Area, CA
         </button>
       </div>
-      <p class="field-error" id="hub-error">Please select a hub to continue.</p>
+      <p class="field-error" id="hub-error">Please select a city to continue.</p>
 
       <label class="form-label" for="email-input">Your email</label>
       <div class="form-row">
@@ -607,34 +694,51 @@
           type="email"
           id="email-input"
           class="form-input"
-          placeholder="your.personal.email@gmail.com"
+          placeholder="nurse@email.com"
           autocomplete="email"
         />
         <button type="button" class="btn-waitlist" id="submit-btn" onclick="handleSubmit()">
-          Join the Waitlist
+          Claim My Spot
         </button>
       </div>
-      <p class="form-note" id="form-note">No spam. No hospital politics. Unsubscribe anytime.</p>
+      <p class="form-note" id="form-note">No spam. No hospital politics. Unsubscribe anytime. &nbsp;·&nbsp; <a href="./privacy.html" style="color:inherit;">Privacy Policy</a></p>
 
     </div>
 
     <!-- SUCCESS SCREEN -->
     <div class="success-block" id="success-block">
       <div class="success-icon"><i class="fa-solid fa-check"></i></div>
-      <p class="success-title">You're on the list.</p>
-      <p class="success-sub">Welcome to OFFUNIT. We'll reach out the moment we go live in your city. Now go tag your favorite work bestie — if they sign up, you both move up the list.</p>
+      <p class="success-title">You're in. 🎉</p>
+      <p class="success-sub">Welcome to OFFUNIT. The bigger our community, the faster we launch — spread the link and help us build something nurses actually deserve.</p>
       <span class="success-hub-tag" id="success-hub-tag"></span>
-      <a href="https://api.whatsapp.com/send?text=Finally%20an%20app%20built%20for%20nurses%20who%20actually%20get%20the%2012-hour%20life.%20Join%20the%20OFFUNIT%20waitlist%20with%20me%3A%20https%3A%2F%2Foffunit.app" target="_blank" class="btn-share">
-        <i class="fa-brands fa-whatsapp"></i> Share with Work Bestie
-      </a>
+      <p class="share-label">Share with your unit</p>
+      <div class="share-grid">
+        <a id="share-whatsapp" href="#" class="btn-share btn-share-whatsapp" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+        <a id="share-sms" href="#" class="btn-share btn-share-sms">
+          <i class="fa-solid fa-message"></i> Text
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Foffunit.app" class="btn-share btn-share-facebook" target="_blank" rel="noopener">
+          <i class="fa-brands fa-facebook-f"></i> Facebook
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=Finally%20an%20app%20built%20exclusively%20for%20nurses%20%F0%9F%A9%BA%20Dating%2C%20friends%2C%20networking%20%E2%80%94%20all%20in%20one%20space%20that%20gets%20the%2012-hour%20life.%20Join%20me%20on%20the%20OFFUNIT%20waitlist%3A%20https%3A%2F%2Foffunit.app" class="btn-share btn-share-x" target="_blank" rel="noopener">
+          <i class="fa-brands fa-x-twitter"></i> X / Twitter
+        </a>
+        <button onclick="copyLink()" id="copy-btn" class="btn-share btn-share-copy">
+          <i class="fa-solid fa-link"></i> Copy Link
+        </button>
+      </div>
+      <p class="share-instagram-note">📸 For Instagram: copy the link and paste it in your story or bio</p>
     </div>
 
   </div>
 
   <footer>
     <p>
-      &copy; 2026 OFFUNIT &middot; Built for the Night Shift &middot;
+      &copy; 2026 OFFUNIT &middot; Built for Every Nurse. Every Shift. &middot;
       <a href="mailto:contact@offunit.app">contact@offunit.app</a>
+      &middot; <a href="./privacy.html">Privacy Policy</a>
     </p>
   </footer>
 
@@ -646,6 +750,19 @@
     'sb_publishable_VX_TuV3hN6I1NSSosqaV0A_UKZHZwhO'
   );
 
+  // Live signup counter
+  async function loadCount() {
+    try {
+      const { count } = await _supabase
+        .from('waitlist')
+        .select('*', { count: 'exact', head: true });
+      if (count !== null) {
+        document.getElementById('signup-count').textContent = count.toLocaleString();
+      }
+    } catch (e) { /* silent fail */ }
+  }
+  loadCount();
+
   let selectedHub = '';
 
   function selectHub(hubName) {
@@ -655,13 +772,23 @@
     document.getElementById('hub-error').classList.remove('show');
 
     const map = {
-      'Columbus, OH':     'hub-columbus',
-      'Detroit, MI':      'hub-detroit',
-      'San Francisco, CA':'hub-san-francisco',
-      'Phoenix, AZ':      'hub-phoenix',
-      'Bay Area, CA':     'hub-bay-area'
+      'Columbus, OH':      'hub-columbus',
+      'Detroit, MI':       'hub-detroit',
+      'San Francisco, CA': 'hub-san-francisco',
+      'Phoenix, AZ':       'hub-phoenix',
+      'Bay Area, CA':      'hub-bay-area'
     };
     if (map[hubName]) document.getElementById(map[hubName]).classList.add('selected');
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText('https://offunit.app').then(() => {
+      const btn = document.getElementById('copy-btn');
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-link"></i> Copy Link';
+      }, 2500);
+    });
   }
 
   async function handleSubmit() {
@@ -679,7 +806,7 @@
     }
 
     submitBtn.disabled = true;
-    submitBtn.innerText = 'Joining...';
+    submitBtn.innerText = 'Claiming...';
 
     try {
       const { error: dbError } = await _supabase
@@ -696,11 +823,23 @@
       });
       if (funcError) console.error('Email trigger error:', funcError);
 
+      // Build share links with city context
+      const shareText = encodeURIComponent(
+        'Finally an app built exclusively for nurses 🩺 Dating, friends, networking — all in one space that gets the 12-hour life. Join me on the OFFUNIT waitlist: https://offunit.app'
+      );
+      document.getElementById('share-whatsapp').href =
+        'https://api.whatsapp.com/send?text=' + shareText;
+      document.getElementById('share-sms').href =
+        'sms:?body=' + shareText;
+
       document.getElementById('form-block').style.display = 'none';
       const successBlock = document.getElementById('success-block');
       successBlock.classList.add('show');
-      document.getElementById('success-hub-tag').innerText = selectedHub;
+      document.getElementById('success-hub-tag').innerText = '📍 ' + selectedHub;
       setTimeout(() => successBlock.classList.add('visible'), 50);
+
+      // Refresh counter
+      loadCount();
 
     } catch (err) {
       console.error('Error:', err.message);
@@ -710,7 +849,7 @@
         alert('Something went wrong. Please try again.');
       }
       submitBtn.disabled = false;
-      submitBtn.innerText = 'Join the Waitlist';
+      submitBtn.innerText = 'Claim My Spot';
     }
   }
 </script>
