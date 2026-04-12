@@ -199,14 +199,13 @@
         0 12px 40px rgba(5, 3, 20, 0.55),
         0 0 32px rgba(0, 206, 209, 0.22);
       position: relative;
+      overflow: hidden;
     }
     .app-logo {
-      /* Image is a portrait phone screenshot — icon occupies the center band.
-         object-position: center 38% zooms into the icon zone best we can in CSS.
-         Replace file with a properly-cropped export for a perfect result. */
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center 38%;
+      position: absolute;
+      width: 180%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -54%);
       display: block;
     }
 
@@ -620,8 +619,7 @@
     <p class="free-tag">Free for Nurses &amp; Nursing Students</p>
 
     <p class="subhero">
-      You spend 12 hours keeping everyone else alive. You deserve a space that's just yours —
-      to <strong>connect, decompress, and actually date someone</strong> who gets why you still have adrenaline at 8 AM and can't sleep until noon.
+      RNs, NPs, CRNAs, ICU, ER, travel nurses, and every specialty in between — you spend 12 hours keeping everyone else alive. You deserve a space that's just yours to <strong>connect, decompress, and actually meet people</strong> who understand the life.
     </p>
 
     <!-- SOCIAL PROOF COUNTER -->
