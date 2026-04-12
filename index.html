@@ -185,19 +185,29 @@
     }
 
     /* ── LOGO ── */
-    .logo-outer { margin-bottom: 28px; }
+    /* NOTE: Current logo file is a phone screenshot with black padding.
+       Ask Gemini to export: (1) cropped icon only (no black border, no text),
+       (2) full version with text for OG cards only. */
+    .logo-outer { margin-bottom: 32px; }
     .logo-clip {
-      width: 100px; height: 100px;
-      border-radius: 22px; overflow: hidden;
+      width: 108px; height: 108px;
+      border-radius: 24px; overflow: hidden;
+      /* Periwinkle fallback bg so the icon blends if edges are visible */
+      background: linear-gradient(135deg, #9b92c8 0%, #CCCCFF 60%, #a0e0e2 100%);
       box-shadow:
-        0 0 0 1px rgba(204, 204, 255, 0.22),
-        0 10px 36px rgba(5, 3, 20, 0.5),
-        0 0 24px rgba(0, 206, 209, 0.2);
+        0 0 0 1px rgba(204, 204, 255, 0.3),
+        0 12px 40px rgba(5, 3, 20, 0.55),
+        0 0 32px rgba(0, 206, 209, 0.22);
+      position: relative;
     }
     .app-logo {
+      /* Image is a portrait phone screenshot — icon occupies the center band.
+         object-position: center 38% zooms into the icon zone best we can in CSS.
+         Replace file with a properly-cropped export for a perfect result. */
       width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      margin: 0; display: block;
+      object-fit: cover;
+      object-position: center 38%;
+      display: block;
     }
 
     /* ── HERO ── */
@@ -269,16 +279,20 @@
 
     /* ── FOUNDING BADGE ── */
     .founding-note {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-family: 'DM Mono', monospace; font-size: 0.65rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255, 215, 100, 0.85);
-      border: 1px solid rgba(255, 215, 100, 0.25);
-      background: rgba(255, 215, 100, 0.06);
-      padding: 6px 14px; border-radius: 20px;
-      margin-bottom: 20px;
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: 'DM Mono', monospace; font-size: 0.76rem;
+      font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase;
+      color: #FFD700;
+      border: 1px solid rgba(255, 215, 0, 0.45);
+      background: rgba(255, 215, 0, 0.11);
+      padding: 11px 22px; border-radius: 24px;
+      margin-bottom: 24px;
+      box-shadow:
+        0 0 22px rgba(255, 215, 0, 0.14),
+        0 0 0 1px rgba(255, 215, 0, 0.08),
+        inset 0 1px 0 rgba(255, 215, 0, 0.22);
     }
-    .founding-note i { font-size: 0.7rem; }
+    .founding-note i { font-size: 0.78rem; color: #FFD700; }
 
     /* ── CTA BUTTON ── */
     .btn-jump {
@@ -315,11 +329,11 @@
     .section-label {
       font-family: 'DM Mono', monospace; font-size: 0.63rem;
       letter-spacing: 0.22em; color: var(--text-dim);
-      text-transform: uppercase; margin-bottom: 14px;
+      text-transform: uppercase; margin-bottom: 16px;
     }
 
     /* ── HUB PILLS ── */
-    .hubs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+    .hubs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
     .hub-pill {
       display: flex; align-items: center; gap: 7px;
       border: 1px solid rgba(204, 204, 255, 0.16);
@@ -343,7 +357,7 @@
     /* ── FOUR PILLARS ── */
     .modes {
       display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 12px; margin-bottom: 36px;
+      gap: 12px; margin-bottom: 44px;
     }
     .mode-card {
       border: 1px solid rgba(204, 204, 255, 0.10);
@@ -381,7 +395,7 @@
     }
 
     .hub-selector {
-      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;
     }
     .hub-toggle {
       flex: 1; min-width: 120px; padding: 12px 14px;
@@ -427,7 +441,7 @@
     }
     .field-error.show { display: block; }
 
-    .form-row { display: flex; gap: 10px; margin-top: 12px; }
+    .form-row { display: flex; gap: 10px; margin-top: 16px; }
     .form-input {
       flex: 1;
       background: rgba(255, 255, 255, 0.04);
@@ -464,7 +478,7 @@
 
     .form-note {
       font-size: 0.7rem; color: var(--text-dim);
-      margin-top: 11px;
+      margin-top: 14px;
       font-family: 'DM Mono', monospace; letter-spacing: 0.05em;
     }
 
@@ -666,7 +680,7 @@
     </div>
 
     <!-- WAITLIST FORM -->
-    <div id="form-block">
+    <div id="form-block" style="width:100%">
 
       <label class="form-label">Choose your city</label>
       <div class="hub-selector">
@@ -815,11 +829,10 @@
 
       if (dbError) throw dbError;
 
-      fbq('track', 'Lead');
+      if (typeof fbq === 'function') fbq('track', 'Lead');
 
       const { error: funcError } = await _supabase.functions.invoke('send-welcome-email', {
-        body: JSON.stringify({ email: emailValue, hub: selectedHub }),
-        headers: { 'Content-Type': 'application/json' }
+        body: { email: emailValue, hub: selectedHub }
       });
       if (funcError) console.error('Email trigger error:', funcError);
 
