@@ -521,7 +521,7 @@
     .share-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 8px; width: 100%; max-width: 380px;
+      gap: 8px; width: 100%; max-width: 420px;
     }
     .btn-share {
       border: none; border-radius: 8px; padding: 11px 10px;
@@ -541,13 +541,8 @@
       border: 1px solid rgba(204, 204, 255, 0.28);
       color: var(--periwinkle);
     }
-    .share-instagram-note {
-      font-family: 'DM Mono', monospace; font-size: 0.6rem;
-      letter-spacing: 0.06em; color: var(--text-dim);
-      margin-top: 2px;
-    }
-    .share-instagram-note a {
-      color: var(--periwinkle); text-decoration: none;
+    .btn-share-instagram {
+      background: linear-gradient(135deg, #833ab4 0%, #c13584 50%, #fd1d1d 100%);
     }
 
     /* ── FOOTER ── */
@@ -739,8 +734,10 @@
         <button onclick="copyLink()" id="copy-btn" class="btn-share btn-share-copy">
           <i class="fa-solid fa-link"></i> Copy Link
         </button>
+        <button onclick="shareInstagram()" id="instagram-btn" class="btn-share btn-share-instagram">
+          <i class="fa-brands fa-instagram"></i> Instagram
+        </button>
       </div>
-      <p class="share-instagram-note">📸 For Instagram: copy the link and paste it in your story or bio</p>
     </div>
 
   </div>
@@ -800,6 +797,18 @@
         btn.innerHTML = '<i class="fa-solid fa-link"></i> Copy Link';
       }, 2500);
     });
+  }
+
+  function shareInstagram() {
+    navigator.clipboard.writeText('https://offunit.app').then(() => {
+      const btn = document.getElementById('instagram-btn');
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Link Copied!';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-brands fa-instagram"></i> Instagram';
+      }, 2500);
+    });
+    // Try to open Instagram app on mobile; falls back gracefully on desktop
+    window.location.href = 'instagram://';
   }
 
   async function handleSubmit() {
