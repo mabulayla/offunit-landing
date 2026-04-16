@@ -630,6 +630,7 @@
     <p class="founding-note">
       <i class="fa-solid fa-star"></i>
       First 500 signups become Founding Nurses — first access, forever recognized
+      &nbsp;·&nbsp; <strong id="founding-spots-remaining"></strong>
     </p>
 
     <a href="#form-block" class="btn-jump">Claim Your Spot</a>
@@ -714,8 +715,13 @@
     <!-- SUCCESS SCREEN -->
     <div class="success-block" id="success-block">
       <div class="success-icon"><i class="fa-solid fa-check"></i></div>
-      <p class="success-title">You're in. 🎉</p>
-      <p class="success-sub">Welcome to OFFUNIT. The bigger our community, the faster we launch — spread the link and help us build something nurses actually deserve.</p>
+      <p class="success-title" id="success-title">You're in. 🎉</p>
+      <p class="success-sub" id="success-sub">Welcome to OFFUNIT. The bigger our community, the faster we launch — spread the link and help us build something nurses actually deserve.</p>
+      <div id="founding-badge" style="display:none; margin: 4px 0 12px;">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(255,215,0,0.15),rgba(255,215,0,0.08));border:1px solid rgba(255,215,0,0.35);border-radius:20px;padding:8px 18px;font-family:'DM Mono',monospace;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;color:#FFD700;text-transform:uppercase;">
+          <i class="fa-solid fa-star"></i> Founding Nurse &nbsp;·&nbsp; <span id="founding-number"></span>
+        </span>
+      </div>
       <span class="success-hub-tag" id="success-hub-tag"></span>
       <p class="share-label">Share with your unit</p>
       <div class="share-grid">
@@ -758,7 +764,7 @@
     'sb_publishable_VX_TuV3hN6I1NSSosqaV0A_UKZHZwhO'
   );
 
-  // Live signup counter
+  // Live signup counter + founding spots remaining
   async function loadCount() {
     try {
       const { count } = await _supabase
@@ -766,6 +772,17 @@
         .select('*', { count: 'exact', head: true });
       if (count !== null) {
         document.getElementById('signup-count').textContent = count.toLocaleString();
+        const spotsEl = document.getElementById('founding-spots-remaining');
+        if (spotsEl) {
+          const remaining = Math.max(0, 500 - count);
+          if (remaining > 0) {
+            spotsEl.textContent = remaining + ' founding spots left';
+            spotsEl.style.color = remaining <= 50 ? '#f9a8c9' : '#FFD700';
+          } else {
+            spotsEl.textContent = 'Founding spots closed';
+            spotsEl.style.color = 'var(--text-muted)';
+          }
+        }
       }
     } catch (e) { /* silent fail */ }
   }
@@ -829,20 +846,30 @@
     submitBtn.innerText = 'Claiming...';
 
     try {
-      const { error: dbError } = await _supabase
+      const { data: insertData, error: dbError } = await _supabase
         .from('waitlist')
-        .insert([{ email: emailValue, hub_preference: selectedHub }]);
+        .insert([{ email: emailValue, hub_preference: selectedHub }])
+        .select('signup_number, is_founding_nurse')
+        .single();
 
       if (dbError) throw dbError;
 
       if (typeof fbq === 'function') fbq('track', 'Lead');
 
+      const signupNumber   = insertData?.signup_number ?? null;
+      const isFoundingNurse = insertData?.is_founding_nurse ?? false;
+
       const { error: funcError } = await _supabase.functions.invoke('send-welcome-email', {
-        body: { email: emailValue, hub: selectedHub }
+        body: {
+          email: emailValue,
+          hub: selectedHub,
+          signup_number: signupNumber,
+          is_founding_nurse: isFoundingNurse
+        }
       });
       if (funcError) console.error('Email trigger error:', funcError);
 
-      // Build share links with city context
+      // Build share links
       const shareText = encodeURIComponent(
         'Finally an app built exclusively for nurses 🩺 Dating, friends, networking — all in one space that gets the 12-hour life. Join me on the OFFUNIT waitlist: https://offunit.app'
       );
@@ -850,6 +877,15 @@
         'https://api.whatsapp.com/send?text=' + shareText;
       document.getElementById('share-sms').href =
         'sms:?body=' + shareText;
+
+      // Personalize success screen
+      if (isFoundingNurse && signupNumber) {
+        document.getElementById('success-title').textContent = 'You\'re a Founding Nurse. 🌟';
+        document.getElementById('success-sub').textContent =
+          'You\'re one of the first 500. Your founding status is locked in — you\'ll be recognized in the app forever.';
+        document.getElementById('founding-badge').style.display = 'block';
+        document.getElementById('founding-number').textContent = '#' + signupNumber + ' of 500';
+      }
 
       document.getElementById('form-block').style.display = 'none';
       const successBlock = document.getElementById('success-block');
