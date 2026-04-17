@@ -644,7 +644,7 @@
       <div class="hub-pill"><span class="hub-dot"></span>Detroit, MI</div>
       <div class="hub-pill"><span class="hub-dot"></span>San Francisco, CA</div>
       <div class="hub-pill"><span class="hub-dot"></span>Phoenix, AZ</div>
-      <div class="hub-pill"><span class="hub-dot"></span>Bay Area, CA</div>
+      <div class="hub-pill"><span class="hub-dot"></span>Houston, TX</div>
     </div>
 
     <!-- FOUR PILLARS -->
@@ -689,8 +689,8 @@
         <button type="button" class="hub-toggle" id="hub-phoenix" onclick="selectHub('Phoenix, AZ')">
           <i class="fa-solid fa-check check-icon"></i>Phoenix, AZ
         </button>
-        <button type="button" class="hub-toggle" id="hub-bay-area" onclick="selectHub('Bay Area, CA')">
-          <i class="fa-solid fa-check check-icon"></i>Bay Area, CA
+        <button type="button" class="hub-toggle" id="hub-houston" onclick="selectHub('Houston, TX')">
+          <i class="fa-solid fa-check check-icon"></i>Houston, TX
         </button>
       </div>
       <p class="field-error" id="hub-error">Please select a city to continue.</p>
@@ -792,7 +792,7 @@
 
   function selectHub(hubName) {
     selectedHub = hubName;
-    ['hub-columbus','hub-detroit','hub-san-francisco','hub-phoenix','hub-bay-area']
+    ['hub-columbus','hub-detroit','hub-san-francisco','hub-phoenix','hub-houston']
       .forEach(id => document.getElementById(id).classList.remove('selected'));
     document.getElementById('hub-error').classList.remove('show');
 
@@ -801,7 +801,7 @@
       'Detroit, MI':       'hub-detroit',
       'San Francisco, CA': 'hub-san-francisco',
       'Phoenix, AZ':       'hub-phoenix',
-      'Bay Area, CA':      'hub-bay-area'
+      'Houston, TX':       'hub-houston'
     };
     if (map[hubName]) document.getElementById(map[hubName]).classList.add('selected');
   }
