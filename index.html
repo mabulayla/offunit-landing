@@ -294,9 +294,9 @@
 
     /* ── TESTIMONIAL ── */
     .testimonial-block {
-      position: relative;
+      position: relative; overflow: hidden;
       margin: 32px 0 8px;
-      padding: 28px 32px 24px;
+      padding: 28px 28px 24px 28px;
       background: rgba(204, 204, 255, 0.05);
       border: 1px solid rgba(204, 204, 255, 0.14);
       border-left: 3px solid var(--periwinkle);
@@ -304,23 +304,25 @@
       text-align: left;
     }
     .testimonial-quote-mark {
-      position: absolute; top: -18px; left: 24px;
+      position: absolute; top: -8px; right: 20px;
       font-family: 'DM Serif Display', serif;
-      font-size: 5rem; line-height: 1;
-      color: var(--periwinkle); opacity: 0.25;
+      font-size: 7rem; line-height: 1;
+      color: var(--periwinkle); opacity: 0.12;
       pointer-events: none; user-select: none;
     }
     .testimonial-text {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.05rem; line-height: 1.65;
+      font-size: 1.05rem; line-height: 1.7;
       color: var(--text-primary);
       font-style: italic;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      position: relative; z-index: 1;
     }
     .testimonial-author {
       font-family: 'DM Mono', monospace;
       font-size: 0.7rem; letter-spacing: 0.14em;
       color: var(--periwinkle); text-transform: uppercase;
+      position: relative; z-index: 1;
     }
 
     /* ── APP MOCKUPS ── */
