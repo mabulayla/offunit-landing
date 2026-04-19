@@ -292,6 +292,47 @@
     }
     .founding-note i { font-size: 0.78rem; color: #FFD700; }
 
+    /* ── APP MOCKUPS ── */
+    .mockup-carousel {
+      width: 100%; overflow: hidden; margin-bottom: 8px;
+    }
+    .mockup-track {
+      display: flex; gap: 24px;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .mockup-slide {
+      flex: 0 0 100%; text-align: center;
+    }
+    .phone-frame {
+      display: inline-block;
+      background: #1a1730;
+      border: 2px solid rgba(204, 204, 255, 0.25);
+      border-radius: 36px;
+      padding: 10px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(204,204,255,0.08);
+      max-width: 240px;
+      width: 100%;
+    }
+    .phone-screen {
+      width: 100%; border-radius: 28px;
+      display: block; object-fit: cover;
+    }
+    .mockup-label {
+      margin-top: 14px;
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.12em; color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .mockup-dots {
+      display: flex; justify-content: center; gap: 8px; margin-top: 20px;
+    }
+    .mockup-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(204, 204, 255, 0.2);
+      cursor: pointer; transition: background 0.2s;
+    }
+    .mockup-dot.active { background: var(--periwinkle); }
+
     /* ── DIVIDER ── */
     .divider {
       width: 100%; height: 1px; margin: 38px 0;
@@ -690,6 +731,37 @@
       </div>
     </div>
 
+    <!-- APP MOCKUPS -->
+    <div class="divider"></div>
+    <p class="section-label">See It in Action</p>
+    <div class="mockup-carousel">
+      <div class="mockup-track" id="mockup-track">
+        <div class="mockup-slide">
+          <div class="phone-frame">
+            <img src="./mockup-swipe.png" alt="OFFUNIT swipe deck" class="phone-screen" />
+          </div>
+          <p class="mockup-label">Find your match</p>
+        </div>
+        <div class="mockup-slide">
+          <div class="phone-frame">
+            <img src="./mockup-feed.png" alt="OFFUNIT OffFeed" class="phone-screen" />
+          </div>
+          <p class="mockup-label">Connect on the OffFeed</p>
+        </div>
+        <div class="mockup-slide">
+          <div class="phone-frame">
+            <img src="./mockup-messages.png" alt="OFFUNIT messages" class="phone-screen" />
+          </div>
+          <p class="mockup-label">Actually connect</p>
+        </div>
+      </div>
+      <div class="mockup-dots">
+        <span class="mockup-dot active" onclick="goToSlide(0)"></span>
+        <span class="mockup-dot" onclick="goToSlide(1)"></span>
+        <span class="mockup-dot" onclick="goToSlide(2)"></span>
+      </div>
+    </div>
+
     <!-- SUCCESS SCREEN -->
     <div class="success-block" id="success-block">
       <div class="success-icon"><i class="fa-solid fa-check"></i></div>
@@ -737,6 +809,19 @@
 </div>
 
 <script>
+  // Mockup carousel
+  let currentSlide = 0;
+  function goToSlide(index) {
+    currentSlide = index;
+    const track = document.getElementById('mockup-track');
+    track.style.transform = `translateX(calc(-${index * 100}% - ${index * 24}px))`;
+    document.querySelectorAll('.mockup-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === index);
+    });
+  }
+  // Auto-advance carousel every 3 seconds
+  setInterval(() => goToSlide((currentSlide + 1) % 3), 3000);
+
   const _supabase = supabase.createClient(
     'https://otgpkzjesscifwywxytu.supabase.co',
     'sb_publishable_VX_TuV3hN6I1NSSosqaV0A_UKZHZwhO'
