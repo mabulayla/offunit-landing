@@ -292,6 +292,37 @@
     }
     .founding-note i { font-size: 0.78rem; color: #FFD700; }
 
+    /* ── TESTIMONIAL ── */
+    .testimonial-block {
+      position: relative;
+      margin: 32px 0 8px;
+      padding: 28px 32px 24px;
+      background: rgba(204, 204, 255, 0.05);
+      border: 1px solid rgba(204, 204, 255, 0.14);
+      border-left: 3px solid var(--periwinkle);
+      border-radius: 12px;
+      text-align: left;
+    }
+    .testimonial-quote-mark {
+      position: absolute; top: -18px; left: 24px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 5rem; line-height: 1;
+      color: var(--periwinkle); opacity: 0.25;
+      pointer-events: none; user-select: none;
+    }
+    .testimonial-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem; line-height: 1.65;
+      color: var(--text-primary);
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+    .testimonial-author {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.14em;
+      color: var(--periwinkle); text-transform: uppercase;
+    }
+
     /* ── APP MOCKUPS ── */
     .mockup-carousel {
       width: 100%; overflow: hidden; margin-bottom: 8px;
@@ -729,6 +760,13 @@
         <p class="mode-title">Networking</p>
         <p class="mode-desc">Show your certs, share your specialty, find mentors who've actually been in the trenches.</p>
       </div>
+    </div>
+
+    <!-- TESTIMONIAL -->
+    <div class="testimonial-block">
+      <span class="testimonial-quote-mark">"</span>
+      <p class="testimonial-text">I travel every contract and always feel like I'm starting over. I'd use this just to find people who get the life.</p>
+      <p class="testimonial-author">— Jessica, RN</p>
     </div>
 
     <!-- APP MOCKUPS -->
