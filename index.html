@@ -637,8 +637,8 @@
       RNs, NPs, CRNAs, ICU, ER, travel nurses, and every specialty in between — you spend 12 hours keeping everyone else alive. You deserve a space that's just yours to <strong>connect, decompress, and actually meet people</strong> who understand the life.
     </p>
 
-    <!-- SOCIAL PROOF COUNTER -->
-    <div class="social-proof">
+    <!-- SOCIAL PROOF COUNTER (hidden until 50+ signups) -->
+    <div class="social-proof" id="social-proof-block" style="display:none">
       <div class="avatars">
         <div class="avatar"><span>👩‍⚕️</span></div>
         <div class="avatar"><span>🩺</span></div>
@@ -835,6 +835,10 @@
         .select('*', { count: 'exact', head: true });
       if (count !== null) {
         document.getElementById('signup-count').textContent = count.toLocaleString();
+        if (count >= 50) {
+          const block = document.getElementById('social-proof-block');
+          if (block) block.style.display = 'flex';
+        }
         const spotsEl = document.getElementById('founding-spots-remaining');
         if (spotsEl) {
           const remaining = Math.max(0, 500 - count);
