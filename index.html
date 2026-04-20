@@ -998,7 +998,10 @@
       const successBlock = document.getElementById('success-block');
       successBlock.classList.add('show');
       document.getElementById('success-hub-tag').innerText = '📍 ' + selectedHub;
-      setTimeout(() => successBlock.classList.add('visible'), 50);
+      setTimeout(() => {
+        successBlock.classList.add('visible');
+        successBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
 
       // Refresh counter
       loadCount();
