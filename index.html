@@ -912,6 +912,7 @@
       'Houston, TX':       'hub-houston'
     };
     if (map[hubName]) document.getElementById(map[hubName]).classList.add('selected');
+    if (typeof fbq === 'function') fbq('track', 'ViewContent', { content_name: hubName });
   }
 
   function copyLink() {
