@@ -453,7 +453,7 @@
       border-radius: 8px;
       font-family: 'DM Mono', monospace;
       font-size: 0.76rem; letter-spacing: 0.06em;
-      color: var(--text-muted);
+      color: var(--text-primary);
       cursor: pointer; text-align: center;
       display: flex; align-items: center; justify-content: center; gap: 7px;
       transition: all 0.2s ease; user-select: none;
@@ -493,12 +493,13 @@
     .form-row { display: flex; gap: 10px; margin-top: 16px; }
     .form-input {
       flex: 1;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(204, 204, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(204, 204, 255, 0.45);
       border-radius: 8px; padding: 14px 18px;
       font-family: 'Instrument Sans', sans-serif;
       font-size: 0.9rem; color: var(--text-primary);
       outline: none; transition: all 0.2s;
+      box-shadow: 0 0 0 1px rgba(204, 204, 255, 0.1), 0 2px 16px rgba(204, 204, 255, 0.08);
     }
     .form-input::placeholder { color: rgba(155, 146, 200, 0.6); }
     .form-input:focus {
