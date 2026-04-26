@@ -434,7 +434,7 @@
       text-transform: uppercase; margin-bottom: 6px; font-weight: 500;
     }
     .vibes-card .mode-title { color: var(--periwinkle); }
-    .mode-desc { font-size: 0.79rem; color: var(--text-muted); line-height: 1.6; }
+    .mode-desc { font-size: 0.79rem; color: var(--text-primary); line-height: 1.6; }
 
     /* ── FORM ── */
     .form-label {
@@ -493,13 +493,13 @@
     .form-row { display: flex; gap: 10px; margin-top: 16px; }
     .form-input {
       flex: 1;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(204, 204, 255, 0.45);
+      background: rgba(255, 255, 255, 0.14);
+      border: 1.5px solid rgba(204, 204, 255, 0.7);
       border-radius: 8px; padding: 14px 18px;
       font-family: 'Instrument Sans', sans-serif;
       font-size: 0.9rem; color: var(--text-primary);
       outline: none; transition: all 0.2s;
-      box-shadow: 0 0 0 1px rgba(204, 204, 255, 0.1), 0 2px 16px rgba(204, 204, 255, 0.08);
+      box-shadow: 0 0 0 3px rgba(204, 204, 255, 0.12), 0 4px 24px rgba(204, 204, 255, 0.18);
     }
     .form-input::placeholder { color: rgba(155, 146, 200, 0.6); }
     .form-input:focus {
@@ -798,11 +798,18 @@
           </div>
           <p class="mockup-label">Actually connect</p>
         </div>
+        <div class="mockup-slide">
+          <div class="phone-frame">
+            <img src="./mockup-networking.png" alt="OFFUNIT networking" class="phone-screen" />
+          </div>
+          <p class="mockup-label">Build your network</p>
+        </div>
       </div>
       <div class="mockup-dots">
         <span class="mockup-dot active" onclick="goToSlide(0)"></span>
         <span class="mockup-dot" onclick="goToSlide(1)"></span>
         <span class="mockup-dot" onclick="goToSlide(2)"></span>
+        <span class="mockup-dot" onclick="goToSlide(3)"></span>
       </div>
     </div>
 
@@ -864,7 +871,7 @@
     });
   }
   // Auto-advance carousel every 3 seconds
-  setInterval(() => goToSlide((currentSlide + 1) % 3), 3000);
+  setInterval(() => goToSlide((currentSlide + 1) % 4), 3000);
 
   const _supabase = supabase.createClient(
     'https://otgpkzjesscifwywxytu.supabase.co',
