@@ -544,6 +544,43 @@
       font-family: 'DM Mono', monospace; letter-spacing: 0.05em;
     }
 
+    /* ── INTEREST PILLS ── */
+    .interest-section {
+      width: 100%; margin: 14px 0 6px; text-align: center;
+    }
+    .interest-label {
+      font-family: 'DM Mono', monospace; font-size: 0.63rem;
+      letter-spacing: 0.18em; color: var(--text-muted);
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .interest-selector {
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+    }
+    .interest-toggle {
+      padding: 9px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(204, 204, 255, 0.18);
+      border-radius: 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.04em;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.2s ease; user-select: none;
+    }
+    .interest-toggle:hover {
+      border-color: rgba(204, 204, 255, 0.45);
+      background: rgba(204, 204, 255, 0.07);
+    }
+    .interest-toggle.selected {
+      border-color: var(--periwinkle);
+      color: #ffffff;
+      background: rgba(204, 204, 255, 0.18);
+      box-shadow:
+        0 0 0 1px var(--periwinkle),
+        0 0 12px rgba(204, 204, 255, 0.28);
+      font-weight: 600;
+    }
+
     /* ── SUCCESS ── */
     .success-block {
       display: none; flex-direction: column; align-items: center;
@@ -836,6 +873,17 @@
         </span>
       </div>
       <span class="success-hub-tag" id="success-hub-tag"></span>
+
+      <div class="interest-section">
+        <p class="interest-label">What are you here for? &nbsp;(optional)</p>
+        <div class="interest-selector">
+          <button type="button" class="interest-toggle" data-interest="Dating" onclick="toggleInterest(this)">💜 Dating</button>
+          <button type="button" class="interest-toggle" data-interest="Friends" onclick="toggleInterest(this)">👯 Friends</button>
+          <button type="button" class="interest-toggle" data-interest="Networking" onclick="toggleInterest(this)">💼 Networking</button>
+          <button type="button" class="interest-toggle" data-interest="All of it" onclick="toggleInterest(this)">✨ All of it</button>
+        </div>
+      </div>
+
       <p class="share-label">Share with your unit</p>
       <div class="share-grid">
         <a id="share-whatsapp" href="#" class="btn-share btn-share-whatsapp" target="_blank" rel="noopener">
@@ -884,6 +932,24 @@
   }
   // Auto-advance carousel every 3 seconds
   setInterval(() => goToSlide((currentSlide + 1) % 4), 3000);
+
+  let submittedEmail  = null;
+  let selectedInterests = [];
+
+  function toggleInterest(btn) {
+    const interest = btn.dataset.interest;
+    btn.classList.toggle('selected');
+    if (btn.classList.contains('selected')) {
+      selectedInterests.push(interest);
+    } else {
+      selectedInterests = selectedInterests.filter(i => i !== interest);
+    }
+    _supabase
+      .from('waitlist')
+      .update({ interests: selectedInterests.length > 0 ? selectedInterests : null })
+      .eq('email', submittedEmail)
+      .then(({ error }) => { if (error) console.error('Interest save error:', error); });
+  }
 
   const _supabase = supabase.createClient(
     'https://otgpkzjesscifwywxytu.supabase.co',
@@ -984,6 +1050,8 @@
         .single();
 
       if (dbError) throw dbError;
+
+      submittedEmail = emailValue;
 
       if (typeof fbq === 'function') fbq('track', 'Lead');
 
