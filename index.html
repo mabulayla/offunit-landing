@@ -549,36 +549,54 @@
       width: 100%; margin: 14px 0 6px; text-align: center;
     }
     .interest-label {
-      font-family: 'DM Mono', monospace; font-size: 0.63rem;
-      letter-spacing: 0.18em; color: var(--text-muted);
-      text-transform: uppercase; margin-bottom: 10px;
+      font-family: 'Instrument Sans', sans-serif; font-size: 0.95rem;
+      font-weight: 700; letter-spacing: 0.01em; color: #ffffff;
+      margin-bottom: 12px;
     }
     .interest-selector {
       display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
     }
     .interest-toggle {
-      padding: 9px 16px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(204, 204, 255, 0.18);
+      padding: 10px 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid rgba(204, 204, 255, 0.25);
       border-radius: 20px;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem; letter-spacing: 0.04em;
-      color: var(--text-primary);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.85rem; font-weight: 600; letter-spacing: 0.01em;
+      color: rgba(255,255,255,0.85);
       cursor: pointer;
       transition: all 0.2s ease; user-select: none;
     }
     .interest-toggle:hover {
-      border-color: rgba(204, 204, 255, 0.45);
-      background: rgba(204, 204, 255, 0.07);
+      border-color: rgba(204, 204, 255, 0.55);
+      background: rgba(204, 204, 255, 0.09);
+      color: #ffffff;
     }
     .interest-toggle.selected {
       border-color: var(--periwinkle);
       color: #ffffff;
-      background: rgba(204, 204, 255, 0.18);
+      background: rgba(204, 204, 255, 0.22);
       box-shadow:
         0 0 0 1px var(--periwinkle),
-        0 0 12px rgba(204, 204, 255, 0.28);
-      font-weight: 600;
+        0 0 14px rgba(204, 204, 255, 0.32);
+      font-weight: 700;
+    }
+    .btn-save-interests {
+      margin-top: 14px;
+      padding: 11px 28px;
+      background: var(--periwinkle);
+      border: none; border-radius: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      color: #0d0a1a; text-transform: uppercase;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .btn-save-interests:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-save-interests:disabled { opacity: 0.5; pointer-events: none; }
+    .interest-saved-msg {
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.08em; color: #a8f0c8;
+      margin-top: 6px; display: none;
     }
 
     /* ── SUCCESS ── */
@@ -875,13 +893,16 @@
       <span class="success-hub-tag" id="success-hub-tag"></span>
 
       <div class="interest-section">
-        <p class="interest-label">What are you here for? &nbsp;(optional)</p>
+        <p class="interest-label">What are you here for? <span style="font-weight:400;opacity:0.6;font-size:0.8rem;">(optional)</span></p>
         <div class="interest-selector">
+          <button type="button" class="interest-toggle" data-interest="Vibes" onclick="toggleInterest(this)">✨ Vibes</button>
           <button type="button" class="interest-toggle" data-interest="Dating" onclick="toggleInterest(this)">💜 Dating</button>
           <button type="button" class="interest-toggle" data-interest="Friends" onclick="toggleInterest(this)">👯 Friends</button>
           <button type="button" class="interest-toggle" data-interest="Networking" onclick="toggleInterest(this)">💼 Networking</button>
-          <button type="button" class="interest-toggle" data-interest="All of it" onclick="toggleInterest(this)">✨ All of it</button>
+          <button type="button" class="interest-toggle" data-interest="All of it" onclick="toggleInterest(this)">🔥 All of it</button>
         </div>
+        <button type="button" class="btn-save-interests" id="btn-save-interests" onclick="saveInterests()">Save my picks</button>
+        <p class="interest-saved-msg" id="interest-saved-msg">✓ Saved</p>
       </div>
 
       <p class="share-label">Share with your unit</p>
@@ -944,11 +965,26 @@
     } else {
       selectedInterests = selectedInterests.filter(i => i !== interest);
     }
-    _supabase
+    document.getElementById('interest-saved-msg').style.display = 'none';
+  }
+
+  async function saveInterests() {
+    if (!submittedEmail) return;
+    const saveBtn = document.getElementById('btn-save-interests');
+    saveBtn.disabled = true;
+    saveBtn.textContent = 'Saving...';
+    const { error } = await _supabase
       .from('waitlist')
       .update({ interests: selectedInterests.length > 0 ? selectedInterests : null })
-      .eq('email', submittedEmail)
-      .then(({ error }) => { if (error) console.error('Interest save error:', error); });
+      .eq('email', submittedEmail);
+    if (error) {
+      console.error('Interest save error:', error);
+      saveBtn.disabled = false;
+      saveBtn.textContent = 'Save my picks';
+    } else {
+      saveBtn.style.display = 'none';
+      document.getElementById('interest-saved-msg').style.display = 'block';
+    }
   }
 
   const _supabase = supabase.createClient(
