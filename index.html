@@ -1091,6 +1091,19 @@
 
       if (typeof fbq === 'function') fbq('track', 'Lead');
 
+      const ttqEventId = crypto.randomUUID();
+      if (typeof ttq !== 'undefined' && ttq.track) {
+        ttq.track('CompleteRegistration', {}, { event_id: ttqEventId });
+      }
+      _supabase.functions.invoke('tiktok-event', {
+        body: {
+          email: emailValue,
+          event_id: ttqEventId,
+          ip: null,
+          user_agent: navigator.userAgent,
+        }
+      }).catch(e => console.error('TikTok Events API error:', e));
+
       const signupNumber   = insertData?.signup_number ?? null;
       const isFoundingNurse = insertData?.is_founding_nurse ?? false;
 
