@@ -520,6 +520,23 @@
     .btn-save:disabled { opacity: 0.5; pointer-events: none; }
     .saved-msg { font-size: 0.72rem; color: #1a7a4a; display: none; margin-top: 6px; }
 
+    /* follow buttons */
+    .follow-row {
+      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 4px;
+    }
+    .btn-follow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: var(--radius-sm);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.84rem; font-weight: 700;
+      text-decoration: none; color: white;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-follow:hover { opacity: 0.86; transform: translateY(-1px); }
+    .btn-follow-tiktok   { background: #000; }
+    .btn-follow-ig       { background: linear-gradient(135deg, #833ab4, #c13584 50%, #fd1d1d); }
+
     /* share grid */
     .share-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -620,7 +637,7 @@
 <nav class="nav">
   <div class="nav-inner">
     <span class="wordmark">OFFUNIT™</span>
-    <span class="nav-pill">Founding Access</span>
+    <span class="nav-pill">Launching Soon</span>
   </div>
 </nav>
 
@@ -661,7 +678,7 @@
               Claim My Spot
             </button>
           </div>
-          <p class="form-note">Free for nurses &amp; nursing students &nbsp;·&nbsp; No spam &nbsp;·&nbsp; <a href="./privacy.html">Privacy</a></p>
+          <p class="form-note">App launching soon — join the waitlist &nbsp;·&nbsp; Free for nurses &nbsp;·&nbsp; No spam &nbsp;·&nbsp; <a href="./privacy.html">Privacy</a></p>
         </div>
       </div>
 
@@ -828,6 +845,19 @@
         </div>
         <button type="button" class="btn-save" id="btn-save-interests" onclick="saveInterests()">Save my picks</button>
         <p class="saved-msg" id="interest-saved-msg">✓ Saved</p>
+      </div>
+
+      <div class="success-divider"></div>
+
+      <span class="success-section-label">Don't miss launch day</span>
+      <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:14px;">We'll email you — but follow us too just in case.</p>
+      <div class="follow-row">
+        <a href="https://www.tiktok.com/@offunitapp" class="btn-follow btn-follow-tiktok" target="_blank" rel="noopener">
+          <i class="fa-brands fa-tiktok"></i> Follow on TikTok
+        </a>
+        <a href="https://www.instagram.com/offunitapp/" class="btn-follow btn-follow-ig" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram"></i> Follow on Instagram
+        </a>
       </div>
 
       <div class="success-divider"></div>
