@@ -65,8 +65,8 @@
       --teal:        #0099A8;
       --teal-light:  #00b8c8;
       --blush:       #CC4070;
-      --bg:          #FFFFFF;
-      --bg-alt:      #F7F6FF;
+      --bg:          #EDEAFF;
+      --bg-alt:      #FFFFFF;
       --text:        #0F0A2E;
       --text-muted:  #5A5480;
       --text-dim:    #9490B8;
@@ -588,9 +588,25 @@
       .form-row { flex-direction: column; }
       .btn-cta { width: 100%; padding: 16px; font-size: 0.95rem; }
       .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .phones-row .phone-side-wrap { display: none; }
       .cta-band { padding: 64px 0; }
       h1 { font-size: 2rem; }
+
+      /* Horizontal swipe on mobile instead of hiding phones */
+      .phones-row {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        padding: 0 32px 16px;
+        gap: 16px;
+        scrollbar-width: none;
+      }
+      .phones-row::-webkit-scrollbar { display: none; }
+      .phone-wrap { scroll-snap-align: center; flex-shrink: 0; }
+      .phone-side-wrap .phone-frame-dark,
+      .phone-center-wrap .phone-frame-dark { width: 175px; opacity: 1; }
+      .phone-left  { transform: none; }
+      .phone-right { transform: none; }
     }
     @media (max-width: 480px) {
       .features-grid { grid-template-columns: 1fr; }
@@ -705,15 +721,15 @@
       </div>
       <div class="phone-wrap phone-center-wrap">
         <div class="phone-frame-dark">
-          <img src="./mockup-swipe.png" alt="OFFUNIT Dating" />
+          <img src="./mockup-messages.png" alt="OFFUNIT Messages" />
         </div>
-        <p class="phone-label">Dating</p>
+        <p class="phone-label">Messages</p>
       </div>
       <div class="phone-wrap phone-side-wrap phone-right">
         <div class="phone-frame-dark">
-          <img src="./mockup-messages.png" alt="OFFUNIT Messages" />
+          <img src="./mockup-networking.png" alt="OFFUNIT Networking" />
         </div>
-        <p class="phone-label">Connect</p>
+        <p class="phone-label">Networking</p>
       </div>
     </div>
   </div>
