@@ -171,7 +171,7 @@
   <div class="policy-header">
     <p class="policy-tag">Legal</p>
     <h1>Privacy Policy</h1>
-    <p class="policy-meta">Version 2.0 &nbsp;·&nbsp; Effective July 2026 &nbsp;·&nbsp; Applies to the OFFUNIT mobile app, waitlist, and website</p>
+    <p class="policy-meta">Version 2.1 &nbsp;·&nbsp; Effective July 26, 2026 &nbsp;·&nbsp; Applies to the OFFUNIT mobile app, waitlist, and website</p>
   </div>
 
   <div class="policy-section">
@@ -195,16 +195,19 @@
     <p><strong>If you verify your nursing license (optional):</strong> we collect your license number, license state, and expiration date, and the photo of your license you submit. See Section 4.</p>
     <p><strong>Location:</strong> with your permission, we use your device's location to place you in a city hub and show you nearby members. We use approximate, city-level location for matching — other users never see your precise coordinates.</p>
     <p><strong>Content you create:</strong> chat messages with your matches, posts, comments, and reactions on the OffFeed, badges you earn, and reports you submit.</p>
+    <p><strong>Your settings and activity on the platform:</strong> who you have paged, passed, matched with, or sparked; who you have blocked; whether incognito browsing is turned on; your notification preferences; and your matching filters.</p>
+    <p><strong>Purchases and paid features:</strong> if you subscribe to OFFUNIT+ or buy Sparks or Boosts, we store your subscription status, your remaining Spark and Boost balances, and a record of the purchase. See Section 6.</p>
     <p><strong>Collected automatically:</strong></p>
     <ul>
       <li>Device information, app version, and crash/diagnostic data</li>
       <li>Push notification tokens (so we can deliver notifications you've enabled)</li>
+      <li>Your IP address, which our servers use to apply rate limits and detect abuse</li>
       <li>On the website only: general location, browser type, pages visited, IP address, and ad interaction data via Meta Pixel and TikTok Pixel</li>
     </ul>
     <p><strong>What we do not collect:</strong></p>
     <ul>
-      <li>Credit card or bank details — subscription payments are processed entirely by Apple's App Store or Google Play; we never see your payment credentials</li>
-      <li>Protected Health Information (PHI) or any patient data — sharing it is prohibited (see Section 7)</li>
+      <li>Credit card or bank details. All payments are processed entirely by Apple's App Store or Google Play, and we never see your payment credentials</li>
+      <li>Protected Health Information (PHI) or any patient data. Sharing it is prohibited (see Section 8)</li>
     </ul>
   </div>
 
@@ -215,7 +218,9 @@
       <li>Verify professional credentials for members who choose RN verification</li>
       <li>Keep the community safe: enforce our guidelines, review reports, and moderate content (see Section 3)</li>
       <li>Send notifications you've enabled (matches, messages, verification updates) and important account emails</li>
-      <li>Manage subscriptions and unlock paid features</li>
+      <li>Manage subscriptions, track Spark and Boost balances, and unlock paid features</li>
+      <li>Count how many members saw your profile while a Boost was active, so we can show you the result of what you paid for</li>
+      <li>Apply rate limits and detect automated abuse of our servers</li>
       <li>Fix crashes and improve the app using diagnostic data</li>
       <li>For the waitlist: send launch announcements and prioritize which city hubs open first</li>
       <li>Measure the effectiveness of our website advertising (anonymized)</li>
@@ -242,6 +247,7 @@
     <h2>5. How We Share Your Information</h2>
     <p>We do not sell, rent, or trade your personal information to any third party for their own marketing purposes. Ever.</p>
     <p><strong>Other members:</strong> your profile (name, age, photos, GIF, bio, prompts, professional details, badges, and verified status) is visible to other OFFUNIT members as part of how the platform works. Your email, precise location, license details, and license photo are never shown to other members.</p>
+    <p>Some things stay private by design. Other members are never told whether you have an active Boost, how many Sparks or Boosts you have, whether you subscribe to OFFUNIT+, whether you have blocked someone, or that you passed on them. If you browse in incognito mode, members you have not paged do not see you in their deck at all.</p>
     <p><strong>Service providers</strong> that process data on our behalf:</p>
     <ul>
       <li><strong>Supabase</strong> — database, authentication, and photo storage (SOC 2 compliant)</li>
@@ -251,7 +257,7 @@
       <li><strong>Resend</strong> — transactional email delivery (password resets, verification decisions)</li>
       <li><strong>Sentry</strong> — crash and error reporting</li>
       <li><strong>RevenueCat</strong> — subscription management (receives purchase receipts from Apple/Google, not your payment details)</li>
-      <li><strong>GIPHY</strong> — GIF search (your search terms are sent to GIPHY to return results)</li>
+      <li><strong>GIPHY</strong> — GIF search. Your search terms, a randomly generated session identifier, and which GIF you select are sent to GIPHY. GIPHY requires this to serve results and measure usage. The identifier is not your OFFUNIT account ID and does not tell GIPHY who you are</li>
       <li><strong>Google / Apple</strong> — sign-in, if you choose social login</li>
       <li><strong>Meta Pixel / TikTok Pixel</strong> — anonymized advertising measurement, website only</li>
     </ul>
@@ -261,13 +267,24 @@
   </div>
 
   <div class="policy-section">
-    <h2>6. Data Storage &amp; Security</h2>
-    <p>Your data is stored in the United States. We use encrypted connections (HTTPS/TLS) for all data in transit, passwords are stored as secure hashes, and access to production data is restricted.</p>
+    <h2>6. Purchases &amp; Paid Features</h2>
+    <p>OFFUNIT offers an optional subscription (OFFUNIT+) and optional one-time purchases (Spark packs and Boost packs). Everything essential to the platform, including profile creation, matching, messaging, the OffFeed, and RN verification, remains free.</p>
+    <p><strong>How payment works:</strong> all purchases are made through the Apple App Store or Google Play. Apple or Google collects your payment, and we receive only a purchase receipt confirming what you bought. We never receive or store your card number, bank details, or billing address. We use <strong>RevenueCat</strong> to validate those receipts and tell our servers what you are entitled to.</p>
+    <p><strong>What we store:</strong> your subscription status and renewal date, your remaining Spark and Boost balances, and when a Boost was activated and when it expires.</p>
+    <p><strong>Boost and the "seen by" counter:</strong> when you activate a Boost, your profile is placed near the front of other members' decks for 24 hours, and we count how many times it was shown. That counter is a total number only. We do not tell you who saw you, and we do not tell other members that the profile they are seeing was boosted.</p>
+    <div class="policy-note">
+      <p>Sparks and Boosts are virtual items with no cash value. If you delete your account, any unused balance is lost. See our <a href="./terms.html">Terms of Service</a> for the full purchase and refund terms.</p>
+    </div>
+  </div>
+
+  <div class="policy-section">
+    <h2>7. Data Storage &amp; Security</h2>
+    <p>Your data is stored in the United States. If you use OFFUNIT from outside the United States, you understand that your information will be transferred to and processed in the United States, where privacy laws may differ from those in your country. We use encrypted connections (HTTPS/TLS) for all data in transit, passwords are stored as secure hashes, and access to production data is restricted.</p>
     <p>Despite these measures, no system is perfectly secure. We cannot guarantee absolute security and encourage you to use a strong, unique password.</p>
   </div>
 
   <div class="policy-section">
-    <h2>7. Patient Privacy (HIPAA Notice)</h2>
+    <h2>8. Patient Privacy (HIPAA Notice)</h2>
     <p>OFFUNIT is not a HIPAA covered entity and does not provide a HIPAA-compliant environment. The platform is a social and networking space — it is not intended for clinical communication or the storage of any patient information.</p>
     <div class="policy-warning">
       <p><strong>Users are strictly prohibited from sharing Protected Health Information (PHI)</strong> — any information that could identify a patient — on the OFFUNIT platform. We use automated scanning to help detect and block PHI before it is posted, but no automated system is perfect. If you believe PHI has been shared, contact us immediately at <a href="mailto:contact@offunit.app">contact@offunit.app</a>.</p>
@@ -275,14 +292,14 @@
   </div>
 
   <div class="policy-section">
-    <h2>8. Data Retention &amp; Account Deletion</h2>
+    <h2>9. Data Retention &amp; Account Deletion</h2>
     <p>We keep your account data for as long as your account is active. <strong>You can permanently delete your account at any time from inside the app</strong> (Settings → Delete Account). Deletion removes your profile, photos, matches, messages, posts, and comments from the platform.</p>
     <p>Limited data may be retained after deletion where reasonably necessary: safety and moderation records (see Section 3), records we need to comply with legal obligations, and backups that roll off on a fixed schedule.</p>
     <p>Waitlist data is retained until you request removal or you create an account at launch. To be removed from the waitlist, email <a href="mailto:contact@offunit.app">contact@offunit.app</a> and we will delete your data within 30 days.</p>
   </div>
 
   <div class="policy-section">
-    <h2>9. Your Rights &amp; Choices</h2>
+    <h2>10. Your Rights &amp; Choices</h2>
     <p>You have the right to:</p>
     <ul>
       <li>Access the personal information we hold about you</li>
@@ -295,7 +312,7 @@
   </div>
 
   <div class="policy-section">
-    <h2>10. California Residents (CCPA)</h2>
+    <h2>11. California Residents (CCPA)</h2>
     <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA):</p>
     <ul>
       <li><strong>Right to know</strong> — what personal information we collect and how we use it</li>
@@ -309,17 +326,35 @@
   </div>
 
   <div class="policy-section">
-    <h2>11. Age Requirement</h2>
+    <h2>12. European Economic Area &amp; United Kingdom (GDPR)</h2>
+    <p>If you are in the EEA, the UK, or Switzerland, you have rights under the General Data Protection Regulation and equivalent UK law. Moe &amp; Bros Enterprises, LLC is the data controller for the information described in this policy.</p>
+    <p><strong>Our legal bases for processing:</strong></p>
+    <ul>
+      <li><strong>Performance of a contract</strong> — creating your account, matching, messaging, running the OffFeed, and fulfilling purchases you make</li>
+      <li><strong>Consent</strong> — location access, push notifications, and submitting a nursing license for verification. You can withdraw consent at any time in your device or app settings</li>
+      <li><strong>Legitimate interests</strong> — keeping the community safe, moderating content, preventing fraud and abuse, and fixing crashes</li>
+      <li><strong>Legal obligation</strong> — responding to lawful requests and retaining records we are required to keep</li>
+    </ul>
+    <p><strong>Sensitive data:</strong> depending on how you use the platform, your profile may reveal information some laws treat as sensitive, such as your sexual orientation (through the modes you select) or your health-related profession. You provide this information voluntarily and, by choosing to publish it on your profile, you consent to it being shown to other members. You can edit or remove it at any time.</p>
+    <p><strong>Your rights:</strong> access, rectification, erasure, restriction of processing, objection to processing, and data portability. You also have the right to lodge a complaint with your local supervisory authority.</p>
+    <p><strong>International transfers:</strong> our servers are in the United States. Where we transfer personal data out of the EEA or UK, we rely on the European Commission's Standard Contractual Clauses (and the UK Addendum) with our service providers.</p>
+    <div class="policy-note">
+      <p>To exercise any GDPR right, email <a href="mailto:contact@offunit.app">contact@offunit.app</a>. We will respond within one month.</p>
+    </div>
+  </div>
+
+  <div class="policy-section">
+    <h2>13. Age Requirement</h2>
     <p>OFFUNIT is intended for adults 18 years of age and older, and the app is rated 17+ in the app stores. We do not knowingly collect personal information from anyone under 18. If we learn we have collected information from a minor, we will delete it promptly. If you believe a minor has created an account, contact us at <a href="mailto:contact@offunit.app">contact@offunit.app</a>.</p>
   </div>
 
   <div class="policy-section">
-    <h2>12. Changes to This Policy</h2>
+    <h2>14. Changes to This Policy</h2>
     <p>We may update this policy as the product evolves. When we make material changes, we will update the effective date at the top of this page and, for significant changes, notify you in the app or by email. Continued use of OFFUNIT after changes take effect constitutes acceptance of the updated policy.</p>
   </div>
 
   <div class="policy-section">
-    <h2>13. Contact</h2>
+    <h2>15. Contact</h2>
     <p>Questions, concerns, or data requests:</p>
     <ul>
       <li>Email: <a href="mailto:contact@offunit.app">contact@offunit.app</a></li>
