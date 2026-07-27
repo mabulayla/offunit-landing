@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Your Account — OFFUNIT</title>
+  <meta name="description" content="How to delete your OFFUNIT account and what happens to your data." />
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --purple:      #5858C8;
+      --purple-soft: #EDEAFF;
+      --teal:        #0099A8;
+      --text:        #0F0A2E;
+      --text-muted:  #5A5480;
+      --text-dim:    #9490B8;
+      --border:      rgba(88, 88, 200, 0.14);
+      --bg:          #EDEAFF;
+      --bg-alt:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .nav {
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .wordmark {
+      font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.2em; color: var(--purple); text-transform: uppercase;
+      text-decoration: none;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.78rem; font-weight: 600; color: var(--text-muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--purple); }
+
+    /* PAGE */
+    .page {
+      max-width: 720px; margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    .policy-header { margin-bottom: 48px; }
+    .policy-tag {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.15; color: var(--text);
+      margin-bottom: 10px;
+    }
+    .policy-meta {
+      font-size: 0.78rem; color: var(--text-dim);
+    }
+
+    /* SECTIONS */
+    .policy-section {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--purple);
+      margin-bottom: 14px;
+    }
+    p {
+      font-size: 0.93rem; line-height: 1.78;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    p:last-child { margin-bottom: 0; }
+    p strong { color: var(--text); font-weight: 600; }
+    ul, ol {
+      margin: 8px 0 12px 18px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    ul li, ol li {
+      font-size: 0.93rem; line-height: 1.65; color: var(--text-muted);
+    }
+    ul li:last-child, ol li:last-child { margin-bottom: 0; }
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* STEPS */
+    .steps {
+      counter-reset: step;
+      margin: 4px 0 0;
+      list-style: none;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 40px;
+      font-size: 0.93rem; line-height: 1.65; color: var(--text-muted);
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute; left: 0; top: -1px;
+      width: 26px; height: 26px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--purple-soft);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      font-size: 0.76rem; font-weight: 700; color: var(--purple);
+    }
+
+    /* HIGHLIGHT BOXES */
+    .policy-note {
+      background: rgba(0, 153, 168, 0.07);
+      border: 1px solid rgba(0, 153, 168, 0.22);
+      border-left: 3px solid var(--teal);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 14px;
+    }
+    .policy-note p {
+      font-size: 0.88rem; color: var(--text-muted); margin: 0;
+    }
+    .policy-warning {
+      background: rgba(204, 64, 112, 0.06);
+      border: 1px solid rgba(204, 64, 112, 0.20);
+      border-left: 3px solid #CC4070;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 14px;
+    }
+    .policy-warning p {
+      font-size: 0.88rem; color: var(--text-muted); margin: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.71rem; color: var(--text-dim);
+      margin-top: 48px;
+    }
+    footer a { color: var(--text-dim); text-decoration: none; }
+    footer a:hover { color: var(--teal); }
+
+    @media (max-width: 600px) {
+      .policy-section { padding: 22px 18px; }
+      .page { padding: 36px 16px 72px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="./index.html" class="wordmark">OFFUNIT™</a>
+  <a href="./index.html" class="back-link">← Back</a>
+</nav>
+
+<div class="page">
+
+  <div class="policy-header">
+    <p class="policy-tag">Account</p>
+    <h1>Delete Your Account</h1>
+    <p class="policy-meta">Last updated July 27, 2026 &nbsp;·&nbsp; Applies to OFFUNIT accounts</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>Delete from inside the app</h2>
+    <p>The fastest way to delete your OFFUNIT account is directly in the app. Deletion is immediate and permanent — it does not require contacting us or waiting for approval.</p>
+    <ol class="steps">
+      <li>Open OFFUNIT and go to the <strong>Profile</strong> tab.</li>
+      <li>Tap <strong>Settings</strong>.</li>
+      <li>Scroll to the bottom and tap <strong>Delete Account</strong>.</li>
+      <li>Tap <strong>Delete Forever</strong>, then <strong>Yes, Delete Everything</strong> on the final confirmation.</li>
+    </ol>
+    <div class="policy-warning">
+      <p>Deleting your account cannot be undone. You will not be able to recover your profile, matches, or conversations afterward.</p>
+    </div>
+  </div>
+
+  <div class="policy-section">
+    <h2>Delete by email</h2>
+    <p>If you can no longer access the app — for example you uninstalled it, lost access to your device, or cannot sign in — email us and we will delete your account for you.</p>
+    <ul>
+      <li>Email: <a href="mailto:contact@offunit.app?subject=Account%20deletion%20request">contact@offunit.app</a></li>
+      <li>Subject line: <strong>Account deletion request</strong></li>
+      <li>Send from the email address on your OFFUNIT account, so we can verify the request</li>
+    </ul>
+    <p>We will confirm and complete the deletion within <strong>30 days</strong>, and in most cases much sooner.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>What gets deleted</h2>
+    <p>Deleting your account permanently removes the following from the platform:</p>
+    <ul>
+      <li>Your profile, including your name, age, bio, prompts, and professional details</li>
+      <li>Your photos and any featured GIF</li>
+      <li>Your quiz answers and personality result</li>
+      <li>Your matches, conversations, and messages</li>
+      <li>Your OffFeed posts, comments, and reactions</li>
+      <li>Your badges, including verified status</li>
+      <li>Your nursing license details and license photo, if you submitted them</li>
+      <li>Your location, matching preferences, and notification settings</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2>What we may keep, and why</h2>
+    <p>A limited amount of data may be retained after deletion, only where it is reasonably necessary:</p>
+    <ul>
+      <li><strong>Safety and moderation records.</strong> If enforcement action was taken on your account, we keep a record of the action and an evidence snapshot, for the safety of the community, dispute resolution, and legal compliance.</li>
+      <li><strong>Records we are legally required to keep</strong>, such as transaction records.</li>
+      <li><strong>Backups</strong>, which roll off automatically on a fixed schedule.</li>
+    </ul>
+    <p>This is described in full in Section 9 of our <a href="./privacy.html">Privacy Policy</a>.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>Purchases, subscriptions, and balances</h2>
+    <p>Deleting your OFFUNIT account does <strong>not</strong> automatically cancel a subscription. Subscriptions are billed by Apple or Google, and must be cancelled in your store account.</p>
+    <ul>
+      <li><strong>iPhone / iPad:</strong> Settings → your name → Subscriptions → OFFUNIT → Cancel Subscription</li>
+      <li><strong>Android:</strong> Google Play → profile icon → Payments &amp; subscriptions → Subscriptions → OFFUNIT → Cancel</li>
+    </ul>
+    <div class="policy-note">
+      <p>Cancel your subscription <strong>before</strong> deleting your account, so you are not billed for a renewal you can no longer use. Any unused Spark or Boost balance is lost on deletion and has no cash value.</p>
+    </div>
+  </div>
+
+  <div class="policy-section">
+    <h2>Just want a break instead?</h2>
+    <p>If you only want to stop being seen for a while, you do not need to delete your account. Incognito browsing hides you from members you have not paged, and you can turn off push notifications at any time in your device settings. Both are reversible; deletion is not.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>Questions</h2>
+    <p>If anything here is unclear, or your deletion has not completed, contact us:</p>
+    <ul>
+      <li>Email: <a href="mailto:contact@offunit.app">contact@offunit.app</a></li>
+      <li>Website: <a href="https://offunit.app">offunit.app</a></li>
+    </ul>
+    <p>We're a small team and we actually read the emails.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 OFFUNIT™ is a product of <a href="https://moebrosenterprises.com/" target="_blank" rel="noopener">Moe &amp; Bros Enterprises, LLC</a> &nbsp;·&nbsp; <a href="./index.html">offunit.app</a> &nbsp;·&nbsp; <a href="./privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="./terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="mailto:contact@offunit.app">contact@offunit.app</a></p>
+</footer>
+
+</body>
+</html>
