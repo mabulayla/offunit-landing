@@ -112,6 +112,20 @@
       font-size: 0.9rem; font-weight: 700;
       letter-spacing: 0.2em; color: var(--purple); text-transform: uppercase;
     }
+    /* Mark + wordmark read as one lockup. The gap is tighter than the
+       wordmark's own letter-spacing would suggest so the two group as a unit
+       rather than as two separate things that happen to sit near each other. */
+    .brand { display: inline-flex; align-items: center; gap: 9px; }
+    .brand-mark {
+      width: 30px; height: auto; display: block;
+      /* The artwork is pale cream on transparent; on this near-white nav it
+         needs a whisper of shadow or it dissolves into the bar. */
+      filter: drop-shadow(0 1px 2px rgba(16, 12, 36, 0.18));
+    }
+    @media (max-width: 480px) {
+      .brand { gap: 7px; }
+      .brand-mark { width: 26px; }
+    }
     .nav-pill {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.10em;
       color: var(--purple); text-transform: uppercase;
@@ -842,7 +856,14 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <span class="wordmark">OFFUNIT™</span>
+    <!-- The app icon's own artwork, minus its purple backdrop. Someone who
+         taps a download button has to recognise this in the store and then on
+         their home screen; showing it first is the point. Once, here, only. -->
+    <span class="brand">
+      <img class="brand-mark" src="./logo-mark.png" width="96" height="90"
+           alt="" aria-hidden="true" />
+      <span class="wordmark">OFFUNIT™</span>
+    </span>
     <span class="nav-pill waitlist-only">Launching Soon</span>
     <a class="nav-pill download-only" href="#cta-band" style="text-decoration:none">Get the App</a>
   </div>
