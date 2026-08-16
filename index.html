@@ -115,16 +115,16 @@
     /* Mark + wordmark read as one lockup. The gap is tighter than the
        wordmark's own letter-spacing would suggest so the two group as a unit
        rather than as two separate things that happen to sit near each other. */
-    .brand { display: inline-flex; align-items: center; gap: 9px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; }
     .brand-mark {
-      width: 30px; height: auto; display: block;
+      width: 38px; height: auto; display: block;
       /* The artwork is pale cream on transparent; on this near-white nav it
          needs a whisper of shadow or it dissolves into the bar. */
       filter: drop-shadow(0 1px 2px rgba(16, 12, 36, 0.18));
     }
     @media (max-width: 480px) {
-      .brand { gap: 7px; }
-      .brand-mark { width: 26px; }
+      .brand { gap: 8px; }
+      .brand-mark { width: 32px; }
     }
     .nav-pill {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.10em;
