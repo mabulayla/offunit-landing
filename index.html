@@ -288,17 +288,23 @@
     }
     .hero-device-screen {
       position: relative;
-      border-radius: 35px; overflow: hidden;
-      background: #14103A;
-      /* Matches the 540x1066 source so nothing reflows once the clip loads. */
-      aspect-ratio: 540 / 1066;
+      /* 35px was clipping the outermost tab labels. The recording runs
+         edge-to-edge and "Swipe" and "Profile" sit in the bottom corners,
+         exactly where a large radius curves inward. */
+      border-radius: 30px; overflow: hidden;
+      /* The tab bar's own background, sampled from the clip (#EDF2FF). The
+         box is a little taller than the 540x1066 source and the video is
+         pinned to the top, so those extra pixels below read as more tab bar
+         rather than as a letterbox — and they push the labels clear of the
+         corner curve. */
+      background: #EDF2FF;
+      aspect-ratio: 540 / 1090;
     }
     .hero-device-screen video {
-      width: 100%; height: 100%;
+      width: 100%; height: auto;
       display: block;
-      /* contain, not cover: the element and the file are the same ratio, so
-         cover only risks shaving a pixel row off the tab bar. */
       object-fit: contain;
+      object-position: top;
     }
 
     /* ── LAUNCH MODE ──────────────────────────────────────────────
@@ -1352,7 +1358,7 @@
     b.type = 'button';
     b.className = 'shots-dot' + (i === 0 ? ' is-active' : '');
     b.setAttribute('aria-label', `Show screen ${i + 1} of ${slides.length}`);
-    b.addEventListener('click', () => { stopAuto(); goTo(i); });
+    b.addEventListener('click', () => goTo(i));
     dotsWrap.appendChild(b);
     return b;
   });
@@ -1376,12 +1382,24 @@
     return (r.left + r.width / 2) - (t.left + t.width / 2);
   }
 
-  function goTo(i) {
+  function goTo(i, instant) {
     const target = slides[(i + slides.length) % slides.length];
+    /* 'instant', not 'auto'. behavior:'auto' means "whatever CSS says", and
+       this track declares scroll-behavior: smooth — so 'auto' still animates
+       and the wrap crawls backwards through every slide. */
     track.scrollBy({
       left: centreDelta(target),
-      behavior: reduceMotion.matches ? 'auto' : 'smooth',
+      behavior: reduceMotion.matches || instant ? 'instant' : 'smooth',
     });
+  }
+
+  /* Advancing past the last slide has to travel the whole width back to the
+     first, and smooth-scrolling that reads as the carousel rewinding through
+     everything you just saw. Snap instead: a cut back to the start looks
+     deliberate, a rewind looks broken. */
+  function advance() {
+    const wrapping = index === slides.length - 1;
+    goTo(index + 1, wrapping);
   }
 
   /* Which slide is active is a question about distance from the centre, so
@@ -1419,38 +1437,54 @@
   syncActive();
 
   document.querySelectorAll('.shots-arrow').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      stopAuto();
-      goTo(index + Number(btn.dataset.dir));
-    });
+    btn.addEventListener('click', () => goTo(index + Number(btn.dataset.dir)));
   });
 
-  /* Auto-advance. Stops permanently on any deliberate interaction — once
-     someone is steering, taking the wheel back is hostile. */
+  /* Auto-advance. Interaction pauses rather than cancels: rotation is the
+     point, but stealing the slide out from under someone mid-swipe is not.
+     RESUME_MS is the quiet period after they stop touching it. */
   let timer = null;
-  const DELAY = 4500;
+  let resumeTimer = null;
+  const DELAY = 2400;
+  const RESUME_MS = 6000;
+  let inView = false;
 
   function startAuto() {
-    if (timer || reduceMotion.matches || document.hidden) return;
-    timer = setInterval(() => goTo(index + 1), DELAY);
+    if (timer || reduceMotion.matches || document.hidden || !inView) return;
+    timer = setInterval(advance, DELAY);
   }
-  function pauseAuto() { clearInterval(timer); timer = null; }
-  function stopAuto() { pauseAuto(); startAuto = () => {}; }
+  function pauseAuto() {
+    clearInterval(timer); timer = null;
+    clearTimeout(resumeTimer); resumeTimer = null;
+  }
+  // Pause now, pick it back up once they've been still for a while.
+  function deferAuto() {
+    pauseAuto();
+    resumeTimer = setTimeout(startAuto, RESUME_MS);
+  }
 
   ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach((ev) =>
-    track.addEventListener(ev, stopAuto, { passive: true }),
+    track.addEventListener(ev, deferAuto, { passive: true }),
+  );
+  document.querySelectorAll('.shots-arrow, .shots-dot').forEach((el) =>
+    el.addEventListener('click', deferAuto),
   );
   track.addEventListener('mouseenter', pauseAuto);
-  track.addEventListener('mouseleave', () => startAuto());
+  track.addEventListener('mouseleave', deferAuto);
   track.addEventListener('focusin', pauseAuto);
+  track.addEventListener('focusout', deferAuto);
   document.addEventListener('visibilitychange', () =>
     document.hidden ? pauseAuto() : startAuto(),
   );
 
   // Only run once the section is actually on screen; a carousel cycling in
-  // an unseen part of the page is pure battery cost.
+  // an unseen part of the page is pure battery cost. inView gates startAuto
+  // so a deferred resume can't fire it back up after you've scrolled away.
   new IntersectionObserver(
-    (entries) => entries.forEach((e) => (e.isIntersecting ? startAuto() : pauseAuto())),
+    (entries) => entries.forEach((e) => {
+      inView = e.isIntersecting;
+      if (inView) startAuto(); else pauseAuto();
+    }),
     { threshold: 0.25 },
   ).observe(document.getElementById('shots'));
 
