@@ -268,6 +268,39 @@
       border-radius: inherit; object-fit: cover;
     }
 
+    /* Device bezel for the hero clip. The store shots ship with their own
+       device and backdrop; this recording is bare app UI, so the frame is
+       what tells you it's a phone. */
+    .hero-device {
+      position: relative; z-index: 1;
+      width: 272px;
+      /* Even bezel on all four sides. An earlier version put a speaker slit
+         inside the screen area, which overlaid the app's own chrome and read
+         as dirt on the glass rather than as hardware. A plain bezel is
+         cleaner than a half-committed one. */
+      padding: 12px;
+      background: linear-gradient(160deg, #2A2158 0%, #14103A 52%, #1D1747 100%);
+      border-radius: 46px;
+      box-shadow:
+        0 34px 84px rgba(16,12,36,0.34),
+        0 2px 6px rgba(16,12,36,0.18),
+        inset 0 0 0 1px rgba(255,255,255,0.13);
+    }
+    .hero-device-screen {
+      position: relative;
+      border-radius: 35px; overflow: hidden;
+      background: #14103A;
+      /* Matches the 540x1066 source so nothing reflows once the clip loads. */
+      aspect-ratio: 540 / 1066;
+    }
+    .hero-device-screen video {
+      width: 100%; height: 100%;
+      display: block;
+      /* contain, not cover: the element and the file are the same ratio, so
+         cover only risks shaving a pixel row off the tab bar. */
+      object-fit: contain;
+    }
+
     /* ── LAUNCH MODE ──────────────────────────────────────────────
        One switch (LAUNCH_MODE at the bottom of this file) flips the page
        between pre-launch waitlist and live download links. Kept as a class
@@ -393,6 +426,78 @@
       text-transform: uppercase; color: var(--text-dim);
     }
 
+    /* ── SHOWCASE CAROUSEL ──────────────────────────────────────────
+       Native scroll + scroll-snap rather than a transform track: touch,
+       trackpad and keyboard all work for free, and the whole thing still
+       reads correctly with JavaScript off. */
+    .shots { margin-top: 40px; }
+    .shots-track {
+      display: flex;
+      gap: clamp(14px, 3vw, 28px);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      /* Padding, not margin auto: it lets the first and last slide reach the
+         centre of the viewport so every slide can be the active one. */
+      padding: 4px calc(50% - (clamp(232px, 60vw, 310px) / 2)) 8px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .shots-track::-webkit-scrollbar { display: none; }
+    .shot {
+      flex: 0 0 clamp(232px, 60vw, 310px);
+      scroll-snap-align: center;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 22px 54px rgba(16,12,36,0.22), 0 0 0 1px rgba(88,88,200,0.10);
+      opacity: 0.55;
+      transform: scale(0.94);
+      transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .shot.is-active { opacity: 1; transform: scale(1); }
+    .shot img { display: block; width: 100%; height: auto; border-radius: inherit; }
+
+    .shots-controls {
+      display: flex; align-items: center; justify-content: center;
+      gap: 18px; margin-top: 28px;
+    }
+    .shots-arrow {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; padding: 0;
+      border: 1px solid var(--border); border-radius: 100px;
+      background: var(--bg-alt); color: var(--text);
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.16,1,0.3,1),
+                  border-color 0.2s, box-shadow 0.2s;
+    }
+    .shots-arrow svg { width: 19px; height: 19px; }
+    .shots-arrow:hover {
+      transform: translateY(-2px);
+      border-color: rgba(88,88,200,0.34);
+      box-shadow: 0 8px 20px rgba(16,12,36,0.14);
+    }
+    .shots-arrow:active { transform: translateY(0); }
+    .shots-dots { display: flex; align-items: center; gap: 9px; }
+    .shots-dot {
+      width: 8px; height: 8px; padding: 0;
+      border: 0; border-radius: 100px;
+      background: rgba(88,88,200,0.26);
+      cursor: pointer;
+      transition: width 0.35s cubic-bezier(0.16,1,0.3,1), background 0.25s;
+    }
+    .shots-dot.is-active { width: 26px; background: var(--purple); }
+    .shots-arrow:focus-visible,
+    .shots-dot:focus-visible,
+    .shots-track:focus-visible {
+      outline: 2px solid var(--purple); outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shots-track { scroll-behavior: auto; }
+      .shot { transition: none; opacity: 1; transform: none; }
+    }
+
     /* ── TESTIMONIAL ── */
     .quote-section {
       background: var(--bg-alt);
@@ -430,32 +535,7 @@
     }
 
     /* ── CITIES ── */
-    .cities-section {
-      padding: 64px 0;
-      text-align: center;
-    }
-    .cities-row {
-      display: flex; flex-wrap: wrap;
-      justify-content: center; gap: 10px;
-      margin-top: 16px;
-    }
-    .city-pill {
-      display: flex; align-items: center; gap: 8px;
-      padding: 9px 18px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-pill);
-      font-size: 0.82rem; font-weight: 500; color: var(--text-muted);
-      background: #fff;
-    }
-    .city-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--teal);
-      animation: blink 2.2s ease-in-out infinite;
-    }
-    .city-pill:nth-child(2) .city-dot { animation-delay: 0.5s; }
-    .city-pill:nth-child(3) .city-dot { animation-delay: 1s; }
-    .city-pill:nth-child(4) .city-dot { animation-delay: 1.5s; }
-    .city-pill:nth-child(5) .city-dot { animation-delay: 2s; }
+    /* .cities-section styles removed with the section itself, Aug 15 2026. */
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.18; } }
 
     /* ── BOTTOM CTA BAND ── */
@@ -678,6 +758,8 @@
       }
       .hero-visual { order: 1; }
       .hero-phone-frame { width: 200px; }
+      .hero-device      { width: 212px; padding: 9px; border-radius: 36px; }
+      .hero-device-screen { border-radius: 28px; }
       .hero-text { text-align: center; }
       .eyebrow { justify-content: center; }
       .hero-sub { margin-left: auto; margin-right: auto; }
@@ -743,11 +825,10 @@
      false = pre-launch. Waitlist form + "Founding Nurses" strip show.
      true  = live.       Those hide; App Store / Play buttons show.
 
-     Flip this to true the moment BOTH stores have approved. The store
-     URLs are already correct and will 404 until then, which is exactly
-     why this is a switch and not a rewrite.
+     Flipped true on Aug 15 2026. Both stores approved Aug 14; both URLs
+     below were confirmed returning 200 before this was switched over.
      ───────────────────────────────────────────────────────────── */
-  const LAUNCH_MODE = false;
+  const LAUNCH_MODE = true;
   if (LAUNCH_MODE) document.body.classList.add('is-live');
 </script>
 
@@ -815,8 +896,20 @@
 
       <div class="hero-visual">
         <div class="hero-phone-wrap">
-          <div class="hero-phone-frame">
-            <img src="./shot-verified.jpg" alt="An OFFUNIT profile showing a verified RN badge, specialty and shift" />
+          <!-- Unlike the store shots, this is a raw screen recording with no
+               device of its own, so it gets a real bezel. Without one it reads
+               as a floating screenshot rather than a phone. -->
+          <div class="hero-device">
+            <div class="hero-device-screen">
+              <video
+                id="hero-video"
+                poster="./hero-swipe-poster.jpg"
+                autoplay muted playsinline preload="metadata"
+                aria-label="Swiping through OFFUNIT: Sarah, an ICU nurse in Phoenix with a Verified RN badge, then Joey, a Med-Surg nurse.">
+                <source src="./hero-swipe.webm" type="video/webm" />
+                <source src="./hero-swipe.mp4" type="video/mp4" />
+              </video>
+            </div>
           </div>
         </div>
       </div>
@@ -859,24 +952,30 @@
 <section class="showcase-section" id="showcase-section">
   <div class="container">
     <p class="section-eyebrow">See It in Action</p>
-    <div class="phones-row">
-      <div class="phone-wrap phone-side-wrap phone-left reveal" style="transition-delay:0.1s">
-        <div class="phone-frame-dark">
-          <img src="./shot-offfeed.jpg" alt="The OffFeed: nurses posting wins, rants and memes" loading="lazy" />
-        </div>
-        <p class="phone-label">The Feed</p>
+
+    <!-- The full store shots, not the cropped ones used elsewhere. Each carries
+         its own headline, device and backdrop, which is exactly what the
+         cropped version was missing — a carousel gives one enough room to be
+         read rather than three too small to be. -->
+    <div class="shots" id="shots">
+      <div class="shots-track" id="shots-track"
+           role="group" aria-roledescription="carousel" aria-label="OFFUNIT app screens">
+        <div class="shot"><img src="./slide-verified.jpg" width="680" height="1471" alt="Know they're really a nurse — Sarah Jenkins' profile with a Verified RN badge, ICU specialty and night-shift tag." /></div>
+        <div class="shot"><img src="./slide-modes.jpg"    width="680" height="1471" loading="lazy" alt="One profile, three modes — the same nurse switching between Dating, Friends and Networking." /></div>
+        <div class="shot"><img src="./slide-offfeed.jpg"  width="680" height="1471" loading="lazy" alt="Find your people — the OffFeed, where nurses post wins, rants and memes." /></div>
+        <div class="shot"><img src="./slide-match.jpg"    width="680" height="1471" loading="lazy" alt="When they page back — a mutual page turning into a match, with a Send Message button." /></div>
+        <div class="shot"><img src="./slide-prompts.jpg"  width="680" height="1471" loading="lazy" alt="Prompts that actually fit — a nurse answering 'the most chaotic shift I survived'." /></div>
+        <div class="shot"><img src="./slide-spark.jpg"    width="680" height="1471" loading="lazy" alt="When a swipe isn't enough — sending a Spark so they see you first." /></div>
       </div>
-      <div class="phone-wrap phone-center-wrap reveal" style="transition-delay:0s">
-        <div class="phone-frame-dark">
-          <img src="./shot-match.jpg" alt="A mutual page turning into a match, with a Send Message button" loading="lazy" />
-        </div>
-        <p class="phone-label">Matches</p>
-      </div>
-      <div class="phone-wrap phone-side-wrap phone-right reveal" style="transition-delay:0.2s">
-        <div class="phone-frame-dark">
-          <img src="./shot-modes.jpg" alt="One profile switching between Dating, Friends and Networking modes" loading="lazy" />
-        </div>
-        <p class="phone-label">Three modes</p>
+
+      <div class="shots-controls">
+        <button type="button" class="shots-arrow" data-dir="-1" aria-label="Previous screen">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="shots-dots" id="shots-dots"></div>
+        <button type="button" class="shots-arrow" data-dir="1" aria-label="Next screen">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -892,19 +991,11 @@
   </div>
 </section>
 
-<!-- CITIES -->
-<section class="cities-section" id="cities-section">
-  <div class="container">
-    <p class="section-eyebrow">Launching in Your City</p>
-    <div class="cities-row reveal">
-      <div class="city-pill"><span class="city-dot"></span>Phoenix, AZ</div>
-      <div class="city-pill"><span class="city-dot"></span>Columbus, OH</div>
-      <div class="city-pill"><span class="city-dot"></span>Detroit, MI</div>
-      <div class="city-pill"><span class="city-dot"></span>San Francisco, CA</div>
-      <div class="city-pill"><span class="city-dot"></span>Houston, TX</div>
-    </div>
-  </div>
-</section>
+<!-- CITIES — removed Aug 15 2026 when the page went live.
+     "Launching in Your City" over a list of five cities is pre-launch framing:
+     on a page whose job is now "download this", naming five places tells
+     everyone in the other nineteen thousand that the app isn't for them yet.
+     The app shipped US-wide. The section argued against the buttons above it. -->
 
 <!-- BOTTOM CTA -->
 <section class="cta-band" id="cta-band">
@@ -1212,9 +1303,14 @@
         document.getElementById('founding-number').textContent = '#' + signupNumber + ' of 500';
       }
 
-      // Hide all page sections, show success
-      ['hero-section','features-section','showcase-section','quote-section','cities-section','cta-band']
-        .forEach(id => document.getElementById(id).style.display = 'none');
+      // Hide all page sections, show success. Guarded: this list outlived the
+      // cities section once already, and an unguarded lookup throws on the
+      // first id that no longer exists, taking the success screen with it.
+      ['hero-section','features-section','showcase-section','quote-section','cta-band']
+        .forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.style.display = 'none';
+        });
       const successEl = document.getElementById('success-screen');
       successEl.style.display = 'block';
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1232,6 +1328,179 @@
       submitBtn.innerText = 'Claim My Spot';
     }
   }
+</script>
+
+<script>
+/* ── Showcase carousel ────────────────────────────────────────────────
+   Scrolling is the source of truth; the buttons just drive the scroll and
+   an IntersectionObserver reports back which slide won. That way a swipe,
+   a trackpad flick, an arrow key and a dot click all converge on the same
+   state instead of fighting a separate index variable. */
+(function () {
+  const track = document.getElementById('shots-track');
+  const dotsWrap = document.getElementById('shots-dots');
+  if (!track || !dotsWrap) return;
+
+  const slides = Array.from(track.querySelectorAll('.shot'));
+  if (!slides.length) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let index = 0;
+
+  const dots = slides.map((_, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'shots-dot' + (i === 0 ? ' is-active' : '');
+    b.setAttribute('aria-label', `Show screen ${i + 1} of ${slides.length}`);
+    b.addEventListener('click', () => { stopAuto(); goTo(i); });
+    dotsWrap.appendChild(b);
+    return b;
+  });
+  slides[0].classList.add('is-active');
+
+  function setActive(i) {
+    if (i === index) return;
+    index = i;
+    slides.forEach((s, n) => s.classList.toggle('is-active', n === i));
+    dots.forEach((d, n) => d.classList.toggle('is-active', n === i));
+  }
+
+  /* Distances come from getBoundingClientRect, not offsetLeft. offsetLeft is
+     measured against the nearest positioned ancestor — which is not this
+     track — so it silently returns coordinates from a different origin and
+     the carousel scrolls to the wrong place. Rects are always viewport-real.
+     scrollIntoView is avoided separately: it scrolls the page vertically too. */
+  function centreDelta(el) {
+    const t = track.getBoundingClientRect();
+    const r = el.getBoundingClientRect();
+    return (r.left + r.width / 2) - (t.left + t.width / 2);
+  }
+
+  function goTo(i) {
+    const target = slides[(i + slides.length) % slides.length];
+    track.scrollBy({
+      left: centreDelta(target),
+      behavior: reduceMotion.matches ? 'auto' : 'smooth',
+    });
+  }
+
+  /* Which slide is active is a question about distance from the centre, so
+     measure that directly. An IntersectionObserver threshold can't answer it:
+     at these widths two slides clear any threshold at once and the one that
+     fires last wins, which visibly marks the wrong slide. */
+  let ticking = false;
+  function syncActive() {
+    let best = 0;
+    let bestDist = Infinity;
+    slides.forEach((s, i) => {
+      const d = Math.abs(centreDelta(s));
+      if (d < bestDist) { bestDist = d; best = i; }
+    });
+    setActive(best);
+    ticking = false;
+  }
+  track.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(syncActive);
+  }, { passive: true });
+  window.addEventListener('resize', syncActive);
+
+  /* Re-measure as the slides actually arrive. The first pass runs while the
+     lazy images still have no laid-out height, so every rect is wrong and the
+     wrong slide gets marked — and because nothing has scrolled yet, no scroll
+     event ever arrives to correct it. Width/height attributes reserve the box
+     but decoding still shifts things, so measure again on each load. */
+  slides.forEach((s) => {
+    const img = s.querySelector('img');
+    if (img && !img.complete) img.addEventListener('load', syncActive, { once: true });
+  });
+  window.addEventListener('load', syncActive);
+  syncActive();
+
+  document.querySelectorAll('.shots-arrow').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      stopAuto();
+      goTo(index + Number(btn.dataset.dir));
+    });
+  });
+
+  /* Auto-advance. Stops permanently on any deliberate interaction — once
+     someone is steering, taking the wheel back is hostile. */
+  let timer = null;
+  const DELAY = 4500;
+
+  function startAuto() {
+    if (timer || reduceMotion.matches || document.hidden) return;
+    timer = setInterval(() => goTo(index + 1), DELAY);
+  }
+  function pauseAuto() { clearInterval(timer); timer = null; }
+  function stopAuto() { pauseAuto(); startAuto = () => {}; }
+
+  ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach((ev) =>
+    track.addEventListener(ev, stopAuto, { passive: true }),
+  );
+  track.addEventListener('mouseenter', pauseAuto);
+  track.addEventListener('mouseleave', () => startAuto());
+  track.addEventListener('focusin', pauseAuto);
+  document.addEventListener('visibilitychange', () =>
+    document.hidden ? pauseAuto() : startAuto(),
+  );
+
+  // Only run once the section is actually on screen; a carousel cycling in
+  // an unseen part of the page is pure battery cost.
+  new IntersectionObserver(
+    (entries) => entries.forEach((e) => (e.isIntersecting ? startAuto() : pauseAuto())),
+    { threshold: 0.25 },
+  ).observe(document.getElementById('shots'));
+
+  reduceMotion.addEventListener('change', () => {
+    if (reduceMotion.matches) pauseAuto(); else startAuto();
+  });
+})();
+
+/* Hero clip: autoplay is a motion effect like any other. Under
+   prefers-reduced-motion the poster frame stands in for it. */
+(function () {
+  const video = document.getElementById('hero-video');
+  if (!video) return;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let holdTimer = null;
+
+  /* Looped by hand rather than with the loop attribute. The clip ends on the
+     second nurse held still, and snapping straight back to the first read as
+     a glitch — the eye reads the cut as the app doing something. Holding the
+     last frame turns it into a deliberate beat. */
+  const HOLD_MS = 1400;
+  video.addEventListener('ended', () => {
+    clearTimeout(holdTimer);
+    holdTimer = setTimeout(() => {
+      if (reduceMotion.matches) return;
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    }, HOLD_MS);
+  });
+
+  const apply = () => {
+    if (reduceMotion.matches) {
+      clearTimeout(holdTimer);
+      video.pause();
+      video.removeAttribute('autoplay');
+    } else {
+      video.play().catch(() => {});
+    }
+  };
+  apply();
+  reduceMotion.addEventListener('change', apply);
+
+  // A clip cycling in a scrolled-past hero is wasted decode work.
+  new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { if (!reduceMotion.matches) video.play().catch(() => {}); }
+      else { clearTimeout(holdTimer); video.pause(); }
+    });
+  }, { threshold: 0.15 }).observe(video);
+})();
 </script>
 </body>
 </html>
