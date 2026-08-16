@@ -783,6 +783,11 @@
       .hero-text { text-align: center; }
       .eyebrow { justify-content: center; }
       .hero-sub { margin-left: auto; margin-right: auto; }
+      /* .store-buttons is a flex row, so the text-align: center above does
+         nothing to it — flex items are positioned by justify-content. It was
+         the only child of .hero-text still hugging the left edge once the
+         layout went single-column. */
+      .hero .store-buttons { justify-content: center; }
       .founding-strip { display: inline-flex; }
       .hero-form { margin: 0 auto; }
     }
