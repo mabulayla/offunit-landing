@@ -936,10 +936,14 @@
               <video
                 id="hero-video"
                 poster="./hero-swipe-poster.jpg"
-                autoplay muted playsinline preload="metadata"
+                autoplay muted playsinline preload="auto"
                 aria-label="Swiping through OFFUNIT: Sarah, an ICU nurse in Phoenix with a Verified RN badge, then Joey, a Med-Surg nurse.">
-                <source src="./hero-swipe.webm" type="video/webm" />
+                <!-- mp4 first on purpose. Safari commits to the first source whose
+                     type it thinks it can play and never falls back to a later one,
+                     and its WebM support is partial. The webm is also the larger
+                     file here (138KB vs 104KB), so it earns nothing by leading. -->
                 <source src="./hero-swipe.mp4" type="video/mp4" />
+                <source src="./hero-swipe.webm" type="video/webm" />
               </video>
             </div>
           </div>
@@ -1552,6 +1556,15 @@
   };
   apply();
   reduceMotion.addEventListener('change', apply);
+
+  /* That first play() lands before any data has arrived on a slow connection,
+     and Safari rejects it silently — with nothing to retry, the clip then sits
+     behind a play button for the rest of the visit. canplay is the earliest
+     moment the attempt can actually succeed. (Low Power Mode rejects every
+     attempt no matter what, so the poster frame has to carry those visits.) */
+  video.addEventListener('canplay', () => {
+    if (!reduceMotion.matches && video.paused) video.play().catch(() => {});
+  });
 
   // A clip cycling in a scrolled-past hero is wasted decode work.
   new IntersectionObserver((entries) => {
