@@ -857,6 +857,34 @@
   if (LAUNCH_MODE) document.body.classList.add('is-live');
 </script>
 
+<script>
+  /* ─────────────────────────────────────────────────────────────
+     Store-button tap → Meta `Lead`
+
+     `Lead` used to fire on the waitlist email submit. That form lives
+     inside .waitlist-only, so once LAUNCH_MODE went true it can never
+     fire again — the event was dead. Reusing it here rather than adding
+     a custom one keeps the existing Aggregated Event Measurement
+     priority; a new event would have to be re-prioritised in Events
+     Manager before iOS could optimise against it at all.
+
+     Delegated from document so store buttons added later are covered
+     without remembering to wire them up. Both button groups (hero and
+     CTA band) route through here.
+
+     content_name carries the store split, since one event now serves
+     both — that is the only place the iOS-vs-Android breakdown exists,
+     because there is no SDK reporting installs back.
+     ───────────────────────────────────────────────────────────── */
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.store-btn');
+    if (!btn || typeof fbq !== 'function') return;
+    fbq('track', 'Lead', {
+      content_name: btn.href.includes('apps.apple.com') ? 'ios' : 'android'
+    });
+  });
+</script>
+
 
 <!-- NAV -->
 <nav class="nav">
