@@ -1,0 +1,7 @@
+# Local agent tooling — not part of the published site
+.agents/
+.claude/
+.DS_Store
+
+# Cloud-sync duplicate files ("index 2.html") — never publish these
+* [0-9].*

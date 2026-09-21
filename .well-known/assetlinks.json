@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.mabulayla.offunit",
+      "sha256_cert_fingerprints": [
+        "C1:75:CB:95:37:FF:76:DB:BD:A3:2D:C5:C2:44:19:3C:AF:03:B9:2F:02:09:2F:43:A8:99:E4:AA:6B:F6:0E:4D"
+      ]
+    }
+  }
+]

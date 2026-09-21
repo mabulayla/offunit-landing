@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["M2YNC96YX8.com.mabulayla.offunit"],
+        "components": [
+          {
+            "/": "/post/*",
+            "comment": "Shared OffFeed posts open in the app"
+          }
+        ]
+      }
+    ]
+  }
+}

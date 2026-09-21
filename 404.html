@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OFFUNIT</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="robots" content="noindex">
+<!--
+  Shared post links are https://offunit.app/post/<id>. When the app is installed,
+  iOS and Android intercept that URL before the browser ever sees it, so this page
+  only renders for someone who does NOT have OFFUNIT yet — which is exactly the
+  person a shared link is trying to reach. GitHub Pages serves 404.html for any
+  unmatched path, so this doubles as the /post/* landing page without needing a
+  server to render one page per post.
+-->
+<meta property="og:site_name" content="OFFUNIT">
+<meta property="og:title" content="Someone shared a post with you on OFFUNIT">
+<meta property="og:description" content="The app built for nurses — dating, friends and networking, with people who actually get the job.">
+<meta property="og:image" content="https://offunit.app/offunitsocialpic.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#1b1b2b; --muted:#5c5c74; --brand:#7875cc; --wash:#EDF2FF; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    padding: 32px 20px; background: var(--wash); color: var(--ink);
+    font-family: 'Instrument Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .card {
+    width: 100%; max-width: 460px; text-align: center;
+    background: #fff; border-radius: 24px; padding: 40px 28px;
+    box-shadow: 0 20px 60px rgba(27,27,43,.10);
+  }
+  img.logo { width: 76px; height: 76px; border-radius: 18px; }
+  h1 {
+    font-family: 'DM Serif Display', serif; font-weight: 400;
+    font-size: clamp(25px, 6vw, 32px); line-height: 1.2; margin: 22px 0 10px;
+  }
+  p { color: var(--muted); font-size: 16px; line-height: 1.55; margin: 0 0 26px; }
+  .stores { display: flex; flex-direction: column; gap: 10px; }
+  a.btn {
+    display: block; padding: 15px 20px; border-radius: 999px;
+    font-weight: 700; font-size: 16px; text-decoration: none;
+    background: var(--brand); color: #fff;
+    transition: transform .15s ease, opacity .15s ease;
+  }
+  a.btn.secondary { background: var(--ink); }
+  a.btn:hover { transform: translateY(-1px); opacity: .93; }
+  a.home { display: inline-block; margin-top: 22px; color: var(--muted); font-size: 14px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#F3F3F8; --muted:#A6A6BE; --wash:#15151f; }
+    .card { background: #1f1f2c; box-shadow: none; }
+    a.btn.secondary { background: #34344a; color: #fff; }
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <img class="logo" src="/logo-mark.png" alt="OFFUNIT">
+    <h1 id="headline">This lives inside OFFUNIT</h1>
+    <p id="blurb">
+      OFFUNIT is the app built for nurses — dating, friends and networking with
+      people who already understand the shift you just finished.
+    </p>
+    <div class="stores">
+      <a class="btn" href="https://apps.apple.com/us/app/id6779308757">Get it on the App Store</a>
+      <a class="btn secondary" href="https://play.google.com/store/apps/details?id=com.mabulayla.offunit">Get it on Google Play</a>
+    </div>
+    <a class="home" href="/">Back to offunit.app</a>
+  </main>
+<script>
+  // Tailor the copy when this really is a shared post, and leave the generic
+  // not-found wording alone for any other unmatched path.
+  if (/^\/post\/[A-Za-z0-9_-]+/.test(location.pathname)) {
+    document.getElementById('headline').textContent = 'Someone shared a post with you';
+    document.getElementById('blurb').textContent =
+      'Install OFFUNIT and this post will be waiting for you once you finish setting up your profile.';
+  }
+</script>
+</body>
+</html>
