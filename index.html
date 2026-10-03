@@ -18,7 +18,7 @@
   <link rel="shortcut icon" href="./favicon.ico">
   <link rel="manifest" href="./site.webmanifest">
 
-  <meta name="description" content="OFFUNIT is the social, dating, and networking app built exclusively for nurses. Dating, friendships, career growth, and community — all in one space built for the people who get the 12-hour life." />
+  <meta name="description" content="OFFUNIT is the social, dating, and networking app built exclusively for nurses. Dating, friendships, career growth, and community — all in one space built for the people who get the 12-hour life. Free on iPhone and Android." />
   <meta property="og:title" content="OFFUNIT — The App Built for Nurses" />
   <meta property="og:description" content="Dating, friendships, networking, and community — built exclusively for nurses who deserve a space that actually gets their life." />
   <meta property="og:image" content="https://offunit.app/offunit-logo.png" />
@@ -30,10 +30,36 @@
   <meta name="twitter:description" content="Dating, friendships, networking, and community — built exclusively for nurses." />
   <meta name="twitter:image" content="https://offunit.app/offunit-logo.png" />
 
+  <!-- Says outright that the app is released and where to get it. Search
+       engines and AI assistants read this without running the page. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "OFFUNIT",
+    "url": "https://offunit.app",
+    "description": "The social, dating, and networking app built exclusively for nurses. Available now on iPhone and Android.",
+    "applicationCategory": "SocialNetworkingApplication",
+    "operatingSystem": "iOS, Android",
+    "image": "https://offunit.app/offunit-logo.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "installUrl": [
+      "https://apps.apple.com/us/app/id6779308757",
+      "https://play.google.com/store/apps/details?id=com.mabulayla.offunit"
+    ],
+    "sameAs": [
+      "https://apps.apple.com/us/app/id6779308757",
+      "https://play.google.com/store/apps/details?id=com.mabulayla.offunit",
+      "https://www.instagram.com/offunitapp/",
+      "https://www.tiktok.com/@offunitapp",
+      "https://x.com/offunitapp"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <!-- Meta Pixel -->
   <script>
@@ -134,6 +160,7 @@
       .brand-mark { width: 32px; }
     }
     .nav-pill {
+      display: inline-flex; text-decoration: none;
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.10em;
       color: var(--purple); text-transform: uppercase;
       border: 1.5px solid var(--purple);
@@ -182,87 +209,6 @@
       margin-bottom: 24px;
       max-width: 480px;
     }
-
-    /* founding strip */
-    .founding-strip {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: #FFFBEB;
-      border: 1px solid rgba(180, 140, 0, 0.28);
-      border-radius: var(--radius-pill);
-      padding: 8px 16px; margin-bottom: 24px;
-      font-size: 0.8rem; color: #5C4000;
-    }
-    .founding-strip strong { font-weight: 700; }
-    .live-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #F59E0B; flex-shrink: 0;
-    }
-    @keyframes glow-dot {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.5); }
-      50%       { box-shadow: 0 0 0 5px rgba(245,158,11,0); }
-    }
-    .live-dot { animation: glow-dot 2s ease-in-out infinite; }
-
-    /* form */
-    .hero-form { max-width: 480px; }
-    .form-row { display: flex; gap: 8px; margin-bottom: 10px; }
-    .form-input {
-      flex: 1; padding: 14px 18px;
-      font-family: 'Instrument Sans', sans-serif; font-size: 0.95rem;
-      color: var(--text); background: #fff;
-      border: 1.5px solid #CCCAEA;
-      border-radius: var(--radius-sm); outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .form-input::placeholder { color: var(--text-dim); }
-    .form-input:focus {
-      border-color: var(--purple);
-      box-shadow: 0 0 0 3px rgba(88, 88, 200, 0.12);
-    }
-    .form-input.error { border-color: var(--blush); }
-
-    .btn-cta {
-      background: var(--purple); color: #fff;
-      border: none; border-radius: var(--radius-sm);
-      padding: 14px 22px;
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 0.9rem; font-weight: 700;
-      cursor: pointer; white-space: nowrap;
-      box-shadow: 0 4px 18px rgba(88, 88, 200, 0.32);
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    }
-    .btn-cta:hover {
-      background: var(--purple-mid);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(88, 88, 200, 0.44);
-    }
-    .btn-cta:active {
-      transform: scale(0.97) translateY(0);
-      box-shadow: 0 2px 8px rgba(88, 88, 200, 0.28);
-      transition-duration: 0.08s;
-    }
-    .btn-cta:disabled { opacity: 0.6; pointer-events: none; }
-
-    .form-note {
-      font-size: 0.75rem; color: var(--text-dim);
-    }
-    .form-note a { color: var(--text-dim); text-decoration: underline; }
-
-    /* social proof */
-    .social-proof {
-      display: flex; align-items: center; gap: 10px;
-      margin-top: 16px;
-      font-size: 0.8rem; color: var(--text-muted);
-    }
-    .avatars { display: flex; }
-    .avatar {
-      width: 28px; height: 28px; border-radius: 50%;
-      border: 2px solid white;
-      background: linear-gradient(135deg, #e0dfff, #d0f0f4);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.72rem; margin-left: -7px;
-    }
-    .avatar:first-child { margin-left: 0; }
 
     /* hero phone */
     .hero-visual { display: flex; justify-content: center; align-items: center; }
@@ -327,16 +273,6 @@
       object-fit: contain;
       object-position: top;
     }
-
-    /* ── LAUNCH MODE ──────────────────────────────────────────────
-       One switch (LAUNCH_MODE at the bottom of this file) flips the page
-       between pre-launch waitlist and live download links. Kept as a class
-       toggle rather than two files so the copy can never drift apart. */
-    /* Symmetric and specificity-safe: both sides are scoped to body state, so
-       neither can be beaten by a later single-class rule like .store-buttons. */
-    body:not(.is-live) .download-only { display: none !important; }
-    body.is-live       .waitlist-only { display: none !important; }
-    body.is-live a.nav-pill.download-only { display: inline-flex; }
 
     .store-buttons {
       display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px;
@@ -590,164 +526,6 @@
       font-size: 1rem; color: rgba(255,255,255,0.68);
       margin-bottom: 32px;
     }
-    .btn-white {
-      display: inline-block;
-      background: #fff; color: var(--purple);
-      border: none; border-radius: var(--radius-sm);
-      padding: 16px 34px;
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 0.92rem; font-weight: 700;
-      cursor: pointer; text-decoration: none;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
-      transition: transform 0.15s, box-shadow 0.2s;
-    }
-    .btn-white:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.24);
-    }
-    .btn-white:active {
-      transform: scale(0.97);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.16);
-      transition-duration: 0.08s;
-    }
-
-    /* ── SUCCESS SCREEN ── */
-    #success-screen {
-      display: none;
-      padding: 72px 0 80px;
-    }
-    .success-inner {
-      max-width: 580px; margin: 0 auto;
-      text-align: center;
-      display: flex; flex-direction: column; align-items: center; gap: 16px;
-    }
-    .success-icon {
-      width: 60px; height: 60px; border-radius: 50%;
-      background: rgba(0,153,168,0.10);
-      border: 1.5px solid rgba(0,153,168,0.38);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; color: var(--teal);
-    }
-    .success-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.2rem; color: var(--text);
-    }
-    .success-sub {
-      font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;
-      max-width: 420px;
-    }
-    .founding-badge-pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      border: 1.5px solid rgba(88,88,200,0.38);
-      background: var(--purple-dim);
-      border-radius: var(--radius-pill); padding: 8px 18px;
-      font-size: 0.76rem; font-weight: 700; letter-spacing: 0.10em;
-      color: var(--purple); text-transform: uppercase;
-    }
-    .hub-badge-pill {
-      display: inline-flex;
-      border: 1px solid var(--border); background: var(--bg-alt);
-      border-radius: var(--radius-pill); padding: 5px 14px;
-      font-size: 0.76rem; color: var(--purple);
-    }
-    .success-section-label {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--text-dim);
-      margin-bottom: 6px; display: block;
-    }
-    .success-divider { width: 100%; height: 1px; background: var(--border); }
-
-    /* hub toggles in success screen */
-    .toggle-grid {
-      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
-    }
-    .hub-toggle {
-      padding: 10px 16px;
-      background: #fff; border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 0.82rem; font-weight: 500; color: var(--text-muted);
-      cursor: pointer;
-      display: flex; align-items: center; gap: 7px;
-      transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s; user-select: none;
-    }
-    .hub-toggle:hover { border-color: var(--purple); color: var(--text); }
-    .hub-toggle.selected {
-      border-color: var(--purple); background: var(--purple); color: #fff;
-      font-weight: 600; box-shadow: 0 2px 10px rgba(88,88,200,0.28);
-    }
-    .hub-toggle .check-icon { display: none; font-size: 0.75rem; }
-    .hub-toggle.selected .check-icon { display: inline; }
-    .city-saved-msg {
-      font-size: 0.72rem; color: #1a7a4a; display: none; margin-top: 4px;
-    }
-
-    /* interest toggles */
-    .interest-grid {
-      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
-    }
-    .interest-toggle {
-      padding: 10px 20px;
-      background: #fff; border: 1.5px solid var(--border);
-      border-radius: var(--radius-pill);
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
-      cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s; user-select: none;
-    }
-    .interest-toggle:hover { border-color: var(--purple); color: var(--text); }
-    .interest-toggle.selected {
-      border-color: var(--purple); background: var(--purple); color: #fff;
-      box-shadow: 0 2px 10px rgba(88,88,200,0.26);
-    }
-    .btn-save {
-      margin-top: 10px; padding: 10px 26px;
-      background: var(--purple); color: #fff;
-      border: none; border-radius: var(--radius-sm);
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 0.82rem; font-weight: 700;
-      cursor: pointer; transition: opacity 0.2s;
-    }
-    .btn-save:hover { opacity: 0.88; }
-    .btn-save:disabled { opacity: 0.5; pointer-events: none; }
-    .saved-msg { font-size: 0.72rem; color: #1a7a4a; display: none; margin-top: 6px; }
-
-    /* follow buttons */
-    .follow-row {
-      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
-      margin-bottom: 4px;
-    }
-    .btn-follow {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 22px; border-radius: var(--radius-sm);
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 0.84rem; font-weight: 700;
-      text-decoration: none; color: white;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-    .btn-follow:hover { opacity: 0.86; transform: translateY(-1px); }
-    .btn-follow-tiktok   { background: #000; }
-    .btn-follow-ig       { background: linear-gradient(135deg, #833ab4, #c13584 50%, #fd1d1d); }
-
-    /* share grid */
-    .share-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 8px; width: 100%; max-width: 400px;
-    }
-    .btn-share {
-      border: none; border-radius: var(--radius-sm); padding: 11px 8px;
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 0.74rem; font-weight: 700;
-      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
-      text-decoration: none; transition: opacity 0.2s, transform 0.15s; color: white;
-    }
-    .btn-share:hover { opacity: 0.86; transform: translateY(-1px); }
-    .btn-share-whatsapp { background: #25D366; }
-    .btn-share-sms      { background: #34C759; }
-    .btn-share-facebook { background: #1877F2; }
-    .btn-share-x        { background: #111; }
-    .btn-share-copy     { background: var(--bg-alt); color: var(--purple); border: 1.5px solid var(--border); }
-    .btn-share-instagram { background: linear-gradient(135deg, #833ab4, #c13584 50%, #fd1d1d); }
-
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
@@ -795,13 +573,9 @@
          the only child of .hero-text still hugging the left edge once the
          layout went single-column. */
       .hero .store-buttons { justify-content: center; }
-      .founding-strip { display: inline-flex; }
-      .hero-form { margin: 0 auto; }
     }
     @media (max-width: 680px) {
       .hero { padding: 44px 0 48px; }
-      .form-row { flex-direction: column; }
-      .btn-cta { width: 100%; padding: 16px; font-size: 0.95rem; }
       .features-grid { grid-template-columns: repeat(2, 1fr); }
       .cta-band { padding: 64px 0; }
       h1 { font-size: 2rem; }
@@ -825,7 +599,6 @@
     }
     @media (max-width: 480px) {
       .features-grid { grid-template-columns: 1fr; }
-      .share-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* ── REVEAL SCROLL ANIMATIONS ── */
@@ -844,7 +617,6 @@
     /* ── REDUCED MOTION ── */
     @media (prefers-reduced-motion: reduce) {
       .hero-inner { animation: none; }
-      .live-dot, .city-dot { animation: none; }
       .reveal { opacity: 1; transform: none; transition: none; }
       * { transition-duration: 0.01ms !important; }
     }
@@ -853,24 +625,10 @@
 <body>
 <script>
   /* ─────────────────────────────────────────────────────────────
-     LAUNCH_MODE
-     false = pre-launch. Waitlist form + "Founding Nurses" strip show.
-     true  = live.       Those hide; App Store / Play buttons show.
-
-     Flipped true on Aug 15 2026. Both stores approved Aug 14; both URLs
-     below were confirmed returning 200 before this was switched over.
-     ───────────────────────────────────────────────────────────── */
-  const LAUNCH_MODE = true;
-  if (LAUNCH_MODE) document.body.classList.add('is-live');
-</script>
-
-<script>
-  /* ─────────────────────────────────────────────────────────────
      Store-button tap → Meta `Lead`
 
-     `Lead` used to fire on the waitlist email submit. That form lives
-     inside .waitlist-only, so once LAUNCH_MODE went true it can never
-     fire again — the event was dead. Reusing it here rather than adding
+     `Lead` used to fire on the pre-launch email signup, which no longer
+     exists. Reusing it here rather than adding
      a custom one keeps the existing Aggregated Event Measurement
      priority; a new event would have to be re-prioritised in Events
      Manager before iOS could optimise against it at all.
@@ -904,8 +662,7 @@
            alt="" aria-hidden="true" />
       <span class="wordmark">OFFUNIT™</span>
     </span>
-    <span class="nav-pill waitlist-only">Launching Soon</span>
-    <a class="nav-pill download-only" href="#cta-band" style="text-decoration:none">Get the App</a>
+    <a class="nav-pill" href="#cta-band" style="text-decoration:none">Get the App</a>
   </div>
 </nav>
 
@@ -919,37 +676,7 @@
         <h1>Your work bestie can't be your only <em>personality trait.</em></h1>
         <p class="hero-sub">Dating · Friends · Networking · Vibes — one app, built exclusively for nurses.</p>
 
-        <div class="founding-strip waitlist-only" id="founding-strip">
-          <span class="live-dot"></span>
-          <span>First 500 become <strong>Founding Nurses</strong> &nbsp;·&nbsp; <span id="founding-spots-remaining">loading…</span></span>
-        </div>
-
-        <div class="social-proof waitlist-only" id="social-proof-block" style="display:none">
-          <div class="avatars">
-            <div class="avatar"><span>👩‍⚕️</span></div>
-            <div class="avatar"><span>🩺</span></div>
-            <div class="avatar"><span>💉</span></div>
-          </div>
-          <span><strong id="signup-count">—</strong> nurses already in</span>
-        </div>
-
-        <div id="form-block" class="hero-form waitlist-only">
-          <div class="form-row">
-            <input
-              type="email"
-              id="email-input"
-              class="form-input"
-              placeholder="nurse@email.com"
-              autocomplete="email"
-            />
-            <button type="button" class="btn-cta" id="submit-btn" onclick="handleSubmit()">
-              Claim My Spot
-            </button>
-          </div>
-          <p class="form-note">App launching soon — join the waitlist &nbsp;·&nbsp; No spam &nbsp;·&nbsp; <a href="./privacy.html">Privacy</a></p>
-        </div>
-
-        <div class="store-buttons download-only">
+        <div class="store-buttons">
           <a class="store-btn" href="https://apps.apple.com/us/app/id6779308757" target="_blank" rel="noopener">
             <img src="https://cdn.simpleicons.org/appstore/ffffff" alt="" aria-hidden="true" />
             Download for iPhone
@@ -1062,22 +789,12 @@
   </div>
 </section>
 
-<!-- CITIES — removed Aug 15 2026 when the page went live.
-     "Launching in Your City" over a list of five cities is pre-launch framing:
-     on a page whose job is now "download this", naming five places tells
-     everyone in the other nineteen thousand that the app isn't for them yet.
-     The app shipped US-wide. The section argued against the buttons above it. -->
-
 <!-- BOTTOM CTA -->
 <section class="cta-band" id="cta-band">
   <div class="container">
     <h2>Ready to find your people?</h2>
-    <p class="waitlist-only">Join nurses already on the waitlist.</p>
-    <button class="btn-white waitlist-only" onclick="document.getElementById('email-input').focus(); window.scrollTo({top:0,behavior:'smooth'})">
-      Claim Your Spot - It's Free
-    </button>
-    <p class="download-only">Free to download. Built for nurses.</p>
-    <div class="store-buttons download-only">
+    <p>Free to download. Built for nurses.</p>
+    <div class="store-buttons">
       <a class="store-btn" href="https://apps.apple.com/us/app/id6779308757" target="_blank" rel="noopener">
         <img src="https://cdn.simpleicons.org/appstore/5858C8" alt="" aria-hidden="true" />
         Download for iPhone
@@ -1086,108 +803,6 @@
         <img src="https://cdn.simpleicons.org/googleplay/5858C8" alt="" aria-hidden="true" />
         Get it on Google Play
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- SUCCESS SCREEN -->
-<section id="success-screen">
-  <div class="container">
-    <div class="success-inner">
-      <div class="success-icon"><i class="fa-solid fa-check"></i></div>
-      <p class="success-title" id="success-title">You're in. 🎉</p>
-      <p class="success-sub" id="success-sub">Welcome to OFFUNIT. The bigger our community, the faster we launch — spread the link and help us build something nurses actually deserve.</p>
-
-      <div id="founding-badge" style="display:none">
-        <span class="founding-badge-pill">
-          <i class="fa-solid fa-star"></i>
-          Founding Nurse &nbsp;·&nbsp; <span id="founding-number"></span>
-        </span>
-      </div>
-
-      <span class="hub-badge-pill" id="success-hub-tag" style="display:none"></span>
-
-      <div class="success-divider"></div>
-
-      <!-- CITY SELECTION -->
-      <div style="width:100%;text-align:center">
-        <span class="success-section-label">Where are you based? &nbsp;<span style="font-weight:400;opacity:0.6;text-transform:none;letter-spacing:0">(helps us launch near you)</span></span>
-        <div class="toggle-grid" id="success-city-selector">
-          <button type="button" class="hub-toggle" data-city="Phoenix, AZ" onclick="selectSuccessCity(this)">
-            <i class="fa-solid fa-check check-icon"></i>Phoenix, AZ
-          </button>
-          <button type="button" class="hub-toggle" data-city="Columbus, OH" onclick="selectSuccessCity(this)">
-            <i class="fa-solid fa-check check-icon"></i>Columbus, OH
-          </button>
-          <button type="button" class="hub-toggle" data-city="Detroit, MI" onclick="selectSuccessCity(this)">
-            <i class="fa-solid fa-check check-icon"></i>Detroit, MI
-          </button>
-          <button type="button" class="hub-toggle" data-city="San Francisco, CA" onclick="selectSuccessCity(this)">
-            <i class="fa-solid fa-check check-icon"></i>San Francisco, CA
-          </button>
-          <button type="button" class="hub-toggle" data-city="Houston, TX" onclick="selectSuccessCity(this)">
-            <i class="fa-solid fa-check check-icon"></i>Houston, TX
-          </button>
-          <button type="button" class="hub-toggle" data-city="other" onclick="selectSuccessCity(this)">
-            <i class="fa-solid fa-check check-icon"></i>My city isn't listed
-          </button>
-        </div>
-        <p class="city-saved-msg" id="city-saved-msg">✓ Saved</p>
-      </div>
-
-      <div class="success-divider"></div>
-
-      <!-- INTEREST SELECTION -->
-      <div style="width:100%;text-align:center">
-        <span class="success-section-label">What are you here for? &nbsp;<span style="font-weight:400;opacity:0.6;text-transform:none;letter-spacing:0">(optional)</span></span>
-        <div class="interest-grid">
-          <button type="button" class="interest-toggle" data-interest="Vibes" onclick="toggleInterest(this)">✨ Vibes</button>
-          <button type="button" class="interest-toggle" data-interest="Dating" onclick="toggleInterest(this)">💜 Dating</button>
-          <button type="button" class="interest-toggle" data-interest="Friends" onclick="toggleInterest(this)">👯 Friends</button>
-          <button type="button" class="interest-toggle" data-interest="Networking" onclick="toggleInterest(this)">💼 Networking</button>
-          <button type="button" class="interest-toggle" data-interest="All of it" onclick="toggleInterest(this)">🔥 All of it</button>
-        </div>
-        <button type="button" class="btn-save" id="btn-save-interests" onclick="saveInterests()">Save my picks</button>
-        <p class="saved-msg" id="interest-saved-msg">✓ Saved</p>
-      </div>
-
-      <div class="success-divider"></div>
-
-      <span class="success-section-label">Don't miss launch day</span>
-      <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:14px;">We'll email you — but follow us too just in case.</p>
-      <div class="follow-row">
-        <a href="https://www.tiktok.com/@offunitapp" class="btn-follow btn-follow-tiktok" target="_blank" rel="noopener">
-          <i class="fa-brands fa-tiktok"></i> Follow on TikTok
-        </a>
-        <a href="https://www.instagram.com/offunitapp/" class="btn-follow btn-follow-ig" target="_blank" rel="noopener">
-          <i class="fa-brands fa-instagram"></i> Follow on Instagram
-        </a>
-      </div>
-
-      <div class="success-divider"></div>
-
-      <span class="success-section-label">Share with your unit</span>
-      <div class="share-grid">
-        <a id="share-whatsapp" href="#" class="btn-share btn-share-whatsapp" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
-        <a id="share-sms" href="#" class="btn-share btn-share-sms">
-          <i class="fa-solid fa-message"></i> Text
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Foffunit.app" class="btn-share btn-share-facebook" target="_blank" rel="noopener">
-          <i class="fa-brands fa-facebook-f"></i> Facebook
-        </a>
-        <a href="https://twitter.com/intent/tweet?text=Finally%20an%20app%20built%20exclusively%20for%20nurses%20%F0%9F%A9%BA%20Dating%2C%20friends%2C%20networking%20%E2%80%94%20all%20in%20one%20space%20that%20gets%20the%2012-hour%20life.%20Join%20me%20on%20the%20OFFUNIT%20waitlist%3A%20https%3A%2F%2Foffunit.app" class="btn-share btn-share-x" target="_blank" rel="noopener">
-          <i class="fa-brands fa-x-twitter"></i> X
-        </a>
-        <button onclick="copyLink()" id="copy-btn" class="btn-share btn-share-copy">
-          <i class="fa-solid fa-link"></i> Copy Link
-        </button>
-        <button onclick="shareInstagram()" id="instagram-btn" class="btn-share btn-share-instagram">
-          <i class="fa-brands fa-instagram"></i> Instagram
-        </button>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1211,37 +826,6 @@
 </footer>
 
 <script>
-  let submittedEmail    = null;
-  let selectedInterests = [];
-
-  const _supabase = supabase.createClient(
-    'https://otgpkzjesscifwywxytu.supabase.co',
-    'sb_publishable_VX_TuV3hN6I1NSSosqaV0A_UKZHZwhO'
-  );
-
-  async function loadCount() {
-    try {
-      const { count } = await _supabase
-        .from('waitlist')
-        .select('*', { count: 'exact', head: true });
-      if (count !== null) {
-        document.getElementById('signup-count').textContent = count.toLocaleString();
-        if (count >= 50) {
-          const block = document.getElementById('social-proof-block');
-          if (block) block.style.display = 'flex';
-        }
-        const spotsEl = document.getElementById('founding-spots-remaining');
-        if (spotsEl) {
-          const remaining = Math.max(0, 500 - count);
-          spotsEl.textContent = remaining > 0
-            ? remaining + ' founding spots left'
-            : 'Founding spots closed';
-        }
-      }
-    } catch (e) {}
-  }
-  loadCount();
-
   // Scroll reveal via IntersectionObserver
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1252,153 +836,6 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-  function toggleInterest(btn) {
-    const interest = btn.dataset.interest;
-    btn.classList.toggle('selected');
-    if (btn.classList.contains('selected')) {
-      selectedInterests.push(interest);
-    } else {
-      selectedInterests = selectedInterests.filter(i => i !== interest);
-    }
-    document.getElementById('interest-saved-msg').style.display = 'none';
-  }
-
-  async function saveInterests() {
-    if (!submittedEmail) return;
-    const saveBtn = document.getElementById('btn-save-interests');
-    saveBtn.disabled = true; saveBtn.textContent = 'Saving…';
-    const { error } = await _supabase
-      .from('waitlist')
-      .update({ interests: selectedInterests.length > 0 ? selectedInterests : null })
-      .eq('email', submittedEmail);
-    if (error) {
-      saveBtn.disabled = false; saveBtn.textContent = 'Save my picks';
-    } else {
-      saveBtn.style.display = 'none';
-      document.getElementById('interest-saved-msg').style.display = 'block';
-    }
-  }
-
-  async function selectSuccessCity(btn) {
-    const cityName = btn.dataset.city;
-    document.querySelectorAll('#success-city-selector .hub-toggle')
-      .forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-    if (!submittedEmail) return;
-    const cityValue = cityName === 'other' ? null : cityName;
-    const { error } = await _supabase
-      .from('waitlist')
-      .update({ hub_preference: cityValue })
-      .eq('email', submittedEmail);
-    if (!error) {
-      document.getElementById('city-saved-msg').style.display = 'block';
-      if (cityValue) {
-        const tag = document.getElementById('success-hub-tag');
-        tag.innerText = '📍 ' + cityName;
-        tag.style.display = '';
-      }
-    }
-  }
-
-  function copyLink() {
-    navigator.clipboard.writeText('https://offunit.app').then(() => {
-      const btn = document.getElementById('copy-btn');
-      btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-      setTimeout(() => { btn.innerHTML = '<i class="fa-solid fa-link"></i> Copy Link'; }, 2500);
-    });
-  }
-
-  function shareInstagram() {
-    navigator.clipboard.writeText('https://offunit.app').then(() => {
-      const btn = document.getElementById('instagram-btn');
-      btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-      setTimeout(() => { btn.innerHTML = '<i class="fa-brands fa-instagram"></i> Instagram'; }, 2500);
-    });
-    window.location.href = 'instagram://';
-  }
-
-  async function handleSubmit() {
-    const emailInput = document.getElementById('email-input');
-    const emailValue = emailInput.value.trim();
-    const submitBtn  = document.getElementById('submit-btn');
-
-    if (!emailValue || !emailValue.includes('@')) {
-      emailInput.classList.add('error');
-      emailInput.focus();
-      return;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.innerText = 'Claiming…';
-
-    try {
-      const { data: insertData, error: dbError } = await _supabase
-        .from('waitlist')
-        .insert([{ email: emailValue }])
-        .select('signup_number, is_founding_nurse')
-        .single();
-
-      if (dbError) throw dbError;
-
-      submittedEmail = emailValue;
-
-      if (typeof fbq === 'function') fbq('track', 'Lead');
-
-      const ttqEventId = crypto.randomUUID();
-      if (typeof ttq !== 'undefined' && ttq.track) {
-        ttq.track('CompleteRegistration', {}, { event_id: ttqEventId });
-      }
-      _supabase.functions.invoke('tiktok-event', {
-        body: { email: emailValue, event_id: ttqEventId, ip: null, user_agent: navigator.userAgent }
-      }).catch(e => console.error('TikTok Events API error:', e));
-
-      const signupNumber    = insertData?.signup_number ?? null;
-      const isFoundingNurse = insertData?.is_founding_nurse ?? false;
-
-      _supabase.functions.invoke('send-welcome-email', {
-        body: { email: emailValue, hub: null, signup_number: signupNumber, is_founding_nurse: isFoundingNurse }
-      }).catch(e => console.error('Email trigger error:', e));
-
-      const shareText = encodeURIComponent(
-        'Finally an app built exclusively for nurses 🩺 Dating, friends, networking — all in one space that gets the 12-hour life. Join me on the OFFUNIT waitlist: https://offunit.app'
-      );
-      document.getElementById('share-whatsapp').href = 'https://api.whatsapp.com/send?text=' + shareText;
-      document.getElementById('share-sms').href = 'sms:?body=' + shareText;
-
-      if (isFoundingNurse && signupNumber) {
-        document.getElementById('success-title').textContent = 'You\'re a Founding Nurse. 🌟';
-        document.getElementById('success-sub').textContent =
-          'You\'re one of the first 500. Your founding status is locked in — you\'ll be recognized in the app forever.';
-        document.getElementById('founding-badge').style.display = 'block';
-        document.getElementById('founding-number').textContent = '#' + signupNumber + ' of 500';
-      }
-
-      // Hide all page sections, show success. Guarded: this list outlived the
-      // cities section once already, and an unguarded lookup throws on the
-      // first id that no longer exists, taking the success screen with it.
-      ['hero-section','features-section','showcase-section','quote-section','cta-band']
-        .forEach(id => {
-          const el = document.getElementById(id);
-          if (el) el.style.display = 'none';
-        });
-      const successEl = document.getElementById('success-screen');
-      successEl.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-
-      loadCount();
-
-    } catch (err) {
-      console.error('Error:', err.message);
-      if (err.code === '23505') {
-        alert("You're already on the list! 🎉");
-      } else {
-        alert('Something went wrong. Please try again.');
-      }
-      submitBtn.disabled = false;
-      submitBtn.innerText = 'Claim My Spot';
-    }
-  }
 </script>
 
 <script>
