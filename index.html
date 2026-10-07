@@ -215,12 +215,16 @@
     .hero-phone-wrap {
       position: relative;
     }
+    /* Two-tone glow: brand violet behind the phone, a breath of teal low
+       on the left, so the device sits in light rather than on a flat field */
     .hero-phone-wrap::before {
       content: '';
-      position: absolute; inset: -20px;
-      background: radial-gradient(ellipse, rgba(88,88,200,0.12) 0%, transparent 70%);
-      border-radius: 50%;
+      position: absolute; inset: -60px -70px;
+      background:
+        radial-gradient(closest-side at 58% 42%, rgba(88,88,200,0.22), transparent),
+        radial-gradient(closest-side at 22% 82%, rgba(0,153,168,0.14), transparent);
       z-index: 0;
+      pointer-events: none;
     }
     .hero-phone-frame {
       position: relative; z-index: 1;
@@ -235,43 +239,77 @@
       border-radius: inherit; object-fit: cover;
     }
 
-    /* Device bezel for the hero clip. The store shots ship with their own
-       device and backdrop; this recording is bare app UI, so the frame is
-       what tells you it's a phone. */
+    /* Device for the hero clip: an iPhone-shaped bezel around an iPhone
+       recording. The Dynamic Island and status bar are in the footage itself,
+       so the frame only adds the hardware edge and the buttons. */
     .hero-device {
       position: relative; z-index: 1;
-      width: 272px;
-      /* Even bezel on all four sides. An earlier version put a speaker slit
-         inside the screen area, which overlaid the app's own chrome and read
-         as dirt on the glass rather than as hardware. A plain bezel is
-         cleaner than a half-committed one. */
-      padding: 12px;
-      background: linear-gradient(160deg, #2A2158 0%, #14103A 52%, #1D1747 100%);
-      border-radius: 46px;
+      width: 292px;
+      padding: 9px;
+      border-radius: 54px;
+      background: linear-gradient(155deg, #3B3274 0%, #17133C 46%, #261E58 100%);
       box-shadow:
-        0 34px 84px rgba(16,12,36,0.34),
-        0 2px 6px rgba(16,12,36,0.18),
-        inset 0 0 0 1px rgba(255,255,255,0.13);
+        0 44px 90px rgba(16,12,36,0.30),
+        0 8px 20px rgba(16,12,36,0.16),
+        inset 0 0 0 1px rgba(255,255,255,0.16),
+        inset 0 0 0 4px rgba(10,8,30,0.55);
+    }
+    /* Action + volume on the left, side button on the right */
+    .hero-device::before,
+    .hero-device::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      background: #2C2462;
+    }
+    .hero-device::before {
+      left: -3px; top: 104px; height: 24px;
+      border-radius: 2px 0 0 2px;
+      box-shadow: 0 42px 0 #2C2462, 0 84px 0 #2C2462;
+    }
+    .hero-device::after {
+      right: -3px; top: 150px; height: 70px;
+      border-radius: 0 2px 2px 0;
     }
     .hero-device-screen {
       position: relative;
-      /* 35px was clipping the outermost tab labels. The recording runs
-         edge-to-edge and "Swipe" and "Profile" sit in the bottom corners,
-         exactly where a large radius curves inward. */
-      border-radius: 30px; overflow: hidden;
-      /* The tab bar's own background, sampled from the clip (#EDF2FF). The
-         box is a little taller than the 540x1066 source and the video is
-         pinned to the top, so those extra pixels below read as more tab bar
-         rather than as a letterbox — and they push the labels clear of the
-         corner curve. */
-      background: #EDF2FF;
-      aspect-ratio: 540 / 1090;
+      border-radius: 45px; overflow: hidden;
+      aspect-ratio: 1206 / 2622;
+      background: #1E1840;
     }
     .hero-device-screen video {
-      width: 100%; height: auto;
+      width: 100%; height: 100%;
       display: block;
-      object-fit: contain;
-      object-position: top;
+      object-fit: cover;
+    }
+
+    /* Stickers in the store screenshots' voice. Decoration, so aria-hidden. */
+    .hero-chip {
+      position: absolute; z-index: 2;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: -0.005em;
+      white-space: nowrap;
+      box-shadow: 0 12px 28px rgba(16,12,36,0.18), 0 2px 6px rgba(16,12,36,0.10);
+      animation: chipIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    .hero-chip svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .hero-chip--verify {
+      top: 21%; left: -64px;
+      background: #5FE3D8; color: #06302E;
+      rotate: -6deg;
+      animation-delay: 0.5s;
+    }
+    .hero-chip--shift {
+      bottom: 4%; right: -58px;
+      background: #FFFFFF; color: var(--text);
+      rotate: 5deg;
+      animation-delay: 0.7s;
+    }
+    @keyframes chipIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.92); }
+      to   { opacity: 1; transform: none; }
     }
 
     .store-buttons {
@@ -461,42 +499,6 @@
       .shot { transition: none; opacity: 1; transform: none; }
     }
 
-    /* ── TESTIMONIAL ── */
-    .quote-section {
-      background: var(--bg-alt);
-      padding: 80px 0;
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .quote-section::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 90% at 50% 50%, rgba(88,88,200,0.04) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .quote-section .container { position: relative; z-index: 1; }
-    blockquote {
-      max-width: 580px; margin: 0 auto;
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.25rem, 2.5vw, 1.7rem);
-      font-style: italic; line-height: 1.65;
-      color: var(--text);
-      position: relative;
-    }
-    blockquote::before {
-      content: '"';
-      display: block; font-size: 5rem; line-height: 0.9;
-      color: var(--purple); opacity: 0.18;
-      margin-bottom: 12px;
-    }
-    cite {
-      display: block; margin-top: 22px;
-      font-family: 'Instrument Sans', sans-serif;
-      font-style: normal; font-size: 0.76rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--purple);
-    }
-
     /* ── CITIES ── */
     /* .cities-section styles removed with the section itself, Aug 15 2026. */
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.18; } }
@@ -563,8 +565,13 @@
       }
       .hero-visual { order: 1; }
       .hero-phone-frame { width: 200px; }
-      .hero-device      { width: 212px; padding: 9px; border-radius: 36px; }
-      .hero-device-screen { border-radius: 28px; }
+      .hero-device      { width: 236px; padding: 8px; border-radius: 45px; }
+      .hero-device-screen { border-radius: 37px; }
+      .hero-device::before { top: 86px; height: 20px; box-shadow: 0 34px 0 #2C2462, 0 68px 0 #2C2462; }
+      .hero-device::after  { top: 122px; height: 56px; }
+      .hero-chip { font-size: 0.72rem; padding: 7px 12px; }
+      .hero-chip--verify { left: -40px; }
+      .hero-chip--shift  { right: -36px; }
       .hero-text { text-align: center; }
       .eyebrow { justify-content: center; }
       .hero-sub { margin-left: auto; margin-right: auto; }
@@ -617,6 +624,7 @@
     /* ── REDUCED MOTION ── */
     @media (prefers-reduced-motion: reduce) {
       .hero-inner { animation: none; }
+      .hero-chip { animation: none; }
       .reveal { opacity: 1; transform: none; transition: none; }
       * { transition-duration: 0.01ms !important; }
     }
@@ -674,7 +682,7 @@
       <div class="hero-text">
         <p class="eyebrow">The app built for nurses</p>
         <h1>Your work bestie can't be your only <em>personality trait.</em></h1>
-        <p class="hero-sub">Dating · Friends · Networking · Vibes — one app, built exclusively for nurses.</p>
+        <p class="hero-sub">Dating · Friends · Networking · OffFeed — one app, built exclusively for nurses.</p>
 
         <div class="store-buttons">
           <a class="store-btn" href="https://apps.apple.com/us/app/id6779308757" target="_blank" rel="noopener">
@@ -690,22 +698,28 @@
 
       <div class="hero-visual">
         <div class="hero-phone-wrap">
-          <!-- Unlike the store shots, this is a raw screen recording with no
-               device of its own, so it gets a real bezel. Without one it reads
-               as a floating screenshot rather than a phone. -->
+          <span class="hero-chip hero-chip--verify" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            Free to verify
+          </span>
+          <span class="hero-chip hero-chip--shift" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+            Night shift friendly
+          </span>
+          <!-- A raw iPhone recording, so it gets an iPhone bezel. Without one
+               it reads as a floating screenshot rather than a phone. -->
           <div class="hero-device">
             <div class="hero-device-screen">
               <video
                 id="hero-video"
-                poster="./hero-swipe-poster.jpg"
+                poster="./hero-match-poster.jpg"
                 autoplay muted playsinline preload="auto"
-                aria-label="Swiping through OFFUNIT: Sarah, an ICU nurse in Phoenix with a Verified RN badge, then Joey, a Med-Surg nurse.">
+                aria-label="Swiping in OFFUNIT: Sarah, a Verified RN in the ICU, then Joey, a Verified RN in Med-Surg. Joey pages back and it's a match.">
                 <!-- mp4 first on purpose. Safari commits to the first source whose
                      type it thinks it can play and never falls back to a later one,
-                     and its WebM support is partial. The webm is also the larger
-                     file here (138KB vs 104KB), so it earns nothing by leading. -->
-                <source src="./hero-swipe.mp4" type="video/mp4" />
-                <source src="./hero-swipe.webm" type="video/webm" />
+                     and its WebM support is partial. -->
+                <source src="./hero-match.mp4" type="video/mp4" />
+                <source src="./hero-match.webm" type="video/webm" />
               </video>
             </div>
           </div>
@@ -724,8 +738,8 @@
     <div class="features-grid">
       <div class="feature-card reveal reveal-stagger">
         <span class="feature-icon">✨</span>
-        <p class="feature-title">Vibes</p>
-        <p class="feature-desc">Your nursing feed. Memes, clinical gems, real talk — no patients, no managers, just the community.</p>
+        <p class="feature-title">OffFeed</p>
+        <p class="feature-desc">Your nursing feed. Memes, wins and real talk, under your name or anonymously. No patients, no managers.</p>
       </div>
       <div class="feature-card reveal reveal-stagger">
         <span class="feature-icon">💜</span>
@@ -758,12 +772,13 @@
     <div class="shots" id="shots">
       <div class="shots-track" id="shots-track"
            role="group" aria-roledescription="carousel" aria-label="OFFUNIT app screens">
-        <div class="shot"><img src="./slide-verified.jpg" width="680" height="1471" alt="Know they're really a nurse — Sarah Jenkins' profile with a Verified RN badge, ICU specialty and night-shift tag." /></div>
-        <div class="shot"><img src="./slide-modes.jpg"    width="680" height="1471" loading="lazy" alt="One profile, three modes — Joey Corallo, a Verified RN, in Friends mode with the Spark button beside Pass and Connect." /></div>
-        <div class="shot"><img src="./slide-offfeed.jpg"  width="680" height="1471" loading="lazy" alt="Find your people — the OffFeed, where nurses post wins, rants and memes." /></div>
-        <div class="shot"><img src="./slide-match.jpg"    width="680" height="1471" loading="lazy" alt="When they page back — a mutual page turning into a match, with a Send Message button." /></div>
-        <div class="shot"><img src="./slide-prompts.jpg"  width="680" height="1471" loading="lazy" alt="Prompts that actually fit — a nurse answering 'the most chaotic shift I survived'." /></div>
-        <div class="shot"><img src="./slide-spark.jpg"    width="680" height="1471" loading="lazy" alt="When a swipe isn't enough — sending a Spark so they see you first." /></div>
+        <div class="shot"><img src="./shot-1-schedule.jpg" width="680" height="1474" alt="Nurses who get your schedule. Joey Corallo, a Verified RN in Phoenix, on a Dating card with Pass, Spark and Page." /></div>
+        <div class="shot"><img src="./shot-2-pageback.jpg" width="680" height="1474" loading="lazy" alt="When they page you back. Page answered: Joey and a nurse paged each other, with a Message button." /></div>
+        <div class="shot"><img src="./shot-3-person.jpg" width="680" height="1474" loading="lazy" alt="Meet the person, not just the photos. A profile showing an icebreaker answer, their best OffFeed posts and earned badges." /></div>
+        <div class="shot"><img src="./shot-4-people.jpg" width="680" height="1474" loading="lazy" alt="Find your people. The OffFeed, a feed made for nurses, with a Spark button on a post." /></div>
+        <div class="shot"><img src="./shot-5-chats.jpg" width="680" height="1474" loading="lazy" alt="Chats that actually get going. A This or That game inside a chat, three for three." /></div>
+        <div class="shot"><img src="./shot-6-modes.jpg" width="680" height="1474" loading="lazy" alt="One profile, three modes. Sarah Jenkins, a Verified RN, in Friends mode." /></div>
+        <div class="shot"><img src="./shot-7-trivia.jpg" width="680" height="1474" loading="lazy" alt="Prove you still remember. Head-to-head nursing trivia with your matches." /></div>
       </div>
 
       <div class="shots-controls">
@@ -776,16 +791,6 @@
         </button>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- TESTIMONIAL -->
-<section class="quote-section" id="quote-section">
-  <div class="container">
-    <blockquote class="reveal">
-      I travel every contract and always feel like I'm starting over. I'd use this just to find people who get the life.
-      <cite>— Jessica, RN · Travel Nurse</cite>
-    </blockquote>
   </div>
 </section>
 
