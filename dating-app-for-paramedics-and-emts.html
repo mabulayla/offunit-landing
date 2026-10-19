@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dating App for Paramedics and EMTs — OFFUNIT</title>
+  <meta name="description" content="Dating on 24s, holdovers and overtime is hard. Practical dating advice for paramedics and EMTs, plus OFFUNIT, a free app for people who work shifts." />
+  <link rel="canonical" href="https://offunit.app/dating-app-for-paramedics-and-emts" />
+
+  <meta property="og:title" content="A dating app for paramedics and EMTs" />
+  <meta property="og:description" content="Free on iPhone and Android. Dating advice for people who work 24s, nights and holdovers." />
+  <meta property="og:image" content="https://offunit.app/offunitsocialpic.png" />
+  <meta property="og:url" content="https://offunit.app/dating-app-for-paramedics-and-emts" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="OFFUNIT" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="shortcut icon" href="./favicon.ico">
+
+  <!-- The FAQ below, restated as data. Google can show these as expandable
+       answers under the result, and AI assistants quote them directly. Keep
+       the wording in sync with the visible FAQ section. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is there a dating app for paramedics and EMTs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. OFFUNIT is a free dating, friends and networking app for people who work shifts, including EMTs, paramedics, firefighters, police officers, 911 dispatchers, nurses and other healthcare workers. Profiles show your job and shift type. It's on iPhone and Android across the US." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you date when you work 24-hour shifts?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tell matches about your schedule early, plan dates for your second day off instead of the morning after a 24, and leave room for holdovers and late calls. Someone who also works shifts usually needs a lot less explaining." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I keep my job private on a dating app as a first responder?",
+        "acceptedAnswer": { "@type": "Answer", "text": "On OFFUNIT, yes. First responders can keep their exact job private, and their profile shows \"First Responder\" instead." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can paramedics and EMTs get verified on OFFUNIT?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not right now. License verification and the verified badge are only for RNs at the moment. EMTs and paramedics can still make a profile and use Dating, Friends and Networking." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is OFFUNIT free for EMTs and paramedics?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Swiping, matching and messaging are free. OFFUNIT+ is an optional paid upgrade, but you don't need it to use the app." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel — same ID as the homepage, so visitors from search land in
+       the same retargeting audiences as visitors from ads. -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1378046891047402');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1378046891047402&ev=PageView&noscript=1"
+  /></noscript>
+
+  <style>
+    :root {
+      --purple:      #5858C8;
+      --purple-soft: #EDEAFF;
+      --teal:        #0099A8;
+      --blush:       #CC4070;
+      --text:        #0F0A2E;
+      --text-muted:  #5A5480;
+      --text-dim:    #9490B8;
+      --border:      rgba(88, 88, 200, 0.14);
+      --bg:          #EDEAFF;
+      --bg-alt:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .nav {
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .wordmark {
+      font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.2em; color: var(--purple); text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: 0.78rem; font-weight: 700; color: #fff;
+      background: var(--purple); border-radius: 999px;
+      padding: 8px 16px; text-decoration: none;
+    }
+
+    /* PAGE */
+    .page {
+      max-width: 720px; margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    .guide-header { margin-bottom: 40px; }
+    .guide-tag {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 4.4vw, 2.8rem);
+      line-height: 1.12; color: var(--text);
+      margin-bottom: 16px;
+    }
+    .lede {
+      font-size: 1.05rem; line-height: 1.7; color: var(--text-muted);
+    }
+
+    /* SECTIONS */
+    .guide-section {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.45rem; line-height: 1.25; font-weight: 400;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    h3 {
+      font-size: 0.98rem; font-weight: 700; color: var(--text);
+      margin: 20px 0 6px;
+    }
+    h3:first-of-type { margin-top: 4px; }
+    p {
+      font-size: 0.95rem; line-height: 1.78;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); font-weight: 600; }
+    ul {
+      margin: 8px 0 12px 18px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    ul li {
+      font-size: 0.95rem; line-height: 1.65; color: var(--text-muted);
+    }
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* CTA */
+    .cta {
+      background: var(--purple);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0 16px;
+      text-align: center;
+      color: #fff;
+    }
+    .cta h2 { color: #fff; margin-bottom: 8px; }
+    .cta p { color: rgba(255,255,255,0.82); margin-bottom: 20px; }
+    .store-buttons {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    }
+    .store-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #0F0A2E; color: #fff;
+      border-radius: 10px; padding: 12px 20px;
+      font-size: 0.88rem; font-weight: 600;
+      text-decoration: none;
+    }
+    .store-btn:hover { text-decoration: none; opacity: 0.9; }
+    .store-btn img { width: 18px; height: 18px; }
+
+    /* FAQ */
+    details {
+      border-top: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    details:first-of-type { border-top: none; padding-top: 4px; }
+    summary {
+      cursor: pointer;
+      font-size: 0.95rem; font-weight: 600; color: var(--text);
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; float: right; color: var(--purple); font-weight: 700; }
+    details[open] summary::after { content: '–'; }
+    details p { margin-top: 8px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.71rem; color: var(--text-dim);
+      margin-top: 48px;
+    }
+    footer a { color: var(--text-dim); text-decoration: none; }
+    footer a:hover { color: var(--teal); }
+
+    @media (max-width: 600px) {
+      .guide-section { padding: 22px 18px; }
+      .cta { padding: 26px 18px; }
+      .page { padding: 36px 16px 72px; }
+    }
+  </style>
+</head>
+<body>
+<script>
+  /* Store-button tap → Meta `Lead`, same as the homepage (see the comment
+     there for why it's Lead and not a custom event). */
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.store-btn');
+    if (!btn || typeof fbq !== 'function') return;
+    fbq('track', 'Lead', {
+      content_name: btn.href.includes('apps.apple.com') ? 'ios' : 'android'
+    });
+  });
+</script>
+
+<nav class="nav">
+  <a href="./" class="wordmark">OFFUNIT&trade;</a>
+  <a href="#get-the-app" class="nav-cta">Get the app</a>
+</nav>
+
+<main class="page">
+
+  <header class="guide-header">
+    <p class="guide-tag">Dating for EMS</p>
+    <h1>A dating app for paramedics and EMTs who work 24s, nights and holdovers</h1>
+    <p class="lede">Most dating apps assume you're free Friday night and can answer a text by lunch. On a 24, you might be in the back of the truck at 3am and dead asleep at 3pm. Here's how dating actually works on an EMS schedule, and where OFFUNIT fits.</p>
+  </header>
+
+  <section class="guide-section">
+    <h2>Why dating is harder in EMS</h2>
+    <p>Plenty of medics and EMTs are in great relationships. But the job puts pressure on dating that people outside it rarely see coming:</p>
+    <ul>
+      <li><strong>Your schedule doesn't look like anyone else's.</strong> 24 on and 48 off, rotating 12s, or a mix when the schedule is short. Your "weekend" might be a Tuesday and Wednesday.</li>
+      <li><strong>Getting off on time is a guess.</strong> A call at 0645 turns a 12 into a 14, and a mandatory holdover can eat the evening you planned. People who don't know the job tend to read that as flaky.</li>
+      <li><strong>Overtime is always on the table.</strong> Picking up shifts is how a lot of people make the money work, and those shifts come out of the days you were going to date on.</li>
+      <li><strong>Some calls come home with you.</strong> After a bad one, you may not want to be charming over dinner. You may want a shower, food and quiet.</li>
+      <li><strong>The humor doesn't travel.</strong> The joke that gets your crew through a rough night can land very wrong with someone who works in marketing.</li>
+      <li><strong>You sleep when everyone else is awake.</strong> After a 24 or a run of nights, your evening is someone else's lunch break.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>Your kind of EMS job changes the picture</h2>
+    <h3>911</h3>
+    <p>On a busy 911 truck you can run calls back to back for the whole shift, and your end time depends on the last one. Texting during the day is hit or miss, and the day after a 24 is often a write-off.</p>
+    <h3>Flight</h3>
+    <p>Flight crews often work long shifts at base, with stretches of downtime broken up by missions. You may have more time to message on shift than a 911 medic, but you can also disappear without warning, and a late mission can push you well past shift change.</p>
+    <h3>Critical care transport and IFT</h3>
+    <p>Long-distance transfers can take you hours out of town and bring you back right around the time you were supposed to be off. Schedules can look predictable on paper, but the last transfer of the day decides when you're actually free.</p>
+    <p>Whichever one you do, the same thing helps: say it plainly early on, so the person you're talking to knows what to expect.</p>
+  </section>
+
+  <section class="guide-section">
+    <h2>Dating tips for paramedics and EMTs</h2>
+    <ul>
+      <li><strong>Put your schedule out early.</strong> Mention the 24s or the nights in the first few messages. Anyone who can't handle it now won't handle it in month three either.</li>
+      <li><strong>Leave a holdover buffer.</strong> Don't book a dinner 45 minutes after shift change. Plan first dates for a day off, or pick something that still works if you show up two hours late.</li>
+      <li><strong>Skip the post-24 date.</strong> Most people aren't at their best the morning after a 24. Your second day off is usually the better one. If you're on nights, a breakfast right after shift can work, before you crash.</li>
+      <li><strong>Warn them you'll go quiet.</strong> Say once that you might not answer for hours on shift. It's the job, not a lack of interest, and saying it up front saves a lot of second-guessing.</li>
+      <li><strong>Decompress before you date.</strong> Shower, eat, sleep. If you had a rough call, it's fine to move the date. "Long shift, can we do Thursday instead?" is enough. You don't owe anyone the details.</li>
+      <li><strong>Read the room before the work stories.</strong> Ask what they find funny before you lead with the one about the frequent flyer. Save the darker stuff for when they know you.</li>
+      <li><strong>Have one life outside the truck.</strong> A hobby, a trip, a dog. It gives you something to talk about that isn't the last bad call.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>Dating inside EMS vs outside it</h2>
+    <p><strong>Inside EMS and public safety</strong>, nobody needs the schedule explained. A nurse, firefighter or dispatcher already knows what a holdover is and why you didn't text back. The trade-off is a small world. You'll see the same crews, ERs and dispatch voices for years, so a breakup can follow you to the ambulance bay.</p>
+    <p><strong>Outside it</strong>, you get a real break from work talk, which a lot of people need. It just takes more explaining at the start. Tell them about the overtime, the late calls and the sleep schedule early, and give them a version of the job that doesn't need the gore to make sense.</p>
+    <p>Either way works. It helps to know which one you're looking for before you start swiping.</p>
+  </section>
+
+  <section class="guide-section">
+    <h2>How OFFUNIT works</h2>
+    <p>OFFUNIT is a free dating, friends and networking app for people who work shifts: first responders like EMTs, paramedics, firefighters, police officers and 911 dispatchers, plus nurses and other healthcare workers.</p>
+    <ul>
+      <li><strong>One profile, three modes.</strong> Dating, Friends and Networking. You choose which ones you're open to, so you can look for a date and a gym partner who also works 24s from the same profile.</li>
+      <li><strong>Your job and shift type are on your profile.</strong> People can see you work nights or rotate before they match, so nobody is surprised later.</li>
+      <li><strong>Your exact job can stay private.</strong> First responders can hide their specific role, and their profile shows "First Responder" instead.</li>
+      <li><strong>It's free.</strong> Swiping, matching and messaging cost nothing. OFFUNIT+ is an optional paid upgrade.</li>
+    </ul>
+    <p>License verification and the verified badge are only for RNs right now, so EMS profiles don't carry a badge. OFFUNIT is available across the US on iPhone and Android. It's new, so some cities are busier than others.</p>
+  </section>
+
+  <section class="cta" id="get-the-app">
+    <h2>Try OFFUNIT free</h2>
+    <p>Dating, friends and networking for people who work shifts. iPhone and Android.</p>
+    <div class="store-buttons">
+      <a class="store-btn" href="https://apps.apple.com/us/app/id6779308757" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/appstore/ffffff" alt="" aria-hidden="true" />
+        App Store
+      </a>
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.mabulayla.offunit" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/googleplay/ffffff" alt="" aria-hidden="true" />
+        Google Play
+      </a>
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <h2>Questions people ask</h2>
+    <details>
+      <summary>Is there a dating app for paramedics and EMTs?</summary>
+      <p>Yes. OFFUNIT is a free dating, friends and networking app for people who work shifts, including EMTs, paramedics, firefighters, police officers, 911 dispatchers, nurses and other healthcare workers. Profiles show your job and shift type. It's on iPhone and Android across the US.</p>
+    </details>
+    <details>
+      <summary>How do you date when you work 24-hour shifts?</summary>
+      <p>Tell matches about your schedule early, plan dates for your second day off instead of the morning after a 24, and leave room for holdovers and late calls. Someone who also works shifts usually needs a lot less explaining.</p>
+    </details>
+    <details>
+      <summary>Can I keep my job private on a dating app as a first responder?</summary>
+      <p>On OFFUNIT, yes. First responders can keep their exact job private, and their profile shows "First Responder" instead.</p>
+    </details>
+    <details>
+      <summary>Can paramedics and EMTs get verified on OFFUNIT?</summary>
+      <p>Not right now. License verification and the verified badge are only for RNs at the moment. EMTs and paramedics can still make a profile and use Dating, Friends and Networking.</p>
+    </details>
+    <details>
+      <summary>Is OFFUNIT free for EMTs and paramedics?</summary>
+      <p>Yes. Swiping, matching and messaging are free. OFFUNIT+ is an optional paid upgrade, but you don't need it to use the app.</p>
+    </details>
+  </section>
+
+  <section class="guide-section">
+    <h2>More guides</h2>
+    <ul class="more-guides">
+      <li><a href="./dating-app-for-nurses">A dating app for nurses who work 12s and nights</a></li>
+      <li><a href="./making-friends-as-a-travel-nurse">Making friends as a travel nurse</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 OFFUNIT&trade; is a product of <a href="https://moebrosenterprises.com/" target="_blank" rel="noopener">Moe &amp; Bros Enterprises, LLC</a> &nbsp;&middot;&nbsp; <a href="./">offunit.app</a> &nbsp;&middot;&nbsp; <a href="./privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="./terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="mailto:contact@offunit.app">contact@offunit.app</a></p>
+</footer>
+
+</body>
+</html>
