@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Dating App for Healthcare Workers on Shifts — OFFUNIT</title>
+  <meta name="description" content="A free dating app for healthcare workers on call, 12s and holiday rotations. Physicians, residents, PAs, pharmacists and techs. iPhone and Android." />
+  <link rel="canonical" href="https://offunit.app/dating-app-for-healthcare-workers" />
+
+  <meta property="og:title" content="A dating app for healthcare workers who work call, 12s and holidays" />
+  <meta property="og:description" content="Free on iPhone and Android. For physicians, residents, PAs, pharmacists and techs whose schedules don't fit a 9-to-5." />
+  <meta property="og:image" content="https://offunit.app/offunitsocialpic.png" />
+  <meta property="og:url" content="https://offunit.app/dating-app-for-healthcare-workers" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="OFFUNIT" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="shortcut icon" href="./favicon.ico">
+
+  <!-- The FAQ below, restated as data. Google can show these as expandable
+       answers under the result, and AI assistants quote them directly. Keep
+       the wording in sync with the visible FAQ section. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is there a dating app for healthcare workers?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. OFFUNIT is a free dating, friends and networking app for people who work shifts, including physicians, residents, PAs, pharmacists, respiratory therapists, rad techs, lab techs, surgical techs, nurses and first responders. Profiles show your job and shift type. It's on iPhone and Android." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is OFFUNIT free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Swiping, matching and messaging are free. OFFUNIT+ is an optional paid upgrade, but you don't need it to use the app." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can doctors, pharmacists and techs get verified on OFFUNIT?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not right now. License verification and the verified badge are only available to RNs at the moment. Physicians, residents, PAs, pharmacists, respiratory therapists and techs can still join and use Dating, Friends and Networking." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it a good idea to date someone who also works in healthcare?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It often makes the schedule easier, because they already understand call, nights, 12-hour shifts and holiday rotations. It can be harder if you work opposite shifts or at the same hospital, so think about how you'd handle running into each other at work." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is OFFUNIT available in my city?",
+        "acceptedAnswer": { "@type": "Answer", "text": "OFFUNIT is available across the US on iPhone and Android. It's new, so some cities are busier than others right now." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel — same ID as the homepage, so visitors from search land in
+       the same retargeting audiences as visitors from ads. -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1378046891047402');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1378046891047402&ev=PageView&noscript=1"
+  /></noscript>
+
+  <style>
+    :root {
+      --purple:      #5858C8;
+      --purple-soft: #EDEAFF;
+      --teal:        #0099A8;
+      --blush:       #CC4070;
+      --text:        #0F0A2E;
+      --text-muted:  #5A5480;
+      --text-dim:    #9490B8;
+      --border:      rgba(88, 88, 200, 0.14);
+      --bg:          #EDEAFF;
+      --bg-alt:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .nav {
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .wordmark {
+      font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.2em; color: var(--purple); text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: 0.78rem; font-weight: 700; color: #fff;
+      background: var(--purple); border-radius: 999px;
+      padding: 8px 16px; text-decoration: none;
+    }
+
+    /* PAGE */
+    .page {
+      max-width: 720px; margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    .guide-header { margin-bottom: 40px; }
+    .guide-tag {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 4.4vw, 2.8rem);
+      line-height: 1.12; color: var(--text);
+      margin-bottom: 16px;
+    }
+    .lede {
+      font-size: 1.05rem; line-height: 1.7; color: var(--text-muted);
+    }
+
+    /* SECTIONS */
+    .guide-section {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.45rem; line-height: 1.25; font-weight: 400;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    h3 {
+      font-size: 0.98rem; font-weight: 700; color: var(--text);
+      margin: 20px 0 6px;
+    }
+    h3:first-of-type { margin-top: 4px; }
+    p {
+      font-size: 0.95rem; line-height: 1.78;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); font-weight: 600; }
+    ul {
+      margin: 8px 0 12px 18px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    ul li {
+      font-size: 0.95rem; line-height: 1.65; color: var(--text-muted);
+    }
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* CTA */
+    .cta {
+      background: var(--purple);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0 16px;
+      text-align: center;
+      color: #fff;
+    }
+    .cta h2 { color: #fff; margin-bottom: 8px; }
+    .cta p { color: rgba(255,255,255,0.82); margin-bottom: 20px; }
+    .store-buttons {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    }
+    .store-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #0F0A2E; color: #fff;
+      border-radius: 10px; padding: 12px 20px;
+      font-size: 0.88rem; font-weight: 600;
+      text-decoration: none;
+    }
+    .store-btn:hover { text-decoration: none; opacity: 0.9; }
+    .store-btn img { width: 18px; height: 18px; }
+
+    /* FAQ */
+    details {
+      border-top: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    details:first-of-type { border-top: none; padding-top: 4px; }
+    summary {
+      cursor: pointer;
+      font-size: 0.95rem; font-weight: 600; color: var(--text);
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; float: right; color: var(--purple); font-weight: 700; }
+    details[open] summary::after { content: '–'; }
+    details p { margin-top: 8px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.71rem; color: var(--text-dim);
+      margin-top: 48px;
+    }
+    footer a { color: var(--text-dim); text-decoration: none; }
+    footer a:hover { color: var(--teal); }
+
+    @media (max-width: 600px) {
+      .guide-section { padding: 22px 18px; }
+      .cta { padding: 26px 18px; }
+      .page { padding: 36px 16px 72px; }
+    }
+  </style>
+</head>
+<body>
+<script>
+  /* Store-button tap → Meta `Lead`, same as the homepage (see the comment
+     there for why it's Lead and not a custom event). */
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.store-btn');
+    if (!btn || typeof fbq !== 'function') return;
+    fbq('track', 'Lead', {
+      content_name: btn.href.includes('apps.apple.com') ? 'ios' : 'android'
+    });
+  });
+</script>
+
+<nav class="nav">
+  <a href="./" class="wordmark">OFFUNIT&trade;</a>
+  <a href="#get-the-app" class="nav-cta">Get the app</a>
+</nav>
+
+<main class="page">
+
+  <header class="guide-header">
+    <p class="guide-tag">Dating for healthcare workers</p>
+    <h1>A dating app for healthcare workers who work call, 12s and holidays</h1>
+    <p class="lede">If your week is built around call, a rotating 12 or the evening shift in the pharmacy, most dating apps feel like they were made for someone else. Here's what makes dating hard in healthcare, what helps, and why OFFUNIT is a free dating app for healthcare workers built around shifts instead of a 9-to-5.</p>
+  </header>
+
+  <section class="guide-section">
+    <h2>Why dating is harder on a healthcare schedule</h2>
+    <p>Every job in the hospital has its own version of the same problem. You're working when everyone else is free, and free when everyone else is working.</p>
+    <ul>
+      <li><strong>Residents</strong> can work up to 80 hours a week, with overnight call and a post-call day that's mostly sleep. A "Saturday at 8" plan made two weeks out has a real chance of landing on a call night.</li>
+      <li><strong>Attending physicians and PAs</strong> often have steadier blocks, but call, clinic that runs late and charting at home eat the evenings that other people use to date.</li>
+      <li><strong>Pharmacists</strong> in hospitals and retail work evenings, overnights and weekends, sometimes in long stretches followed by a run of days off on a Tuesday.</li>
+      <li><strong>Respiratory therapists</strong> mostly work 12-hour shifts, days or nights, and rotate weekends and holidays like nursing does.</li>
+      <li><strong>Rad techs and lab techs</strong> keep the imaging department and the lab running around the clock, so plenty of them live on evenings or nights for years.</li>
+      <li><strong>Surgical techs</strong> work cases that run long and take call, which means plans can get cancelled at 6pm by a page.</li>
+    </ul>
+    <p>Then there's the holiday rotation. If you worked Thanksgiving last year, you might be working Christmas this year, and the person you just started seeing has to hear that their family dinner is happening without you.</p>
+  </section>
+
+  <section class="guide-section">
+    <h2>Dating someone who also works in healthcare</h2>
+    <h3>Why it's often easier</h3>
+    <p>The biggest thing is that you skip the explaining. Someone who has done nights doesn't need to be told why you're asleep at 2pm. Someone who has taken call knows a cancelled dinner isn't a brush-off. A 7am breakfast after your shift sounds normal to them, not strange.</p>
+    <p>There's also less to translate. You can say "it was a rough shift" and they understand what that covers, without you having to tell the whole story.</p>
+    <h3>When it isn't</h3>
+    <p>Two people on opposite rotations can go a week without being awake at the same time. If you both take call, one of you is usually exhausted. And if you work at the same hospital, a breakup means you might still run into each other in the cafeteria or share a patient the next morning. None of this is a reason not to date in healthcare. It's just worth thinking about before you match with someone on your own unit.</p>
+    <p>It also helps to know your own preference. Some people love coming home to someone who gets the job. Others want a partner who has nothing to do with medicine so home feels like a different world. Both are fine.</p>
+  </section>
+
+  <section class="guide-section">
+    <h2>Keeping work stress out of the first date</h2>
+    <ul>
+      <li><strong>Don't schedule a first date right after a brutal shift.</strong> Post-call or after a 12 you're running on fumes. A short coffee is fine. A long dinner is a lot to ask of yourself.</li>
+      <li><strong>Give yourself a buffer.</strong> Even 30 minutes to shower and sit down helps you show up as yourself and not the version that just finished a code or a 14-hour case.</li>
+      <li><strong>Go easy on the shop talk.</strong> One or two work stories are fine, especially if they're in healthcare too. The dark humor that gets you through a shift can land badly on someone you've known for an hour.</li>
+      <li><strong>Leave patients out of it.</strong> Even without names, specific stories don't belong on a date, and the other person may wonder what you'd say about them.</li>
+      <li><strong>Have something else to talk about.</strong> A trip you want to take, a show you're watching, the thing you do on your days off. It reminds both of you that there's more to you than the job.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>Making plans that survive your schedule</h2>
+    <ul>
+      <li><strong>Say your schedule early.</strong> Mention call, nights or rotating weekends in the first few messages. It saves both of you time.</li>
+      <li><strong>Share your next few weeks once it's out.</strong> Sending your schedule or call calendar takes the guessing out of planning and shows you're serious.</li>
+      <li><strong>Use the odd hours.</strong> Weekday lunches, breakfast after a night shift and afternoon walks on a day off are all real date slots.</li>
+      <li><strong>Pick a backup day.</strong> When you make a plan, name a second option in case you get called in or a case runs late. Cancelling feels a lot less bad when the next date is already set.</li>
+      <li><strong>Plan holidays ahead.</strong> Once things get serious, talk about who is working which holidays before the schedule comes out, not after.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>How OFFUNIT works</h2>
+    <p>OFFUNIT is a free dating, friends and networking app for people who work shifts: nurses, healthcare workers like physicians, residents, PAs, pharmacists, respiratory therapists, rad techs, lab techs and surgical techs, and first responders.</p>
+    <ul>
+      <li><strong>One profile, three modes.</strong> Dating, Friends and Networking. You choose which ones you're open to, so you can look for a date and a gym buddy without running two apps.</li>
+      <li><strong>Your job and shift type are on your profile.</strong> You can see who works nights, days or rotates before you match, and tell right away whether your schedules have any overlap.</li>
+      <li><strong>It's free.</strong> Swiping, matching and messaging cost nothing. OFFUNIT+ is an optional paid upgrade.</li>
+      <li><strong>Verification is for RNs right now.</strong> License verification and the verified badge are only available to RNs at the moment. Everyone else can still join and use every mode.</li>
+    </ul>
+    <p>OFFUNIT is available across the US on iPhone and Android. It's new, so some cities are busier than others.</p>
+  </section>
+
+  <section class="cta" id="get-the-app">
+    <h2>Try OFFUNIT free</h2>
+    <p>Dating, friends and networking for healthcare workers who work shifts. iPhone and Android.</p>
+    <div class="store-buttons">
+      <a class="store-btn" href="https://apps.apple.com/us/app/id6779308757" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/appstore/ffffff" alt="" aria-hidden="true" />
+        App Store
+      </a>
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.mabulayla.offunit" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/googleplay/ffffff" alt="" aria-hidden="true" />
+        Google Play
+      </a>
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <h2>Questions people ask</h2>
+    <details>
+      <summary>Is there a dating app for healthcare workers?</summary>
+      <p>Yes. OFFUNIT is a free dating, friends and networking app for people who work shifts, including physicians, residents, PAs, pharmacists, respiratory therapists, rad techs, lab techs, surgical techs, nurses and first responders. Profiles show your job and shift type. It's on iPhone and Android.</p>
+    </details>
+    <details>
+      <summary>Is OFFUNIT free?</summary>
+      <p>Yes. Swiping, matching and messaging are free. OFFUNIT+ is an optional paid upgrade, but you don't need it to use the app.</p>
+    </details>
+    <details>
+      <summary>Can doctors, pharmacists and techs get verified on OFFUNIT?</summary>
+      <p>Not right now. License verification and the verified badge are only available to RNs at the moment. Physicians, residents, PAs, pharmacists, respiratory therapists and techs can still join and use Dating, Friends and Networking.</p>
+    </details>
+    <details>
+      <summary>Is it a good idea to date someone who also works in healthcare?</summary>
+      <p>It often makes the schedule easier, because they already understand call, nights, 12-hour shifts and holiday rotations. It can be harder if you work opposite shifts or at the same hospital, so think about how you'd handle running into each other at work.</p>
+    </details>
+    <details>
+      <summary>Is OFFUNIT available in my city?</summary>
+      <p>OFFUNIT is available across the US on iPhone and Android. It's new, so some cities are busier than others right now.</p>
+    </details>
+  </section>
+
+  <section class="guide-section">
+    <h2>More guides</h2>
+    <ul class="more-guides">
+      <li><a href="./dating-app-for-nurses">A dating app for nurses who work 12s and nights</a></li>
+      <li><a href="./making-friends-as-a-travel-nurse">Making friends as a travel nurse</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 OFFUNIT&trade; is a product of <a href="https://moebrosenterprises.com/" target="_blank" rel="noopener">Moe &amp; Bros Enterprises, LLC</a> &nbsp;&middot;&nbsp; <a href="./">offunit.app</a> &nbsp;&middot;&nbsp; <a href="./privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="./terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="mailto:contact@offunit.app">contact@offunit.app</a></p>
+</footer>
+
+</body>
+</html>
