@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>When Both Partners Work in Healthcare: Making It Work — OFFUNIT</title>
+  <meta name="description" content="Two schedules, two sets of hard shifts, one relationship. Practical advice for couples where both people work in healthcare, from holidays to burnout." />
+  <link rel="canonical" href="https://offunit.app/when-both-partners-work-in-healthcare" />
+
+  <meta property="og:title" content="When both partners work in healthcare" />
+  <meta property="og:description" content="Two schedules, two sets of hard shifts, one relationship. What helps." />
+  <meta property="og:image" content="https://offunit.app/offunitsocialpic.png" />
+  <meta property="og:url" content="https://offunit.app/when-both-partners-work-in-healthcare" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="OFFUNIT" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="shortcut icon" href="./favicon.ico">
+
+  <!-- The FAQ below, restated as data. Google can show these as expandable
+       answers under the result, and AI assistants quote them directly. Keep
+       the wording in sync with the visible FAQ section. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is it better for healthcare couples to work the same shifts?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It depends on what you need. Same shifts mean you're awake and off at the same times. Opposite shifts mean someone is usually home, but you can go days barely seeing each other. Whichever you have, keep one shared calendar and protect at least one day a week you're both off." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do healthcare couples handle holidays?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Many alternate years or split holidays so whoever is off covers family plans. Talk about it before holiday requests are due, and pick a backup day to celebrate if the schedule doesn't work out." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I date someone who works on my unit?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Often yes, but check your employer's policies first, especially if one of you supervises the other. Keep it professional on shift and stay out of each other's work conflicts." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do we stop talking about work all the time?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Give work talk a limit, like the drive home or the first twenty minutes, and then change the subject. Ask whether your partner wants to vent or wants advice, and avoid comparing whose shift was worse." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there an app for meeting other healthcare workers?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. OFFUNIT is a free dating, friends and networking app for nurses, healthcare workers and first responders, on iPhone and Android. Nurses can verify their license to get a verified badge, and OFFUNIT+ is an optional paid subscription." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel — same ID as the homepage, so visitors from search land in
+       the same retargeting audiences as visitors from ads. -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1378046891047402');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1378046891047402&ev=PageView&noscript=1"
+  /></noscript>
+
+  <style>
+    :root {
+      --purple:      #5858C8;
+      --purple-soft: #EDEAFF;
+      --teal:        #0099A8;
+      --blush:       #CC4070;
+      --text:        #0F0A2E;
+      --text-muted:  #5A5480;
+      --text-dim:    #9490B8;
+      --border:      rgba(88, 88, 200, 0.14);
+      --bg:          #EDEAFF;
+      --bg-alt:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .nav {
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .wordmark {
+      font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.2em; color: var(--purple); text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: 0.78rem; font-weight: 700; color: #fff;
+      background: var(--purple); border-radius: 999px;
+      padding: 8px 16px; text-decoration: none;
+    }
+
+    /* PAGE */
+    .page {
+      max-width: 720px; margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    .guide-header { margin-bottom: 40px; }
+    .guide-tag {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 4.4vw, 2.8rem);
+      line-height: 1.12; color: var(--text);
+      margin-bottom: 16px;
+    }
+    .lede {
+      font-size: 1.05rem; line-height: 1.7; color: var(--text-muted);
+    }
+
+    /* SECTIONS */
+    .guide-section {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.45rem; line-height: 1.25; font-weight: 400;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    h3 {
+      font-size: 0.98rem; font-weight: 700; color: var(--text);
+      margin: 20px 0 6px;
+    }
+    h3:first-of-type { margin-top: 4px; }
+    p {
+      font-size: 0.95rem; line-height: 1.78;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); font-weight: 600; }
+    ul {
+      margin: 8px 0 12px 18px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    ul li {
+      font-size: 0.95rem; line-height: 1.65; color: var(--text-muted);
+    }
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* CTA */
+    .cta {
+      background: var(--purple);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0 16px;
+      text-align: center;
+      color: #fff;
+    }
+    .cta h2 { color: #fff; margin-bottom: 8px; }
+    .cta p { color: rgba(255,255,255,0.82); margin-bottom: 20px; }
+    .store-buttons {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    }
+    .store-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #0F0A2E; color: #fff;
+      border-radius: 10px; padding: 12px 20px;
+      font-size: 0.88rem; font-weight: 600;
+      text-decoration: none;
+    }
+    .store-btn:hover { text-decoration: none; opacity: 0.9; }
+    .store-btn img { width: 18px; height: 18px; }
+
+    /* FAQ */
+    details {
+      border-top: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    details:first-of-type { border-top: none; padding-top: 4px; }
+    summary {
+      cursor: pointer;
+      font-size: 0.95rem; font-weight: 600; color: var(--text);
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; float: right; color: var(--purple); font-weight: 700; }
+    details[open] summary::after { content: '–'; }
+    details p { margin-top: 8px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.71rem; color: var(--text-dim);
+      margin-top: 48px;
+    }
+    footer a { color: var(--text-dim); text-decoration: none; }
+    footer a:hover { color: var(--teal); }
+
+    @media (max-width: 600px) {
+      .guide-section { padding: 22px 18px; }
+      .cta { padding: 26px 18px; }
+      .page { padding: 36px 16px 72px; }
+    }
+  </style>
+</head>
+<body>
+<script>
+  /* Store-button tap → Meta `Lead`, same as the homepage (see the comment
+     there for why it's Lead and not a custom event). */
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.store-btn');
+    if (!btn || typeof fbq !== 'function') return;
+    fbq('track', 'Lead', {
+      content_name: btn.href.includes('apps.apple.com') ? 'ios' : 'android'
+    });
+  });
+</script>
+
+<nav class="nav">
+  <a href="./" class="wordmark">OFFUNIT&trade;</a>
+  <a href="#get-the-app" class="nav-cta">Get the app</a>
+</nav>
+
+<main class="page">
+
+  <header class="guide-header">
+    <p class="guide-tag">Healthcare couples</p>
+    <h1>When both partners work in healthcare: two schedules, one relationship</h1>
+    <p class="lede">When you both work in healthcare, nobody has to explain why dinner is at 8am or why the phone went quiet for twelve hours. That's a real advantage. But two healthcare jobs also means two schedules, two sets of hard shifts, and twice the chance of bringing work home.</p>
+  </header>
+
+  <section class="guide-section">
+    <h2>What's easier</h2>
+    <ul>
+      <li><strong>No explaining the schedule.</strong> Nights, 12s, call and rotating holidays are normal to both of you.</li>
+      <li><strong>Cancellations aren't personal.</strong> You both know what being held over, a late admission or a case that runs long looks like.</li>
+      <li><strong>You get the hard days.</strong> When one of you says "rough shift," the other knows roughly what that means without needing the details.</li>
+      <li><strong>The humor lands.</strong> The dark jokes that get you through a shift don't need translating.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>What's harder</h2>
+    <ul>
+      <li><strong>Two schedules to line up.</strong> Matching days off is hard enough with one rotating schedule. With two, a shared weekend can take real planning.</li>
+      <li><strong>Both tired at once.</strong> When you've both just finished a stretch, there may be nobody left with energy for groceries, dishes or conversation.</li>
+      <li><strong>Work takes over the house.</strong> It's easy for every dinner to turn into a debrief.</li>
+      <li><strong>Different roles, different pressures.</strong> A nurse and a resident, or a tech and a pharmacist, see the same hospital from different sides. Hierarchy and workload differences can creep into the relationship if you don't talk about them.</li>
+      <li><strong>Burnout can hit you both.</strong> When one person is struggling, the other usually steadies things. When both are burned out at the same time, nobody is.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>Same shift or opposite shifts?</h2>
+    <p>There's no right answer, and many couples don't get a choice. But if you do:</p>
+    <h3>Same shifts</h3>
+    <p>You're awake at the same times, off on the same days, and can sleep on the same schedule. The downside is that your time off can turn into two exhausted people on one couch, and the house gets less attention.</p>
+    <h3>Opposite shifts</h3>
+    <p>Someone is usually home for the kids, the pets or the dishwasher repair. But you can go days only seeing each other at handoff. If you go this way, protect at least one day a week you're both off and awake.</p>
+    <p>Either way, it helps to put both schedules in one shared calendar as soon as they're posted, and to request your days off together where your units allow it.</p>
+  </section>
+
+  <section class="guide-section">
+    <h2>Holidays</h2>
+    <p>Two healthcare schedules means two sets of holiday rotations. Some couples alternate: one year you both try to get Christmas, the next you both work it and take a different day. Others split: whoever is off covers family plans. Talk about it before holiday requests are due, not after the schedule comes out, and pick a backup day to celebrate if the schedule doesn't cooperate.</p>
+  </section>
+
+  <section class="guide-section">
+    <h2>Talking shop at home</h2>
+    <ul>
+      <li><strong>Ask "vent or advice?"</strong> When one of you comes home with a story, the other knows a lot about the subject. That makes it tempting to fix things. Sometimes the other person just needs to be heard.</li>
+      <li><strong>Set a limit.</strong> Some couples give work talk a time box, like the drive home or the first twenty minutes, and then change the subject.</li>
+      <li><strong>Don't compare shifts.</strong> "My day was worse" is a contest nobody wins.</li>
+      <li><strong>Privacy still applies.</strong> Working in healthcare doesn't give either of you a right to identifying details about the other's patients. Keep stories general, at home too.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>If you work at the same hospital</h2>
+    <p>Plenty of couples meet at work. If you're on the same unit or in the same department:</p>
+    <ul>
+      <li><strong>Check the policies.</strong> Many employers have rules about relationships between coworkers, especially when one person supervises the other.</li>
+      <li><strong>Keep it professional on shift.</strong> Your coworkers didn't sign up for your relationship.</li>
+      <li><strong>Stay out of each other's work conflicts.</strong> Taking your partner's side against a coworker or manager makes work harder for both of you.</li>
+      <li><strong>Think about the what-ifs.</strong> Breakups are harder when you share a break room. That's not a reason not to date, just a reason to be kind about it if it ends.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>Watching out for burnout</h2>
+    <p>You both know the signs: dreading shifts, short temper, sleeping badly, not enjoying days off. You're in a good position to notice them in each other. Say something early and kindly, take turns carrying the load at home when one of you is struggling, and plan time off together that isn't just recovery. If it doesn't lift, encourage each other to get help. Many employers offer employee assistance programs, and using one is nothing to be embarrassed about.</p>
+  </section>
+
+  <section class="guide-section">
+    <h2>Meeting someone who works in healthcare</h2>
+    <p>Most healthcare couples meet at work, in school, or through friends from work. If you'd rather meet someone outside your own hospital, <strong>OFFUNIT</strong> is a free dating, friends and networking app for nurses, healthcare workers and first responders. It has Dating, Friends and Networking modes on one profile, a verified badge for nurses who verify their license, and the OffFeed for posts about shift life, under your name or anonymously. It's on iPhone and Android, and OFFUNIT+ is an optional paid subscription.</p>
+  </section>
+
+  <section class="cta" id="get-the-app">
+    <h2>Try OFFUNIT free</h2>
+    <p>Dating, friends and networking for people who work shifts. iPhone and Android.</p>
+    <div class="store-buttons">
+      <a class="store-btn" href="https://apps.apple.com/us/app/id6779308757" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/appstore/ffffff" alt="" aria-hidden="true" />
+        App Store
+      </a>
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.mabulayla.offunit" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/googleplay/ffffff" alt="" aria-hidden="true" />
+        Google Play
+      </a>
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <h2>Questions people ask</h2>
+    <details>
+      <summary>Is it better for healthcare couples to work the same shifts?</summary>
+      <p>It depends on what you need. Same shifts mean you're awake and off at the same times. Opposite shifts mean someone is usually home, but you can go days barely seeing each other. Whichever you have, keep one shared calendar and protect at least one day a week you're both off.</p>
+    </details>
+    <details>
+      <summary>How do healthcare couples handle holidays?</summary>
+      <p>Many alternate years or split holidays so whoever is off covers family plans. Talk about it before holiday requests are due, and pick a backup day to celebrate if the schedule doesn't work out.</p>
+    </details>
+    <details>
+      <summary>Can I date someone who works on my unit?</summary>
+      <p>Often yes, but check your employer's policies first, especially if one of you supervises the other. Keep it professional on shift and stay out of each other's work conflicts.</p>
+    </details>
+    <details>
+      <summary>How do we stop talking about work all the time?</summary>
+      <p>Give work talk a limit, like the drive home or the first twenty minutes, and then change the subject. Ask whether your partner wants to vent or wants advice, and avoid comparing whose shift was worse.</p>
+    </details>
+    <details>
+      <summary>Is there an app for meeting other healthcare workers?</summary>
+      <p>Yes. OFFUNIT is a free dating, friends and networking app for nurses, healthcare workers and first responders, on iPhone and Android. Nurses can verify their license to get a verified badge, and OFFUNIT+ is an optional paid subscription.</p>
+    </details>
+  </section>
+
+  <section class="guide-section">
+    <h2>More guides</h2>
+    <ul class="more-guides">
+      <li><a href="./dating-app-for-nurses">A dating app for nurses who work 12s and nights</a></li>
+      <li><a href="./making-friends-as-a-travel-nurse">Making friends as a travel nurse</a></li>
+      <li><a href="./dating-app-for-healthcare-workers">A dating app for healthcare workers</a></li>
+      <li><a href="./dating-app-for-firefighters">A dating app for firefighters</a></li>
+      <li><a href="./dating-app-for-paramedics-and-emts">A dating app for paramedics and EMTs</a></li>
+      <li><a href="./dating-app-for-police-officers">A dating app for police officers</a></li>
+      <li><a href="./dating-when-you-work-night-shift">Dating when you work night shift</a></li>
+      <li><a href="./dating-a-nurse">What to know about dating a nurse</a></li>
+      <li><a href="./dating-a-firefighter">What to know about dating a firefighter</a></li>
+      <li><a href="./dating-a-police-officer">What to know about dating a police officer</a></li>
+      <li><a href="./dating-as-a-travel-nurse">Dating as a travel nurse</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 OFFUNIT&trade; is a product of <a href="https://moebrosenterprises.com/" target="_blank" rel="noopener">Moe &amp; Bros Enterprises, LLC</a> &nbsp;&middot;&nbsp; <a href="./">offunit.app</a> &nbsp;&middot;&nbsp; <a href="./privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="./terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="mailto:contact@offunit.app">contact@offunit.app</a></p>
+</footer>
+
+</body>
+</html>
