@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Dating App for First Responders on 24-Hour Shifts — OFFUNIT</title>
+  <meta name="description" content="Dating as an EMT, paramedic, firefighter, police officer or dispatcher is hard on 24s and rotating shifts. Practical tips, plus OFFUNIT, a free app with a First Responders group." />
+  <link rel="canonical" href="https://offunit.app/dating-app-for-first-responders" />
+
+  <meta property="og:title" content="A dating app for first responders on 24s and rotating shifts" />
+  <meta property="og:description" content="Free on iPhone and Android. Built around shift work, not a 9-to-5." />
+  <meta property="og:image" content="https://offunit.app/offunitsocialpic.png" />
+  <meta property="og:url" content="https://offunit.app/dating-app-for-first-responders" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="OFFUNIT" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="shortcut icon" href="./favicon.ico">
+
+  <!-- The FAQ below, restated as data. Google can show these as expandable
+       answers under the result, and AI assistants quote them directly. Keep
+       the wording in sync with the visible FAQ section. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a dating app for first responders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. OFFUNIT is a free dating, friends and networking app for people who work shifts in nursing, healthcare and emergency services. EMTs, paramedics, firefighters, police officers and 911 dispatchers can join the First responders group on iPhone and Android."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I hide my exact job on OFFUNIT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. First responders can choose to show just \"First Responder\" on their profile instead of their exact job."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I choose who shows up in my deck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. \"Who you see\" is free. You pick which job groups appear: nursing, healthcare, first responders, or any mix."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is OFFUNIT free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Creating a profile, swiping, matching and messaging are free. OFFUNIT+ is an optional paid subscription, but you don't need it to use the app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can first responders verify their job on OFFUNIT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not yet. License verification is optional, free and reviewed by a person, but right now only RNs can verify. Many members are unverified, so use the same judgment you would on any dating app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is OFFUNIT available in my city?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OFFUNIT is available across the US on iPhone and Android. It's new, so some cities are busier than others right now."
+      }
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel — same ID as the homepage, so visitors from search land in
+       the same retargeting audiences as visitors from ads. -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1378046891047402');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1378046891047402&ev=PageView&noscript=1"
+  /></noscript>
+
+  <style>
+    :root {
+      --purple:      #5858C8;
+      --purple-soft: #EDEAFF;
+      --teal:        #0099A8;
+      --blush:       #CC4070;
+      --text:        #0F0A2E;
+      --text-muted:  #5A5480;
+      --text-dim:    #9490B8;
+      --border:      rgba(88, 88, 200, 0.14);
+      --bg:          #EDEAFF;
+      --bg-alt:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .nav {
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .wordmark {
+      font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.2em; color: var(--purple); text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: 0.78rem; font-weight: 700; color: #fff;
+      background: var(--purple); border-radius: 999px;
+      padding: 8px 16px; text-decoration: none;
+    }
+
+    /* PAGE */
+    .page {
+      max-width: 720px; margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    .guide-header { margin-bottom: 40px; }
+    .guide-tag {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 4.4vw, 2.8rem);
+      line-height: 1.12; color: var(--text);
+      margin-bottom: 16px;
+    }
+    .lede {
+      font-size: 1.05rem; line-height: 1.7; color: var(--text-muted);
+    }
+
+    /* SECTIONS */
+    .guide-section {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.45rem; line-height: 1.25; font-weight: 400;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    h3 {
+      font-size: 0.98rem; font-weight: 700; color: var(--text);
+      margin: 20px 0 6px;
+    }
+    h3:first-of-type { margin-top: 4px; }
+    p {
+      font-size: 0.95rem; line-height: 1.78;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); font-weight: 600; }
+    ul {
+      margin: 8px 0 12px 18px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    ul li {
+      font-size: 0.95rem; line-height: 1.65; color: var(--text-muted);
+    }
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* CTA */
+    .cta {
+      background: var(--purple);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0 16px;
+      text-align: center;
+      color: #fff;
+    }
+    .cta h2 { color: #fff; margin-bottom: 8px; }
+    .cta p { color: rgba(255,255,255,0.82); margin-bottom: 20px; }
+    .store-buttons {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    }
+    .store-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #0F0A2E; color: #fff;
+      border-radius: 10px; padding: 12px 20px;
+      font-size: 0.88rem; font-weight: 600;
+      text-decoration: none;
+    }
+    .store-btn:hover { text-decoration: none; opacity: 0.9; }
+    .store-btn img { width: 18px; height: 18px; }
+
+    /* FAQ */
+    details {
+      border-top: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    details:first-of-type { border-top: none; padding-top: 4px; }
+    summary {
+      cursor: pointer;
+      font-size: 0.95rem; font-weight: 600; color: var(--text);
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; float: right; color: var(--purple); font-weight: 700; }
+    details[open] summary::after { content: '–'; }
+    details p { margin-top: 8px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.71rem; color: var(--text-dim);
+      margin-top: 48px;
+    }
+    footer a { color: var(--text-dim); text-decoration: none; }
+    footer a:hover { color: var(--teal); }
+
+    @media (max-width: 600px) {
+      .guide-section { padding: 22px 18px; }
+      .cta { padding: 26px 18px; }
+      .page { padding: 36px 16px 72px; }
+    }
+  </style>
+</head>
+<body>
+<script>
+  /* Store-button tap → Meta `Lead`, same as the homepage (see the comment
+     there for why it's Lead and not a custom event). */
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.store-btn');
+    if (!btn || typeof fbq !== 'function') return;
+    fbq('track', 'Lead', {
+      content_name: btn.href.includes('apps.apple.com') ? 'ios' : 'android'
+    });
+  });
+</script>
+
+<nav class="nav">
+  <a href="./" class="wordmark">OFFUNIT&trade;</a>
+  <a href="#get-the-app" class="nav-cta">Get the app</a>
+</nav>
+
+<main class="page">
+
+  <header class="guide-header">
+    <p class="guide-tag">Dating for first responders</p>
+    <h1>A dating app for first responders on 24s, rotations and missed holidays</h1>
+    <p class="lede">If you're an EMT, paramedic, firefighter, police officer or dispatcher, you already know the usual dating advice assumes a 9-to-5. Here's what actually helps when your schedule is a rotation, and where a dating app for first responders fits in.</p>
+  </header>
+
+  <section class="guide-section">
+    <h2>Why dating is hard on a first responder's schedule</h2>
+    <ul>
+      <li><strong>Long shifts, long gaps.</strong> Many fire departments run 24 hours on and 48 off, and some run two 24s back to back. Your calendar looks nothing like a weekday person's, and a match who sees you vanish for a day (or two) can read it wrong.</li>
+      <li><strong>You miss the big dates.</strong> Holidays, birthdays and weddings land on shift. Plans made weeks ahead can fall apart when you get held over or a call comes in late.</li>
+      <li><strong>Sleep is unpredictable.</strong> After a rough night at the station or a stretch of rotating shifts, the last thing you want is a loud bar at 9pm.</li>
+      <li><strong>Some of it doesn't come home well.</strong> You may not want to explain a call, and a partner may not know what to ask.</li>
+      <li><strong>Partners who don't get the job.</strong> It's not that they don't care. Nobody told them what a 24 does to your week.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>What helps when you date on a rotation</h2>
+    <h3>Put your schedule in the first conversation</h3>
+    <p>Say it plainly: "I work 24s, then I'm off two days." It sounds unromantic, but it saves everyone a guessing game, and the people who stick around are the ones who can handle it.</p>
+    <h3>Plan around your off days, not your dates</h3>
+    <p>If you're off for two days after a shift, the first of those is often a write-off. Offer the second day, or a late lunch on the first. A short plan you can keep beats a big one you cancel.</p>
+    <h3>Decide what you'll share, and say so</h3>
+    <p>You don't owe anyone the details of a call. A line like "it was a rough one, I'd rather not get into it, but I'm glad you asked" covers most situations. And never share patient or scene details. That's a hard rule on OFFUNIT too.</p>
+    <h3>Make the missed days count</h3>
+    <p>If you work a holiday, celebrate on a different day and mean it. Partners tend to handle the schedule better when they're sure the effort is there.</p>
+    <h3>Give a new person a window into the job</h3>
+    <p>A short explanation of how your shift pattern works, once, goes a long way. Most of the friction early on isn't the schedule itself. It's not knowing what to expect.</p>
+  </section>
+
+  <section class="guide-section">
+    <h2>What to look for in a dating app as a first responder</h2>
+    <p>Mainstream apps are fine, but they weren't built around your week. Four things are worth checking:</p>
+    <ul>
+      <li><strong>Can people see your schedule type?</strong> If shift pattern is on the profile, you skip the "wait, you're gone for how long?" conversation.</li>
+      <li><strong>Can you control who sees you?</strong> Some people in uniform jobs prefer not to be found by just anyone.</li>
+      <li><strong>Can you keep your exact job private?</strong> That matters more for some roles than others.</li>
+      <li><strong>Is there room for friends?</strong> When you move for a department or work odd hours, sometimes the first thing you need is just someone to grab food with at 7am.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>How OFFUNIT works for first responders</h2>
+    <p>OFFUNIT is a free social, dating and networking app for people who work shifts in nursing, healthcare and emergency services. It started as an app for nurses, and nurses are still the core. Since October 2026, other healthcare workers and first responders can join too.</p>
+    <ul>
+      <li><strong>First responders group.</strong> Pick EMT, Paramedic, Firefighter, Police Officer or 911 Dispatcher as your job.</li>
+      <li><strong>A "First Responder" label.</strong> If you'd rather not show your exact job, you can show just "First Responder" instead.</li>
+      <li><strong>Who you see.</strong> It's free. You choose which job groups appear in your deck: nursing, healthcare, first responders, or any mix.</li>
+      <li><strong>Shift type on profiles.</strong> Days, nights or rotating, so you can see whether schedules might line up.</li>
+    </ul>
+    <p>It's one profile with four parts: Dating (the swipe deck), Friends (the same idea with no romance), Networking, and the OffFeed, a feed for memes, wins and real talk from people on shift. Post under your name or anonymously. No patients, no managers.</p>
+    <p><strong>Verification is optional, and for now it's RNs only.</strong> Verified RNs get a badge, but plenty of members aren't verified, including first responders, students and CNAs. Treat it like any dating app: meet in public, tell a friend, and use your own judgment.</p>
+    <p><strong>It's new.</strong> Some cities are quiet right now. Swiping, matching and messaging are free, and OFFUNIT+ is an optional paid extra. You have to be 18 or older.</p>
+  </section>
+
+  <section class="cta" id="get-the-app">
+    <h2>Try OFFUNIT free</h2>
+    <p>Dating, friends and networking for people who work shifts. iPhone and Android.</p>
+    <div class="store-buttons">
+      <a class="store-btn" href="https://apps.apple.com/us/app/id6779308757" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/appstore/ffffff" alt="" aria-hidden="true" />
+        App Store
+      </a>
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.mabulayla.offunit" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/googleplay/ffffff" alt="" aria-hidden="true" />
+        Google Play
+      </a>
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <h2>Questions people ask</h2>
+    <details>
+      <summary>Is there a dating app for first responders?</summary>
+      <p>Yes. OFFUNIT is a free dating, friends and networking app for people who work shifts in nursing, healthcare and emergency services. EMTs, paramedics, firefighters, police officers and 911 dispatchers can join the First responders group on iPhone and Android.</p>
+    </details>
+    <details>
+      <summary>Can I hide my exact job on OFFUNIT?</summary>
+      <p>Yes. First responders can choose to show just "First Responder" on their profile instead of their exact job.</p>
+    </details>
+    <details>
+      <summary>Can I choose who shows up in my deck?</summary>
+      <p>Yes. "Who you see" is free. You pick which job groups appear: nursing, healthcare, first responders, or any mix.</p>
+    </details>
+    <details>
+      <summary>Is OFFUNIT free?</summary>
+      <p>Creating a profile, swiping, matching and messaging are free. OFFUNIT+ is an optional paid subscription, but you don't need it to use the app.</p>
+    </details>
+    <details>
+      <summary>Can first responders verify their job on OFFUNIT?</summary>
+      <p>Not yet. License verification is optional, free and reviewed by a person, but right now only RNs can verify. Many members are unverified, so use the same judgment you would on any dating app.</p>
+    </details>
+    <details>
+      <summary>Is OFFUNIT available in my city?</summary>
+      <p>OFFUNIT is available across the US on iPhone and Android. It's new, so some cities are busier than others right now.</p>
+    </details>
+  </section>
+
+  <section class="guide-section">
+    <h2>More guides</h2>
+    <ul class="more-guides">
+      <li><a href="./dating-app-for-nurses">A dating app for nurses who work 12s and nights</a></li>
+      <li><a href="./making-friends-as-a-travel-nurse">Making friends as a travel nurse</a></li>
+      <li><a href="./dating-app-for-healthcare-workers">A dating app for healthcare workers</a></li>
+      <li><a href="./dating-app-for-firefighters">A dating app for firefighters</a></li>
+      <li><a href="./dating-app-for-paramedics-and-emts">A dating app for paramedics and EMTs</a></li>
+      <li><a href="./dating-app-for-police-officers">A dating app for police officers</a></li>
+      <li><a href="./dating-when-you-work-night-shift">Dating when you work night shift</a></li>
+      <li><a href="./dating-a-nurse">What to know about dating a nurse</a></li>
+      <li><a href="./dating-a-firefighter">What to know about dating a firefighter</a></li>
+      <li><a href="./dating-a-police-officer">What to know about dating a police officer</a></li>
+      <li><a href="./dating-as-a-travel-nurse">Dating as a travel nurse</a></li>
+      <li><a href="./when-both-partners-work-in-healthcare">When both partners work in healthcare</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 OFFUNIT&trade; is a product of <a href="https://moebrosenterprises.com/" target="_blank" rel="noopener">Moe &amp; Bros Enterprises, LLC</a> &nbsp;&middot;&nbsp; <a href="./">offunit.app</a> &nbsp;&middot;&nbsp; <a href="./privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="./terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="mailto:contact@offunit.app">contact@offunit.app</a></p>
+</footer>
+
+</body>
+</html>
