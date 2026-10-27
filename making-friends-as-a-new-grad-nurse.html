@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Making Friends as a New Grad Nurse (When You Moved for the Job) — OFFUNIT</title>
+  <meta name="description" content="You moved for your first nursing job and know nobody. Practical ways to make friends as a new grad nurse, plus how OFFUNIT's free Friends mode fits in." />
+  <link rel="canonical" href="https://offunit.app/making-friends-as-a-new-grad-nurse" />
+
+  <meta property="og:title" content="Making friends as a new grad nurse when you moved for the job" />
+  <meta property="og:description" content="Free on iPhone and Android. Friends mode for people who work shifts." />
+  <meta property="og:image" content="https://offunit.app/offunitsocialpic.png" />
+  <meta property="og:url" content="https://offunit.app/making-friends-as-a-new-grad-nurse" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="OFFUNIT" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="shortcut icon" href="./favicon.ico">
+
+  <!-- The FAQ below, restated as data. Google can show these as expandable
+       answers under the result, and AI assistants quote them directly. Keep
+       the wording in sync with the visible FAQ section. -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I make friends as a new grad nurse in a new city?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with the people already around you: your residency cohort, your preceptor and your unit. Then add one or two things outside work on a regular schedule, like a class, a gym or a club, so you see the same faces. Apps with a friends mode, including OFFUNIT, can help you meet other shift workers nearby."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it normal to feel lonely during your first year as a nurse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A new job, a new city and a changing schedule all hit at once, and a lot of new grads feel isolated for a while. If it starts to affect your sleep or mood for weeks at a time, talk to a doctor or counselor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I be friends with my coworkers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's fine and often helpful, since they get the job. Just keep some friends outside your unit so a bad week at work doesn't take your whole social life with it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use OFFUNIT just to find friends?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. One profile has Dating, Friends and Networking modes, and you choose which ones you're open to. Friends mode works like the swipe deck without the romance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be a nurse or verified to use OFFUNIT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Nursing students, CNAs and other healthcare workers and first responders can join. License verification is optional, free and only available to RNs right now, and verified RNs get a badge. Plenty of members aren't verified."
+      }
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel — same ID as the homepage, so visitors from search land in
+       the same retargeting audiences as visitors from ads. -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1378046891047402');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1378046891047402&ev=PageView&noscript=1"
+  /></noscript>
+
+  <style>
+    :root {
+      --purple:      #5858C8;
+      --purple-soft: #EDEAFF;
+      --teal:        #0099A8;
+      --blush:       #CC4070;
+      --text:        #0F0A2E;
+      --text-muted:  #5A5480;
+      --text-dim:    #9490B8;
+      --border:      rgba(88, 88, 200, 0.14);
+      --bg:          #EDEAFF;
+      --bg-alt:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .nav {
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .wordmark {
+      font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.2em; color: var(--purple); text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: 0.78rem; font-weight: 700; color: #fff;
+      background: var(--purple); border-radius: 999px;
+      padding: 8px 16px; text-decoration: none;
+    }
+
+    /* PAGE */
+    .page {
+      max-width: 720px; margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    .guide-header { margin-bottom: 40px; }
+    .guide-tag {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 4.4vw, 2.8rem);
+      line-height: 1.12; color: var(--text);
+      margin-bottom: 16px;
+    }
+    .lede {
+      font-size: 1.05rem; line-height: 1.7; color: var(--text-muted);
+    }
+
+    /* SECTIONS */
+    .guide-section {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.45rem; line-height: 1.25; font-weight: 400;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    h3 {
+      font-size: 0.98rem; font-weight: 700; color: var(--text);
+      margin: 20px 0 6px;
+    }
+    h3:first-of-type { margin-top: 4px; }
+    p {
+      font-size: 0.95rem; line-height: 1.78;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); font-weight: 600; }
+    ul {
+      margin: 8px 0 12px 18px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    ul li {
+      font-size: 0.95rem; line-height: 1.65; color: var(--text-muted);
+    }
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* CTA */
+    .cta {
+      background: var(--purple);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0 16px;
+      text-align: center;
+      color: #fff;
+    }
+    .cta h2 { color: #fff; margin-bottom: 8px; }
+    .cta p { color: rgba(255,255,255,0.82); margin-bottom: 20px; }
+    .store-buttons {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    }
+    .store-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #0F0A2E; color: #fff;
+      border-radius: 10px; padding: 12px 20px;
+      font-size: 0.88rem; font-weight: 600;
+      text-decoration: none;
+    }
+    .store-btn:hover { text-decoration: none; opacity: 0.9; }
+    .store-btn img { width: 18px; height: 18px; }
+
+    /* FAQ */
+    details {
+      border-top: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    details:first-of-type { border-top: none; padding-top: 4px; }
+    summary {
+      cursor: pointer;
+      font-size: 0.95rem; font-weight: 600; color: var(--text);
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; float: right; color: var(--purple); font-weight: 700; }
+    details[open] summary::after { content: '–'; }
+    details p { margin-top: 8px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.71rem; color: var(--text-dim);
+      margin-top: 48px;
+    }
+    footer a { color: var(--text-dim); text-decoration: none; }
+    footer a:hover { color: var(--teal); }
+
+    @media (max-width: 600px) {
+      .guide-section { padding: 22px 18px; }
+      .cta { padding: 26px 18px; }
+      .page { padding: 36px 16px 72px; }
+    }
+  </style>
+</head>
+<body>
+<script>
+  /* Store-button tap → Meta `Lead`, same as the homepage (see the comment
+     there for why it's Lead and not a custom event). */
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.store-btn');
+    if (!btn || typeof fbq !== 'function') return;
+    fbq('track', 'Lead', {
+      content_name: btn.href.includes('apps.apple.com') ? 'ios' : 'android'
+    });
+  });
+</script>
+
+<nav class="nav">
+  <a href="./" class="wordmark">OFFUNIT&trade;</a>
+  <a href="#get-the-app" class="nav-cta">Get the app</a>
+</nav>
+
+<main class="page">
+
+  <header class="guide-header">
+    <p class="guide-tag">Friends for new grad nurses</p>
+    <h1>Making friends as a new grad nurse when you moved for the job</h1>
+    <p class="lede">You passed the NCLEX, signed the offer, packed the car, and now you're in a city where you know your preceptor and a barista. Making friends as a new grad nurse is its own project, and nobody warned you about it in school.</p>
+  </header>
+
+  <section class="guide-section">
+    <h2>Why it's harder than it sounds</h2>
+    <p>In college, friends happened by default. Now you're doing it on purpose, on a schedule that fights you.</p>
+    <ul>
+      <li><strong>Your first year is mostly orientation, learning and sleep.</strong> There's not much energy left for a social life you haven't built yet.</li>
+      <li><strong>Your schedule doesn't match anyone's.</strong> Weekday trivia night and Saturday brunch both assume you're free. You might be working both.</li>
+      <li><strong>Your old friends are on a different clock.</strong> They're a text away but a time zone and a shift pattern apart.</li>
+      <li><strong>You're tired in a way that makes cancelling feel like relief.</strong> That's normal. It's also how weeks go by without talking to anyone.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>Start with the people you already see</h2>
+    <h3>Your cohort</h3>
+    <p>Many hospitals run a new grad or nurse residency program, usually about a year long, where you meet regularly with other new nurses. Those people are in the exact same spot you are. Get the group chat going and suggest a coffee after the next class. Most of them are hoping someone else will.</p>
+    <h3>Your preceptor and unit</h3>
+    <p>Coworkers can become real friends, and they understand the job. Say yes to the unit potluck. Ask someone what they do on days off. Small, low-pressure invitations beat waiting to be included.</p>
+    <h3>One rule</h3>
+    <p>Keep at least a couple of friends outside your unit. When work is rough, it helps to have someone who hasn't heard every detail of it.</p>
+  </section>
+
+  <section class="guide-section">
+    <h2>Build a routine outside work</h2>
+    <p>Friendships come from seeing the same people repeatedly. So pick things that repeat:</p>
+    <ul>
+      <li><strong>A class or a gym.</strong> Look for ones with several time slots a week, so a rotating schedule doesn't lock you out.</li>
+      <li><strong>A rec league or run club.</strong> Casual ones are easy to drop into. Tell the organizer you work shifts and may miss weeks.</li>
+      <li><strong>A regular spot.</strong> A coffee shop, a climbing gym, a dog park. Familiar faces turn into hellos, and hellos turn into plans.</li>
+      <li><strong>Volunteering.</strong> Shift-friendly options exist, and you meet people who showed up on purpose.</li>
+    </ul>
+    <p>Pick one thing, not five. A routine you actually keep beats an ambitious plan you drop in week two.</p>
+  </section>
+
+  <section class="guide-section">
+    <h2>Making plans on a shift schedule</h2>
+    <ul>
+      <li><strong>Suggest a specific time.</strong> "Want to get food Thursday at 2?" works better than "we should hang out sometime."</li>
+      <li><strong>Share your schedule early.</strong> Once the schedule is posted, tell new friends your next few weeks. It saves ten back-and-forth texts.</li>
+      <li><strong>Use post-shift windows.</strong> Breakfast after a night shift, or an early dinner before a late one, can work well if you aren't wiped out.</li>
+      <li><strong>Expect to be the one who initiates for a while.</strong> Everyone is busy, and the person who sends the second message often ends up with the friends.</li>
+      <li><strong>Cancel kindly and reschedule right away.</strong> A call-in or a shift that runs long happens. Offering a new time in the same message keeps the friendship alive.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>Where an app can help</h2>
+    <p>Friend-finding apps are awkward if the people on them don't share your life. The point of one built for shift workers is that you skip explaining why you can only meet on a Tuesday morning.</p>
+    <p>OFFUNIT is a free app for people who work shifts in nursing, healthcare and emergency services. One profile has four parts:</p>
+    <ul>
+      <li><strong>Friends.</strong> A swipe deck like dating, with no romance. Useful for new grads and anyone who just moved.</li>
+      <li><strong>Dating.</strong> Profiles show shift type (days, nights, rotating), so night shifters can find each other.</li>
+      <li><strong>Networking.</strong> Show your certs and specialty and find mentors.</li>
+      <li><strong>OffFeed.</strong> A feed of memes, wins and real talk from people on shift, posted under your name or anonymously.</li>
+    </ul>
+    <p>Under "Who you see," you choose which job groups show up in your deck: nursing, healthcare, first responders, or any mix. Nursing students and CNAs are welcome too.</p>
+    <p>Honest caveat: OFFUNIT is new, so some cities are quieter than others. Verification is optional, free and RN-only for now, and plenty of members haven't done it. Swiping, matching and messaging are free, with optional paid extras.</p>
+  </section>
+
+  <section class="guide-section">
+    <h2>If it feels heavy</h2>
+    <p>Loneliness in a first year is common, and it usually eases as you build a routine. But if you've felt low for weeks, aren't sleeping well even on off days, or dread work in a way that scares you, tell someone: a doctor, a counselor, or your employer's assistance program if it has one. Asking for help early doesn't make you a weak nurse.</p>
+  </section>
+
+  <section class="cta" id="get-the-app">
+    <h2>Try OFFUNIT free</h2>
+    <p>Friends, dating and networking for people who work shifts. iPhone and Android.</p>
+    <div class="store-buttons">
+      <a class="store-btn" href="https://apps.apple.com/us/app/id6779308757" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/appstore/ffffff" alt="" aria-hidden="true" />
+        App Store
+      </a>
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.mabulayla.offunit" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/googleplay/ffffff" alt="" aria-hidden="true" />
+        Google Play
+      </a>
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <h2>Questions people ask</h2>
+    <details>
+      <summary>How do I make friends as a new grad nurse in a new city?</summary>
+      <p>Start with the people already around you: your residency cohort, your preceptor and your unit. Then add one or two things outside work on a regular schedule, like a class, a gym or a club, so you see the same faces. Apps with a friends mode, including OFFUNIT, can help you meet other shift workers nearby.</p>
+    </details>
+    <details>
+      <summary>Is it normal to feel lonely during your first year as a nurse?</summary>
+      <p>Yes. A new job, a new city and a changing schedule all hit at once, and a lot of new grads feel isolated for a while. If it starts to affect your sleep or mood for weeks at a time, talk to a doctor or counselor.</p>
+    </details>
+    <details>
+      <summary>Should I be friends with my coworkers?</summary>
+      <p>It's fine and often helpful, since they get the job. Just keep some friends outside your unit so a bad week at work doesn't take your whole social life with it.</p>
+    </details>
+    <details>
+      <summary>Can I use OFFUNIT just to find friends?</summary>
+      <p>Yes. One profile has Dating, Friends and Networking modes, and you choose which ones you're open to. Friends mode works like the swipe deck without the romance.</p>
+    </details>
+    <details>
+      <summary>Do I need to be a nurse or verified to use OFFUNIT?</summary>
+      <p>No. Nursing students, CNAs and other healthcare workers and first responders can join. License verification is optional, free and only available to RNs right now, and verified RNs get a badge. Plenty of members aren't verified.</p>
+    </details>
+  </section>
+
+  <section class="guide-section">
+    <h2>More guides</h2>
+    <ul class="more-guides">
+      <li><a href="./dating-app-for-nurses">A dating app for nurses</a></li>
+      <li><a href="./making-friends-as-a-travel-nurse">Making friends as a travel nurse</a></li>
+      <li><a href="./dating-app-for-healthcare-workers">A dating app for healthcare workers</a></li>
+      <li><a href="./dating-app-for-firefighters">A dating app for firefighters</a></li>
+      <li><a href="./dating-app-for-paramedics-and-emts">A dating app for paramedics and EMTs</a></li>
+      <li><a href="./dating-app-for-police-officers">A dating app for police officers</a></li>
+      <li><a href="./dating-when-you-work-night-shift">Dating when you work night shift</a></li>
+      <li><a href="./dating-a-nurse">What to know about dating a nurse</a></li>
+      <li><a href="./dating-a-firefighter">What to know about dating a firefighter</a></li>
+      <li><a href="./dating-a-police-officer">What to know about dating a police officer</a></li>
+      <li><a href="./dating-as-a-travel-nurse">Dating as a travel nurse</a></li>
+      <li><a href="./when-both-partners-work-in-healthcare">When both partners work in healthcare</a></li>
+      <li><a href="./dating-app-for-first-responders">A dating app for first responders</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 OFFUNIT&trade; is a product of <a href="https://moebrosenterprises.com/" target="_blank" rel="noopener">Moe &amp; Bros Enterprises, LLC</a> &nbsp;&middot;&nbsp; <a href="./">offunit.app</a> &nbsp;&middot;&nbsp; <a href="./privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="./terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="mailto:contact@offunit.app">contact@offunit.app</a></p>
+</footer>
+
+</body>
+</html>
